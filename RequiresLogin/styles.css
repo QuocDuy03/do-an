@@ -1,0 +1,96 @@
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 5rem;
+    position: relative;
+    background-color: #F08A5D;
+}
+
+.form-container form {
+    background-color: #fff;
+    border: 1px solid rgba(256,256,256, 0.4);
+    border-radius: .5rem;
+}
+
+.form-container form .flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* .form-container .register {
+    width: 60rem;
+} */
+
+.form-container .login {
+    width: 60rem;
+}
+
+.form-container form h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 3rem 0rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* .form-container form p {
+    padding-top: 1rem;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+} */
+/* 
+.form-container form p span {
+    color: red;
+} */
+
+/* .form-container form .link {
+    padding-bottom: 1rem;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+} */
+
+.form-container form  a{
+    color: #F08A5D;
+    text-align: center;
+}
+
+/* .form-container form  a:hover{
+    text-decoration:underline;
+} */
+
+.form-container form .input-field {
+    width: 70%;
+}
+
+
+.form-container form .box {
+    /* box-shadow: 2px 2px 5px rgba(0,0,0,0.4); */
+    width: 100%;
+    margin: .5rem;
+    font-size: 1.2rem;
+    padding: 1rem;
+}
+
+.form-container form .box:active,
+.form-container form .box:focus
+{
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+.form-container form .btn {
+    background-color: #F08A5D;
+    color: #fff;
+    width: 70%;
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    line-height: 3rem;
+    text-transform: capitalize;
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 5px 5px 5px rgba(240, 138, 93, 0.4);
+    cursor: pointer;
+}
