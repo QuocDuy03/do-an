@@ -15,7 +15,17 @@ function prevSlide() {
   slidesBanner[i].classList.add('active');
 }
 
-const itemsDisplay = 4;
+let itemsDisplay;
+if (innerWidth >= 1280)
+  itemsDisplay = 4;
+else if (innerWidth >= 915)
+  itemsDisplay = 3;
+else if (innerWidth >= 545)
+  itemsDisplay = 2;
+else if (innerWidth >= 270)
+  itemsDisplay = 1;
+else 
+  itemsDisplay = 0;
 const bestSell = document.querySelector('.bestSell ul');
 const itemsBestSellLength = bestSell.querySelectorAll('li').length;
 const itemsBestSellHidden = itemsBestSellLength - itemsDisplay;
@@ -43,6 +53,8 @@ function updateTransformBestSell() {
   const transformValue = `translateX(-${currentBestSellItem * itemWidth}%)`;
   bestSell.style.transform = transformValue;
   bestSell.style.transition = `300ms`;
+  console.log(currentBestSellItem);
+  console.log(itemWidth);
 }
 
 const news = document.querySelector('.new ul');

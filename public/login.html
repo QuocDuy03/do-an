@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accont/EditProfile</title>
-    <link rel="icon" type="image/x-icon" href="logo2.png">
-    <link rel="stylesheet" href="../../Global/styles/globalStyle.css">
-    <link rel="stylesheet" href="../../Global/styles/header.css">
-    <link rel="stylesheet" href="../../Global/styles/footer.css">
-    <link rel="stylesheet" href="style.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Đăng nhập</title>
+        <link rel="icon" type="image/x-icon" href="./images/logo2.png">
+        <link rel="stylesheet" href="./css/globalStyle.css">
+        <link rel="stylesheet" href="./css/header.css">
+        <link rel="stylesheet" href="./css/footer.css">
+        <link rel="stylesheet" href="./css/register_login.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
 <body>
     <header class="header">
         <div class="navbar-wrap">
             <a href="#">
-                <img src="logo2.png" alt="Logo">
+                <img src="./images/logo2.png" alt="Logo">
             </a>
             <nav class="navbar">
                 <a href="#">Nam</a>
@@ -35,52 +33,27 @@
             </div>
         </div>
     </header>
-
-    <nav class="top-nav">
-        <a href="../../Home/index.html" id="home-link">Trang chủ / </a>
-        <a href="#" style="color: #ff5733;">Tài khoản</a>
-    </nav>
-
-
-    <div class="user-profile">
-        <div class="sidebar">
-            <ul>
-                <li><a href="../index.html">Hồ sơ cá nhân</a></li>
-                <li><a href="../Account_MyOrder/index.html">Đơn hàng của tôi</a></li>
-                <li><a href="../Account_history/index.html">Lịch sử mua hàng</a></li>
-                <li><a href="#" style="color: #ff5733;">Chỉnh sửa hồ sơ</a></li>
-            </ul>
-        </div>
-
-        <div class="content_account">
-            <h2>Chỉnh sửa hồ sơ cá nhân</h2>
-            <form action="#" method="post">
-                <div class="form-group">
-                    <label for="username">Tên người dùng:</label>
-                    <input type="text" id="username" name="username" value="Tên của tôi" required>
+    <main>
+        <div class="form-container">
+            <form action="" method="post" enctype="multipart/form-data" class="login">
+                <h3>Đăng nhập</h3>
+                <div class="flex">
+                    <div class="input-field">
+                        <p>Email <span>*</span></p>
+                        <input type="email" name="email" placeholder="Nhập email của bạn" maxlength="50" required
+                            class="box">
+                    </div>
+                    <div class="input-field">
+                        <p>Mật khẩu <span>*</span></p>
+                        <input type="password" name="pass" placeholder="Nhập mật khẩu" maxlength="50" required
+                            class="box">
+                    </div>
+                    <p>Chưa có tài khoản?  <a href="./register.html">Đăng ký ngay</a></p>
+                    <input type="submit" name="login" value="Đăng nhập" class="btn">
                 </div>
-                
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="example@example.com" required>
-                </div>
-        
-                <div class="form-group">
-                    <label for="password">Mật khẩu:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-        
-                <div class="form-group">
-                    <label for="confirm_password">Xác nhận mật khẩu:</label>
-                    <input type="password" id="confirm_password" name="confirm_password" required>
-                </div>
-        
-                <button type="submit">Lưu thay đổi</button>
             </form>
         </div>
-        
-
-    </div>
+    </main>
     <footer>
         <div class="content">
             <div class="box col2">
@@ -124,6 +97,7 @@
         </div>
     </footer>
 
+    <script src="js/login.js"></script>
+    <script src="js/header.js"></script>
 </body>
-
 </html>
