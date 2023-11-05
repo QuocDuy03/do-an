@@ -298,7 +298,7 @@ function updatePrice(input) {
 // chuyển file
 document.getElementById('nut-thanh-toan').addEventListener('click', function() {
   // Chuyển hướng qua trang "Thanhtoan.html"
-  window.location.href = '/Thanhtoan/Thanhtoan.html';})
+  window.location.href = '../Thanhtoan/Thanhtoan.html';})
 
  
 
