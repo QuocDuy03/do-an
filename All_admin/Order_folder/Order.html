@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> g5 admin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale = 1.0">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link href="Order.css" rel="stylesheet">
+    <!-- <script src="Employee.js"></script> -->
+</head>
+
+<body>
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <a href="#"><img src="logo_main.png" alt="Logo shop"></a>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href=""><span class="las la-igloo" onclick="displayDashBoard()"></span>
+                        <span>Bảng điều khiển</span></a>
+                </li>
+                <li>
+                    <a href="" id="customerLink"><span class="las la-users" onclick="displayUsers()"></span>
+                        <span>Quản lý khách hàng</span></a>
+                </li>
+                <li>
+                    <a href="" id="employeeMnt"><span class="las la-clipboard-list" onclick="displayProject()"></span>
+                        <span>Quản lý nhân viên</span></a>
+                </li>
+                <li>
+                    <a href="" id="orderBag"><span class="las la-shopping-bag" onclick="displayorders()"></span>
+                        <span>Quản lý sản phẩm</span></a>
+                </li>
+                <li>
+                    <a href="" class="active" id="inventoryReceipt"><span class="las la-receipt" onclick="displayReceipt()"></span>
+                        <span>Quản lý đơn hàng</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label>Dashboard
+            </h2>
+            <form action="" method="get" class="search-bar">
+                <input type="text" name="search_product" placeholder="Search..." maxlength="100">
+                <button type="submit" class="las la-search" id="Search_product_button"></button>
+            </form>
+
+            <div class="user-wrapper">
+                <img src="adminpic.jpg" alt="" onclick="showAdminInfo()">
+                <h6>Admin</h6>
+                <div class="arrow-down" onclick="toggleInfo()">
+                    <span class="las la-angle-down"></span>
+                </div>
+            </div> F
+            
+            <div id="info" class="info" style="display: none;">
+                <h3>Tên: Nguyễn Văn A</h3>
+                <p>Email: example@example.com</p>
+                <p>Địa chỉ: 123 Example Street, Thành phố, Quốc gia</p>
+                <p>Điện thoại: 123-456-7890</p>
+            </div>            
+        </header>
+        <section class="data-table">
+            <div class="card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Chọn</th>
+                            <th>STT</th>
+                            <th>Mã đơn hàng</th>
+                            <th>Tên khách hàng</th>
+                            <td>Số điện thoại khách hàng</td>
+                            <th>Địa chỉ giao hàng</th>
+                            <th>Tổng tiền</th>
+                            <th>Thanh toán</th>
+                            <th>Hình thức thanh toán</th>
+                            <th>Trạng thái giao</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="tick" />
+                                <label for="tick" class="tick-checkbox"></label>
+                            </td>
+                            <td>1</td>
+                            <td>mf01</td>
+                            <td>Đặng Quốc Duy</td>
+                            <td>0495950</td>
+                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương</td>
+                            <td>13.000.000</td>
+                            <td>Chưa</td>
+                            <td>Tiền mặt</td>
+                            <td>Đang giao</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="tick" />
+                                <label for="tick" class="tick-checkbox"></label>
+                            </td>
+                            <td>1</td>
+                            <td>mf01</td>
+                            <td>Đặng Quốc Duy</td>
+                            <td>0495950</td>
+                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương</td>
+                            <td>13.000.000</td>
+                            <td>Chưa</td>
+                            <td>Tiền mặt</td>
+                            <td>Đang giao</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="tick" />
+                                <label for="tick" class="tick-checkbox"></label>
+                            </td>
+                            <td>1</td>
+                            <td>mf01</td>
+                            <td>Đặng Quốc Duy</td>
+                            <td>0495950</td>
+                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương</td>
+                            <td>13.000.000</td>
+                            <td>Chưa</td>
+                            <td>Tiền mặt</td>
+                            <td>Đang giao</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="tick" />
+                                <label for="tick" class="tick-checkbox"></label>
+                            </td>
+                            <td>1</td>
+                            <td>mf01</td>
+                            <td>Đặng Quốc Duy</td>
+                            <td>0495950</td>
+                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương</td>
+                            <td>13.000.000</td>
+                            <td>Chưa</td>
+                            <td>Tiền mặt</td>
+                            <td>Đang giao</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="tick" />
+                                <label for="tick" class="tick-checkbox"></label>
+                            </td>
+                            <td>1</td>
+                            <td>mf01</td>
+                            <td>Đặng Quốc Duy</td>
+                            <td>0495950</td>
+                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương</td>
+                            <td>13.000.000</td>
+                            <td>Chưa</td>
+                            <td>Tiền mặt</td>
+                            <td>Đang giao</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    <footer>
+        &copy; 2023 G5Shop
+    </footer>
+</body>
