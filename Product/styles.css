@@ -91,34 +91,39 @@ p{
 .color{
     margin-top: 5px;
     display: flex;
+    align-items: center;
 }
 #color1
 {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     background-color: #aaa;
-    margin-right: 5px;
+    margin-right: 10px;
+    border: none;
 }
 #color2
 {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     background-color:red;
-    margin-right: 5px;
+    margin-right: 10px;
+    border: none;
 }
 #color3
 {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     background-color:aqua;
-    margin-right: 5px;
+    margin-right: 10px;
+    border: none;
 }
 #color4
 {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     background-color:chartreuse;
-    margin-right: 5px;
+    margin-right: 10px;
+    border: none;
 }
 /* Bộ chọn size */
 .sizePicker{
