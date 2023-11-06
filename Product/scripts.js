@@ -28,7 +28,7 @@ for(let i = 0; i < colorPicker.length; i++){
         for (let j = 0; j< colorPicker.length; j++){
             colorPicker[j].style.border = 'none';
         }
-        colorPicker[i].style.border = '3px solid #F08A5D'
+        colorPicker[i].style.border = "3px solid #F08A5D"
     }
 }
 
