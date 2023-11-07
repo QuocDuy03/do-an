@@ -76,16 +76,18 @@ function prevNewItem() {
     currentNewItem--;
     updateTransformNew();
   }
+  console.log(currentNewItem);
 }
 
 function nextNewItem() {
   if (currentNewItem < itemsNewHidden) {
     currentNewItem++;
-    if (currentNewItem === itemsNewHidden) {
-      document.querySelector('.next').disabled = true;
-    }
+    // if (currentNewItem === itemsNewHidden) {
+    //   document.querySelector('.next').disabled = true;
+    // }
     updateTransformNew();
   }
+  console.log(currentNewItem);
 }
 
 function updateTransformNew() {
