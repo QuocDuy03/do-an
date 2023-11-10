@@ -1,15 +1,23 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+
 const port = 8080;
 
-app.use(express.static('public'));
+const route = require('./routes');
+const db = require('./config/database');
+
+db.connect();
+
+
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
+app.engine('.html', require('ejs').__express);
+app.set('view engine', 'html');
+app.set('views', path.join(__dirname, 'views'));
 
-app.get('/', (req, res) => {
-    res.sendFile('home.html', {root: 'public'});
-});
+route(app);
 
 app.listen(port, function(err) {
     if (err) {
