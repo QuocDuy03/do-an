@@ -1,6 +1,11 @@
+const user = require('../models/user');
+
 class SiteController {
-    index(req, res) {
-        res.render('home');
+    async index(req, res) {
+
+        const allUser = await user.getAllUsers();
+        res.json(allUser)
+        // res.render('home');
     }
 
 }
