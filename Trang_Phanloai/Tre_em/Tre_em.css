@@ -1,0 +1,121 @@
+
+.sanpham h1 {
+    color: #333;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+.block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.danhmuc {
+    flex: 1;
+}
+
+.sanpham {
+    flex: 5;
+}
+
+
+.danhmuc {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 10px;
+}
+
+.danhmuc ul {
+    list-style: none;
+    padding: 0;
+}
+
+.danhmuc ul li {
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: 650;
+}
+
+.danhmuc ul li a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+    margin-left: 5px;
+}
+
+.danhmuc ul li a:hover {
+    color: #ff9900;
+}
+
+.danhmuc h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+/* ------------------- SP ----------------------*/
+
+.listItem-container {
+    position: relative;
+    box-shadow: 5px 5px 10px #aaa;
+    overflow: hidden;
+    padding: 25px;
+    margin: 10px;
+}
+
+.listItem-container h2 {
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    font-weight: bold;
+    padding: 1rem 5rem;
+    color: #333;
+
+}
+
+.listItem-container ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 4rem;
+
+}
+
+.listItem-container ul li:hover {
+    box-shadow: 0px 5px 5px 5px #aaa;
+}
+
+.listItem-container ul .Item-container {
+    position: relative;
+    margin: 10px;
+}
+
+.listItem-container ul .Item-container .nameItem {
+    font-size: 24px;
+    color: #333;
+    padding: 1rem 0rem;
+}
+
+.listItem-container ul .Item-container .priceItem {
+    font-size: 20px;
+    color: red;
+}
+
+.listItem-container ul a {
+    text-decoration: none;
+}
+
+.tieude {
+    border-bottom: 1px solid #333;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+.imgItem img {
+    width: 300px;
+    height: 400px;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+    border-bottom: 1px solid #ddd;
+}
