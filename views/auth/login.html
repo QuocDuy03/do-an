@@ -36,26 +36,6 @@
                 <a href="/cart"><i class="fa fa-shopping-cart"></i><sup>0</sup></a>
                 <div class="fa fa-user" id="user-btn"></div>
             </div>
-            <div class="profile-details">
-
-                <% if (name) { %>
-                    <img src="/images/banchay1.png">
-                    <h2>
-                        <%= name %>
-                    </h2>
-                    <div class="flex-btn">
-                        <a href="/account" class="btn"> Hồ sơ </a>
-                        <a href="/logout" class="btn"> Đăng xuất </a>
-                    </div>
-                    <% } else { %>
-                        <h2>Vui lòng đăng nhập hoặc đăng ký</h2>
-                        <div class="flex-btn">
-                            <a href="/login" class="btn"> Đăng nhập </a>
-                            <a href="/register" class="btn"> Đăng ký </a>
-                        </div>
-                        <% } %>
-
-            </div>
         </div>
     </header>
     <main>

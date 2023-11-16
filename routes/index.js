@@ -1,12 +1,12 @@
-const loginRouter = require('./login');
-const registerRouter = require('./register');
-const accountRouter = require('./account');
-const cartRouter = require('./cart');
-const editRouter = require('./edit');
-const historyRouter = require('./history');
-const myOrderRouter = require('./myorder');
-const paymentRouter = require('./payment');
-const siteRouter = require('./site');
+const loginRouter = require('./guest/login');
+const registerRouter = require('./guest/register');
+const accountRouter = require('./guest/account');
+const cartRouter = require('./guest/cart');
+const editRouter = require('./guest/edit');
+const historyRouter = require('./guest/history');
+const myOrderRouter = require('./guest/myorder');
+const paymentRouter = require('./guest/payment');
+const siteRouter = require('./guest/site');
 const authenticateToken = require('../middleware/authenticateToken');
 
 function route(app) {

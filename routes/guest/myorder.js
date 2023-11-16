@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const myOrderController = require('../controllers/MyOrderController');
+const myOrderController = require("../../controllers/guest/MyOrderController");
 
 router.get('/', myOrderController.index)
 

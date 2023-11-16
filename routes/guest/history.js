@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const historyController = require('../controllers/HistoryController');
+const historyController = require("../../controllers/guest/HistoryController");
 
 router.get('/', historyController.index)
 
