@@ -32,14 +32,34 @@
             <div class="icon">
                 <div class="fa fa-list" id="menu-btn"></div>
                 <div class="fa fa-search" id="search-btn"></div>
-                <a href="./account.html"><i class="fa fa-user"></i></a>
-                <a href="./giohang.html"><i class="fa fa-shopping-cart"></i><sup>0</sup></a>
+                <a href="/cart"><i class="fa fa-shopping-cart"></i><sup>0</sup></a>
+                <div class="fa fa-user" id="user-btn"></div>
+            </div>
+            <div class="profile-details">
+
+                <% if (name) { %>
+                    <img src="/images/banchay1.png">
+                    <h2>
+                        <%= name %>
+                    </h2>
+                    <div class="flex-btn">
+                        <a href="/account" class="btn"> Hồ sơ </a>
+                        <a href="/logout" class="btn"> Đăng xuất </a>
+                    </div>
+                    <% } else { %>
+                        <h2>Vui lòng đăng nhập hoặc đăng ký</h2>
+                        <div class="flex-btn">
+                            <a href="/login" class="btn"> Đăng nhập </a>
+                            <a href="/register" class="btn"> Đăng ký </a>
+                        </div>
+                        <% } %>
+
             </div>
         </div>
     </header>
 
     <nav class="top-nav">
-        <a href="./home.html" id="home-link">Trang chủ / </a>
+        <a href="/" id="home-link">Trang chủ / </a>
         <a href="#" style="color: #ff5733;">Tài khoản</a>
     </nav>
 
@@ -47,10 +67,10 @@
     <div class="user-profile">
         <div class="sidebar">
             <ul>
-                <li><a href="./account.html" style="color: #ff5733;">Hồ sơ cá nhân</a></li>
-                <li><a href="./myorder.html">Đơn hàng của tôi</a></li>
-                <li><a href="./history.html">Lịch sử mua hàng</a></li>
-                <li><a href="./edit.html">Chỉnh sửa hồ sơ</a></li>
+                <li><a href="/account" style="color: #ff5733;">Hồ sơ cá nhân</a></li>
+                <li><a href="/myorder">Đơn hàng của tôi</a></li>
+                <li><a href="/history">Lịch sử mua hàng</a></li>
+                <li><a href="/edit">Chỉnh sửa hồ sơ</a></li>
             </ul>
         </div>
 
@@ -115,8 +135,8 @@
         </div>
     </footer>
 
-    <script src="./js/header.js"></script>
-    <script src="./js/account.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/account.js"></script>
 
 </body>
 

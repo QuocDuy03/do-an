@@ -19,7 +19,7 @@
 <body>
     <header class="header">
         <div class="navbar-wrap">
-            <a href="#">
+            <a href="/">
                 <img src="images/logo2.png" alt="Logo">
             </a>
             <nav class="navbar">
@@ -34,46 +34,79 @@
             <div class="icon">
                 <div class="fa fa-list" id="menu-btn"></div>
                 <div class="fa fa-search" id="search-btn"></div>
-                <a href="./account.html"><i class="fa fa-user"></i></a>
-                <a href="./giohang.html"><i class="fa fa-shopping-cart"></i><sup>0</sup></a>
+                <a href="/cart"><i class="fa fa-shopping-cart"></i><sup>0</sup></a>
+                <div class="fa fa-user" id="user-btn"></div>
+            </div>
+            <div class="profile-details">
+
+                <% if (name) { %>
+                    <img src="/images/banchay1.png">
+                    <h2>
+                        <%= name %>
+                    </h2>
+                    <div class="flex-btn">
+                        <a href="/account" class="btn"> Hồ sơ </a>
+                        <a href="/logout" class="btn"> Đăng xuất </a>
+                    </div>
+                    <% } else { %>
+                        <h2>Vui lòng đăng nhập hoặc đăng ký</h2>
+                        <div class="flex-btn">
+                            <a href="/login" class="btn"> Đăng nhập </a>
+                            <a href="/register" class="btn"> Đăng ký </a>
+                        </div>
+                        <% } %>
+
             </div>
         </div>
     </header>
     <main>
         <div class="form-container">
-            <form action="" method="post" enctype="multipart/form-data" class="register">
+            <form action="" method="POST" class="register">
                 <h3>Đăng ký</h3>
-                <div class="flex">
-                    <div class="input-field">
-                        <p>Họ và tên <span>*</span></p>
-                        <input type="text" name="name" placeholder="Nhập tên của bạn" maxlength="50" required
-                            class="box">
-                    </div>
-                    <div class="input-field">
-                        <p>Số điện thoại <span>*</span></p>
-                        <input type="text" name="phone" placeholder="Nhập số điện thoại của bạn" maxlength="50" required
-                            class="box">
-                    </div>
-                    <div class="input-field">
-                        <p>Email <span>*</span></p>
-                        <input type="email" name="email" placeholder="Nhập email của bạn" maxlength="50" required
-                            class="box">
-                    </div>
-                    <div class="input-field">
-                        <p>Mật khẩu <span>*</span></p>
-                        <input type="password" name="pass" placeholder="Nhập mật khẩu" maxlength="50" required
-                            class="box">
-                    </div>
-                    <div class="input-field">
-                        <p>xác nhận mật khẩu <span>*</span></p>
-                        <input type="password" name="cpass" placeholder="Nhập lại mật khẩu" maxlength="50" required
-                            class="box">
-                    </div>
-                    <p>Đã có tài khoản? <a href="./login.html">Đăng nhập ngay</a></p>
-                    <input type="submit" name="register" value="Đăng ký" class="btn">
-                </div>
+                <% if (message) { %>
+                    <p class="error-message">
+                        <%= message %>
+                    </p>
+                    <% } %>
+                        <% if (success) { %>
+                            <p class="success-message">
+                                <%= success %>
+                            </p>
+                            <% } %>
+                                <div class="flex">
+                                    <div class="input-field">
+                                        <p>Họ và tên <span>*</span></p>
+                                        <input type="text" name="name" placeholder="Nhập tên của bạn" maxlength="50"
+                                            required class="box">
+                                    </div>
+                                    <div class="input-field">
+                                        <p>Số điện thoại <span>*</span></p>
+                                        <input type="tel" name="phone" placeholder="Nhập số điện thoại của bạn"
+                                            maxlength="50" required class="box">
+                                    </div>
+                                    <div class="input-field">
+                                        <p>Email <span>*</span></p>
+                                        <input type="email" name="email" placeholder="Nhập email của bạn" maxlength="50"
+                                            required class="box">
+                                    </div>
+                                    <div class="input-field">
+                                        <p>Mật khẩu <span>*</span></p>
+                                        <input type="password" name="pass" placeholder="Nhập mật khẩu" maxlength="50"
+                                            required class="box">
+                                    </div>
+                                    <div class="input-field">
+                                        <p>xác nhận mật khẩu <span>*</span></p>
+                                        <input type="password" name="cpass" placeholder="Nhập lại mật khẩu"
+                                            maxlength="50" required class="box">
+                                    </div>
+                                    <p>Đã có tài khoản? <a href="./login">Đăng nhập ngay</a></p>
+                                    <input type="submit" value="Đăng ký" class="btn">
+
+                                </div>
+
             </form>
         </div>
+
     </main>
     <footer>
         <div class="content">
@@ -117,6 +150,7 @@
             <p> &copy bản quyền thuộc về nhóm 5</p>
         </div>
     </footer>
+
     <script src="js/register.js"></script>
     <script src="js/header.js"></script>
 </body>

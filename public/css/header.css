@@ -107,6 +107,54 @@
     box-shadow: 0px 2px 0px 0px #F08A5D;
 }
 
+.profile-details {
+    background-color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 125%;
+    right: 2rem;
+    border-radius: .5rem;
+    width: 30rem;
+    padding: 1.5rem .5rem;
+    text-align: center;
+    overflow: hidden;
+    display: none;
+    transition: .5s;
+}
+
+.profile-details.active {
+    display: inline-block;
+}
+
+.profile-details h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000;
+    margin-bottom: 2rem;
+}
+
+.profile-details .flex-btn {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.profile-details img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: .5rem;
+    object-fit: cover;
+    margin-bottom: .5rem;
+}
+
+.profile-details .flex-btn .btn {
+    margin: 0 .5rem;
+    font-size: 1.6rem;
+}
+
 #menu-btn,
 #search-btn {
     display: none;

@@ -33,7 +33,7 @@
 .form-container form h3 {
     text-align: center;
     font-size: 2rem;
-    margin: 3rem 0rem;
+    margin: 2.5rem 0rem;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -91,4 +91,26 @@
     border-radius: .5rem;
     box-shadow: 5px 5px 5px rgba(240, 138, 93, 0.4);
     cursor: pointer;
+}
+
+.form-container .error-message {
+    border: 1px solid #f1aeb5;
+    background-color: #f8d7da;
+    color: #58151c;
+    font-size: 1.8rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.form-container .success-message {
+    color: #0a3622;
+    background-color: #d1e7dd;
+    border: 1px solid #a3cfbb;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.8rem;
+    text-align: center;
 }
