@@ -1,118 +1,3 @@
-
-
-
-
-
-
-
-
-/* code ở day */
-.gio-hang{
-    border: 1px solid #ddd;
-    box-shadow: 2px 2px 4px #ddd; /* Lưu ý: Loại bỏ khoảng trắng không cần thiết ở đây */
-    padding: 20px;
-    margin: auto;
-    max-width: 1100px;
-    font-size: 14px;
-   
-   
-}
-img{
-    width: 100%;}
-
-.item-gio-hang{
-    display: flex;
-    flex-direction: row ;
-    align-items: center;
-  
-    
-}
-
-.item-gio-hang .hinh-anh img {
-    width: 100px;
-    height: 120px;
-  
-}
-
-.item-gio-hang .gia, .soluong {flex:2;  padding: 10px; }
-
-.item-gio-hang .product-details, .hinh-anh{flex: 4; margin-right: 10px; }
-
-
-.delete-btn,  .Tongtien{
-    flex:4;
-    padding: 5px;
-    margin-left: 20px;
-}
-
-.delete-btn{
-    flex:1;
-    padding: 0px;
-    margin-left: 20px;
-
-}
-
-
-
-
-
-
-/* code moi */
-.item-gio-hang {
-    background-color: #fff; /* Background color for the container */
-    border: 10px solid #fff; /* Border around the container */
-    padding: 0px; /* Add padding inside the container */
-    margin: auto;
-    width: 650px;
-    max-width: 700px; /* Set the maximum width as needed to make it larger */
-    border-radius: 10px; /* Add rounded corners */
-    text-align: left;
-  }
-.product-details {
-    text-align: left;
-    padding: 20px 0;
-    font-size: 14px;
-  }
-  .tensp {
-    font-weight: bold;
-    font-size: 16px;
-    color: black;
-  }
-
-
-  .gio-hang .tieuDe{
-    font-size: 20px ;
-   
-  }
-
-  .gio-hang .tieudeitem
-  {  font-weight :1000;
-color:black;}
-
-  
-/* code moi */
-  
- .gio-hang  .item-gio-hang .soluong input
-{
-    width: 45px;
-border: 1px solid #ececec;
-text-align: center;}
-
-.item-gio-hang .soluong button
-{width: 20px;
-height: 20px;
-outline:none;
-background: none;
-border: 1px solid #ececec;
-cursor: pointer;}
-
-.item-gio-hang .soluong button:hover{
-    background-color: rgba(255, 166, 0, 0.445);
-}
-
-.item-gio-hang .soluong {display: flex;}
-
-/* css lại*/
 main {
     display: flex;
     flex-direction: row;
@@ -120,44 +5,173 @@ main {
     max-height: 100%;
 }
 
-.gio-hang  {
+.gio-hang {
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 4px #ddd;
+    padding: 20px;
+    margin: auto;
+    max-width: 1100px;
+    font-size: 14px;
+}
+
+.gio-hang {
     flex: 7;
-    margin-left: 80px; 
+    margin-left: 80px;
     margin-top: 20px;
 }
-.tongtien{
-    flex:2;
+
+.tongtien {
+    flex: 2;
     padding: 10px;
     margin-top: 200px;
 }
 
+.tieuDe {
+    padding: 10px;
+}
+
+/* Định dạng cho Item */
+
+.item-gio-hang {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.item-gio-hang .gia,
+.soluong {
+    flex: 2;
+    padding: 10px;
+}
+
+.item-gio-hang .product-details,
+.hinh-anh {
+    flex: 4;
+    margin-right: 10px;
+}
+
+
+.item-gio-hang .delete-btn,
+.Tongtien {
+    flex: 4;
+    padding: 5px;
+    margin-left: 20px;
+}
+
+.item-gio-hang .delete-btn {
+    flex: 1;
+    padding: 0px;
+    margin-left: 20px;
+}
+
+.item-gio-hang .hinh-anh img {
+    width: 100px;
+    height: 120px;
+
+}
+
+.item-gio-hang .delete-btn svg {
+    width: 30px;
+    height: 35px
+}
+
+
+.item-gio-hang {
+    background-color: #fff;
+    border: 10px solid #fff;
+    padding: 0px;
+    margin: auto;
+    width: 900px;
+    max-width: 1000px;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 20px;
+}
+
+.product-details .mau-sac,
+.size,
+.ma-san-pham {
+    text-align: left;
+    font-size: 14px;
+}
+
+.tensp {
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+}
+
+
+.gio-hang .tieuDe {
+    font-size: 20px;
+
+}
+
+.gio-hang .tieudeitem {
+    font-weight: 1000;
+    color: black;
+}
+
+
+
+.gio-hang .item-gio-hang .soluong input {
+    width: 45px;
+    border: 1px solid #ececec;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Định dạng nút + - */
+.item-gio-hang .soluong button {
+    width: 25px;
+    height: 25px;
+    outline: none;
+    background: none;
+    border: 1px solid #ececec;
+    cursor: pointer;
+}
+
+.item-gio-hang .soluong button:hover {
+    background-color: rgba(255, 166, 0, 0.445);
+}
+
+
+.item-gio-hang .soluong {
+    display: flex;
+}
+
+
+/* Định dạng cho tổng tiền */
+
 .tongtien {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Canh giữa theo chiều ngang */
+    align-items: center;
     text-align: center;
     font-size: 20px;
     font-weight: bold;
 }
 
 .tongtien .thanhtoan {
-    font-size: 30px; /* Điều chỉnh kích thước phù hợp */
+    font-size: 30px;
     font-weight: bold;
-    color:red;
+    color: red;
     padding: 10px;
 }
 
 .buttons-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around; /* Canh đều cả hai nút */
-    width: 100%; /* Đảm bảo chiều rộng của container bằng chiều rộng của .tongtien */
+    justify-content: space-around;
+    width: 100%;
 }
 
-.dat-hang, .quay-lai-gio-hang {
+.dat-hang,
+.quay-lai-gio-hang {
     padding: 20px 20px;
     margin: 5px;
-    background-color:  #F08A5D;
+    background-color: #F08A5D;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -165,22 +179,14 @@ main {
     font-weight: bold;
     font-size: 20px;
 }
-.quay-lai-gio-hang{  
-    background-color:  #DBE2EF;
+
+.quay-lai-gio-hang {
+    background-color: #DBE2EF;
     color: black;
 }
 
 
-.dat-hang:hover, .quay-lai-gio-hang:hover {
+.dat-hang:hover,
+.quay-lai-gio-hang:hover {
     background-color: #b74616;
 }
-/* sửa checkbox
-/* Điều chỉnh mỗi ô tích (checkbox) */
-input[type="checkbox"] {
-    width: 20px; /* Điều chỉnh chiều rộng */
-    height: 20px; /* Điều chỉnh chiều cao */
-    margin-right: 5px; /* Điều chỉnh khoảng cách giữa checkbox và nhãn */
-}
-
-.tieuDe {padding:10px;}
-

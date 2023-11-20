@@ -25,11 +25,6 @@ function chuyenDanhSachItemGioHangSangHTML(danhSachItemGiohang) {
   return htmlTong;
 }
 
-/*Hiển thị ds item*/
-
-
-
-//2 chuyển đối tượng
 
 /* chuyển 1 đối tượng thành html*, input la doi tượng giỏ hang, output:HTML hiển thị item giỏ hàng*/
 function chuyenDoiTuongItemGioHangSangHTML(itemGiohang) {
@@ -67,7 +62,7 @@ function chuyenDoiTuongItemGioHangSangHTML(itemGiohang) {
 }
 
 
-//3  Lấy giỏ hàng từ storage
+//Lấy giỏ hàng từ storage
 function layGioHangTuLocalStorage() {
   var gioHang = new Array();
   //TODO: truy cập vào local storage để lấy giỏ hàng
@@ -79,7 +74,7 @@ function layGioHangTuLocalStorage() {
   return gioHang;
   }
 
-  //4 Xử lí nút -
+  //Xử lí nút -
   function handleMinus(button) {
     var itemGioHang = button.closest('.item-gio-hang');
     var amountInput = itemGioHang.querySelector('.soluong input');
@@ -92,13 +87,15 @@ function layGioHangTuLocalStorage() {
       var giaTien = parseInt(itemGioHang.querySelector('.gia').textContent.replace(/\./g, "")); // Giá tiền sản phẩm
       
       var tongTienElement = itemGioHang.querySelector('.Tongtien');
+      //Tổng tiền
       var tongTien = giaTien * amount;
       tongTienElement.textContent = tongTien.toLocaleString('de-DE') + ' VND';
+       //Cập nhật cho Tổng cộng
       carttotal();
     }
   }
 
-  //5 Xử lí nút cộng
+  //Xử lí nút cộng
   function handlePlus(button) {
     var itemGioHang = button.closest('.item-gio-hang');
     var amountInput = itemGioHang.querySelector('.soluong input');
@@ -114,125 +111,14 @@ function layGioHangTuLocalStorage() {
     tongTienElement.textContent = tongTien.toLocaleString('de-DE')  + ' VND';
     carttotal();
   }
+ 
   
-
-
-//6 Xử lí khi nhập và nhấn enter
-  function handleInputChange(input) {
-    // Kiểm tra xem phím Enter (mã ASCII 13) đã được nhấn
-    if (event.keyCode === 13) {
-      var itemGioHang = input.closest('.item-gio-hang');
-      var amountInput = itemGioHang.querySelector('.soluong input');
-      var tongTienElement = itemGioHang.querySelector('.Tongtien');
-      var giaTien = parseInt(itemGioHang.querySelector('.gia').textContent.replace(/\./g, ""));; // Giá tiền sản phẩm
-  
-      var amount = parseInt(amountInput.value);
-  
-      if (isNaN(amount) || amount < 1) {
-        alert("Số lượng không hợp lệ. Vui lòng nhập số nguyên dương.");
-        amountInput.value = 1;
-        return;
-      }
-  
-      // Cập nhật số lượng và tổng tiền
-      var tongTien = giaTien * amount;
-      tongTienElement.textContent = tongTien.toLocaleString('de-DE')  + ' VND';
-      carttotal();
-    }
-  }
-  
-  //7 Sử dụng sự kiện "keydown" trên phần tử input
-  var amountInputElements = document.querySelectorAll('.soluong input');
-  amountInputElements.forEach(function(input) {
-    input.addEventListener('keydown', function(event) {
-      handleInputChange(this);
-    });
-  });
-  
-  //8 Không cho dưới 1
-  function limitToNonNegative(input) {
-    var amountInput = input;
-    var amount = parseInt(amountInput.value);
-  
-    if (isNaN(amount) || amount < 1) {
-      
-    }
-  
-  }
-  
-  // Sử dụng sự kiện "input" trên phần tử input
-  var amountInputElements = document.querySelectorAll('.soluong input');
-  amountInputElements.forEach(function(input) {
-    input.addEventListener('input', function() {
-      limitToNonNegative(this);
-    });
-  });
-
-//9 mũi tên
-function handleArrowChange(input, increment) {
-  var itemGioHang = input.closest('.item-gio-hang');
-  var amountInput = itemGioHang.querySelector('.soluong input');
-  var amount = parseInt(amountInput.value);
-
-  if (amount + increment >= 1) {
-    amount += increment;
-    amountInput.value = amount;
-
-    var giaTien = parseInt(itemGioHang.querySelector('.gia').textContent.replace(/\./g, "")); // Giá tiền sản phẩm
-    var tongTienElement = itemGioHang.querySelector('.Tongtien');
-    var tongTien = giaTien * amount;
-    tongTienElement.textContent = tongTien.toLocaleString('de-DE') + ' VND';
-
-    carttotal();
-  }
-}
-//10 Hướng mũi tên lên
-function handleArrowUp(button) {
-  handleArrowChange(button, 1);
-}
-
-function handleArrowDown(button) {
-  handleArrowChange(button, -1);
-}
-
-// 11 Sử dụng sự kiện "keydown" trên phần tử input
-var amountInputElements = document.querySelectorAll('.soluong input');
-amountInputElements.forEach(function(input) {
-  input.addEventListener('keydown', function(event) {
-    if (event.key === 'ArrowUp') {
-      event.preventDefault();
-      handleArrowUp(this);
-    } else if (event.key === 'ArrowDown') {
-      event.preventDefault();
-      handleArrowDown(this);
-    }
-  });
-});
-
-
-var amountInputElements = document.querySelectorAll('.soluong input');
-amountInputElements.forEach(function(input) {
-  input.addEventListener('keydown', function(event) {
-    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-      event.preventDefault();
-    }
-  });
-});
-//them
-// Sử dụng sự kiện "input" trên phần tử input
-var amountInputElements = document.querySelectorAll('.soluong input');
-amountInputElements.forEach(function(input) {
-  input.addEventListener('input', function() {
-    updatePrice(this);
-  });
-});
-
-//cập nhật giá
-
+//Ham cập nhật giá
 function updatePrice(input) {
   var itemGioHang = input.closest('.item-gio-hang');
   var amountInput = itemGioHang.querySelector('.soluong input');
   var amount = parseInt(amountInput.value);
+  
 
   if (amount < 1) {
     amountInput.value = 1;
@@ -247,6 +133,15 @@ function updatePrice(input) {
   carttotal();
 }
 
+// Cập nhật lại giá khi sự kiện input bị thay đổi
+var amountInputElements = document.querySelectorAll('.soluong input');
+amountInputElements.forEach(function(input) {
+  input.addEventListener('input', function() {
+    updatePrice(this);
+  });
+});
+
+
 
 //delete
   function handleDelete(button) {
@@ -257,49 +152,47 @@ function updatePrice(input) {
   }
   
   
-
-  
-  // Gọi hàm để tính tổng giá trị và cập nhật vào phần tử HTML
+  //Hàm để tính tổng cộng 
   function carttotal() {
     var cartItems = document.querySelectorAll("body .gio-hang .item-gio-hang  ");
     console.log(cartItems);
-
     var total1 = 0
 
     for (var i = 1; i < cartItems.length; i++) {
-      var itemGioHang = cartItems[i]; // Assuming you have a collection of cart items
-      var tongTienElement = itemGioHang.querySelector('.Tongtien'); // Select the element with class "Tongtien"
-      var tongTienText = tongTienElement.textContent; // Get the text content of the element
+      var itemGioHang = cartItems[i]; 
+      var tongTienElement = itemGioHang.querySelector('.Tongtien'); 
+      var tongTienText = tongTienElement.textContent; 
       console.log(tongTienText)
-      var numericValue = parseInt(tongTienText.replace(/\./g, "")); // Convert the text to a number
+      var numericValue = parseInt(tongTienText.replace(/\./g, "")); 
       console.log(numericValue);
       total1=total1+numericValue ;
       console.log(total1);
     }
+
     // Lưu giá trị total1 vào Local Storage
     localStorage.setItem('cartTotal', total1);
-  
-
-    // Display the total in the "thanh toan" element
+    // Cập nhất tổng giá cho  tongtien
     var totalElement = document.querySelector(".thanhtoan");
-    console.log(totalElement)
-    totalElement.innerHTML =  total1.toLocaleString('de-DE')+ " VND";
-
-
-    var totalElement = document.querySelector(".thanhtoan_TT");
     console.log(totalElement)
     totalElement.innerHTML =  total1.toLocaleString('de-DE')+ " VND";
   }
 
-  // Call the carttotal function when the page loads
+  // Gọi carttotal khi chạy xong trang
   window.onload = carttotal;
-
 
 // chuyển file
 document.getElementById('nut-thanh-toan').addEventListener('click', function() {
   // Chuyển hướng qua trang "Thanhtoan.html"
-  window.location.href = '/Thanhtoan/Thanhtoan.html';})
+  window.location.href = '../Thanhtoan/Thanhtoan.html';})
+
+
+  
 
  
+  
+
+ 
+
+
 
 
