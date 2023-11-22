@@ -1,16 +1,13 @@
-/*header*/
-
-
-/*main*/
 /* Thiết lập font và background chung */
-/* body {
+body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
     font-size: 16px;
-} */
+}
 
+/* Thiết lập cho container chính */
 .container {
     display: flex;
     flex-direction: column;
@@ -21,7 +18,7 @@
 }
 
 
-
+/* Thiết lập khối cho phần thông tin giao hàng */
 .thong-tin-giao-hang {
     display: flex;
     flex-direction: row;
@@ -40,7 +37,7 @@
     display: flex;
     flex-direction: column;
     padding: 10px;
-    margin-left: 20px; 
+    margin-left: 20px;
 }
 
 
@@ -51,12 +48,15 @@
     padding: 10px;
 }
 
-h2 {
+/* Dịnh dạng trang nội dung thông tin thanh toán */
+.container h2 {
     text-align: left;
     margin-bottom: 20px;
+    margin-top: 20px;
     padding-left: 10px;
 }
 
+/* Định dạng thông tin giao hàng */
 input[type="text"],
 input[type="email"] {
     width: 100%;
@@ -66,42 +66,48 @@ input[type="email"] {
     border-radius: 3px;
 }
 
-.khoang-2 .vanchuyen-section, .khoang-2 .thanhtoan-section {
+.khoang-1 h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Định dạng phần hình thức thanh toán */
+.khoang-2 .vanchuyen-section,
+.khoang-2 .thanhtoan-section {
     padding: 10px;
 }
 
-h3 {
-    font-size: 16px;
+.khoang-2 h3 {
+    font-size: 20px;
     margin-bottom: 10px;
+    margin-top: 0px
 }
 
-input[type="radio"], input[type="checkbox"] {
+input[type="radio"],
+input[type="checkbox"] {
     margin-right: 5px;
 }
 
-/* Định dạng phần tổng đơn hàng */
-.tongdonhang {
-    background-color: #f5f5f5;
-    padding: 20px;
-    text-align: left;
-}
+/* Định dạng khoang-3 */
 
-input[type="text"] {
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
 
-p {
+.khoang-3 p {
     margin: 10px 0;
 }
 
-h3 {
+.khoang-3 h3 {
     font-size: 20px;
-    color: ba;
     margin: 10px 0;
+
 }
 
-/* Định dạng phần mã giảm giá và chi tiết đơn hàng */
+.khoang-3 h3 {
+    margin-top: 0px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Định dạng phần mã giảm giá và chi tiết giá */
 .giamgia {
     display: flex;
     flex-direction: column;
@@ -114,25 +120,32 @@ h3 {
     font-size: 16px;
 }
 
+.khoang-3 .tongtien h3 {
+    font-size: 20px;
+    margin-top: 10px;
+    color: red;
+}
+
 /* Định dạng nút Đặt hàng và Quay lại giỏ hàng */
 .tongtien {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Canh giữa theo chiều ngang */
+    align-items: center;
     text-align: center;
 }
 
 .buttons-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around; /* Canh đều cả hai nút */
-    width: 100%; /* Đảm bảo chiều rộng của container bằng chiều rộng của .tongtien */
+    justify-content: space-around;
+    width: 100%;
 }
 
-.dat-hang, .quay-lai-gio-hang {
+.dat-hang,
+.quay-lai-gio-hang {
     padding: 20px 20px;
     margin: 5px;
-    background-color:  #F08A5D;
+    background-color: #F08A5D;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -140,21 +153,27 @@ h3 {
     font-weight: bold;
     font-size: 20px;
 }
-.quay-lai-gio-hang{  
-    background-color:  #DBE2EF;
+
+.quay-lai-gio-hang {
+    background-color: #DBE2EF;
     color: black;
 }
 
 
-.dat-hang:hover, .quay-lai-gio-hang:hover {
+.dat-hang:hover,
+.quay-lai-gio-hang:hover {
     background-color: #b74616;
 }
-/* sửa checkbox
+
 /* Điều chỉnh mỗi ô tích (checkbox) */
 input[type="checkbox"] {
-    width: 16px; /* Điều chỉnh chiều rộng */
-    height:16px; /* Điều chỉnh chiều cao */
-    margin-right: 5px; /* Điều chỉnh khoảng cách giữa checkbox và nhãn */
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
 }
 
-.TT1, .TT2, .VC { padding: 5px;}
+.TT1,
+.TT2,
+.VC {
+    padding: 5px;
+}

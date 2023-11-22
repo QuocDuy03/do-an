@@ -1,35 +1,31 @@
-// Lấy các phần tử DOM của ô tích "Thanh toán qua VNPay" và "Thanh toán khi nhận hàng"
-const vnpayCheckbox = document.getElementById('vnpay');
-const cashOnDeliveryCheckbox = document.getElementById('cash-on-delivery');
+// Nếu ô tích "Thanh toán qua VNPay" được chọn, hủy chọn ô tích "Thanh toán khi nhận hàng" và ngược lại
+const vnpay = document.getElementById('vnpay');
+const cashOnDelivery = document.getElementById('cash-on-delivery');
 
-// Sử dụng sự kiện onchange để kiểm tra khi một ô tích thay đổi trạng thái
-vnpayCheckbox.addEventListener('change', function () {
-    if (vnpayCheckbox.checked) {
-        // Nếu ô tích "Thanh toán qua VNPay" được chọn, hủy chọn ô tích "Thanh toán khi nhận hàng"
-        cashOnDeliveryCheckbox.checked = false;
+vnpay.addEventListener('change', function () {
+    if (vnpay.checked) {
+        cashOnDelivery.checked = false;
+    }
+});
+cashOnDelivery.addEventListener('change', function () {
+    if (cashOnDelivery.checked) {
+        vnpay.checked = false;
     }
 });
 
-cashOnDeliveryCheckbox.addEventListener('change', function () {
-    if (cashOnDeliveryCheckbox.checked) {
-        // Nếu ô tích "Thanh toán khi nhận hàng" được chọn, hủy chọn ô tích "Thanh toán qua VNPay"
-        vnpayCheckbox.checked = false;
-    }
-});
+// Lấy giá trị tổng từ Local Storage.
+let total = localStorage.getItem('cartTotal');
+let formattedTotal = parseInt(total).toLocaleString('de-DE') + ' VND';
 
-//
-
-var total = localStorage.getItem('cartTotal'); // Giả sử giá trị từ Local Storage là số nguyên
-var formattedTotal = parseInt(total).toLocaleString('de-DE') + ' VND'; // Định dạng số và thêm 'VND' vào cuối
-
+// Hiển thị tổng giá trị trong 'cartTotal'
 document.getElementById('cartTotal').innerText = formattedTotal;
 
-//Tong 
-var tongTienElement = document.querySelector('.tongtien h3');
- var total_1= parseInt(total) + 20000;
+// Tính tổng tiền với phí vận chuyển
+let tongTienElement = document.querySelector('.tongtien h3');
+let totalAmount = parseInt(total) + 20000;
 
-// Cập nhật giá trị mới vào phần tử h3
-tongTienElement.textContent = 'Tổng tiền: ' + parseInt(total_1).toLocaleString('de-DE') + ' VND';
+// Cập nhật giá trị mới vào phần tử Tong tiên cuối cùng
+tongTienElement.textContent = 'Tổng tiền: ' + totalAmount.toLocaleString('de-DE') + ' VND';
 
 
 
