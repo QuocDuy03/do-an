@@ -1,6 +1,8 @@
 class CartController {
-    index(req, res) {
-        res.render('cart');
+    async index(req, res) {
+        res.render('cart', {
+            user: req.user
+        });
     }
 }
 

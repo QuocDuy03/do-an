@@ -14,7 +14,6 @@ class UserModel {
                 } else {
                     resolve(results);
                 }
-
                 connection.release();
             });
         });

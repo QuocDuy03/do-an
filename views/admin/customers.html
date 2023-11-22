@@ -2,20 +2,20 @@
 <html lang="en">
 
 <head>
-    <title> g5 admin</title>
+    <title> Admin </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale = 1.0">
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link href="Cus.css" rel="stylesheet">
-    <script src="Cus.js"></script>
+    <link href="/css/Cus.css" rel="stylesheet">
+
 </head>
 
 <body>
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
-            <a href="#"><img src="logo_main.png" alt="Logo shop"></a>
+            <a href="#"><img src="/images/logo2.png" alt="Logo shop"></a>
         </div>
         <div class="sidebar-menu">
             <ul>
@@ -46,13 +46,9 @@
         <header>
             <h2>
                 <label for="nav-toggle">
-                    <span class="las la-bars"></span>
-                </label>Dashboard
+                    <span class="las la-bars"></span>Dashboard
+                </label>
             </h2>
-            <form action="" method="get" class="search-bar">
-                <input type="text" name="search_product" placeholder="Search..." maxlength="100">
-                <button type="submit" class="las la-search" id="Search_product_button"></button>
-            </form>
 
             <div class="user-wrapper">
                 <img src="adminpic.jpg" alt="" onclick="showAdminInfo()">
@@ -141,6 +137,7 @@
                 </tr>
             </table>
         </main>
+        <script src="/js/Cus.js"></script>
 </body>
 
 </html>
