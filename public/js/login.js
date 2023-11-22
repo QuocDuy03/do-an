@@ -18,14 +18,12 @@ form.addEventListener('submit', async (e) => {
         });
 
         const data = await res.json();
-        console.log(data);
 
         if (res.status === 400 || res.status === 401) {
             console.log(data.message);
         } else {
             console.log("Login successful");
             window.location.href = '/';
-
         }
     } catch (err) {
         console.log(err);
