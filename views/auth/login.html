@@ -33,14 +33,14 @@
             <div class="icon">
                 <div class="fa fa-list" id="menu-btn"></div>
                 <div class="fa fa-search" id="search-btn"></div>
-                <a href="./account.html"><i class="fa fa-user"></i></a>
-                <a href="./giohang.html"><i class="fa fa-shopping-cart"></i><sup>0</sup></a>
+                <a href="/cart"><i class="fa fa-shopping-cart"></i><sup>0</sup></a>
+                <div class="fa fa-user" id="user-btn"></div>
             </div>
         </div>
     </header>
     <main>
         <div class="form-container">
-            <form action="" method="post" enctype="multipart/form-data" class="login">
+            <form action="" method="POST" class="login">
                 <h3>Đăng nhập</h3>
                 <div class="flex">
                     <div class="input-field">
@@ -53,8 +53,8 @@
                         <input type="password" name="pass" placeholder="Nhập mật khẩu" maxlength="50" required
                             class="box">
                     </div>
-                    <p>Chưa có tài khoản? <a href="./register.html">Đăng ký ngay</a></p>
-                    <input type="submit" name="login" value="Đăng nhập" class="btn">
+                    <p>Chưa có tài khoản? <a href="/register">Đăng ký ngay</a></p>
+                    <input type="submit" value="Đăng nhập" class="btn">
                 </div>
             </form>
         </div>
