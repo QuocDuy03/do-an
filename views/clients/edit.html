@@ -36,23 +36,21 @@
                 <div class="fa fa-user" id="user-btn"></div>
             </div>
             <div class="profile-details">
-                <% if (user) { %>
+                <div class="logged-in">
                     <img src="/images/banchay1.png">
-                    <h2>
-                        <%= user.name %>
-                    </h2>
+                    <h2></h2>
                     <div class="flex-btn">
-                        <a href="/account" class="btn"> Hồ sơ </a>
-                        <a href="/logout" class="btn"> Đăng xuất </a>
+                        <a href="/account" class="btn profile"> Hồ sơ </a>
+                        <a href="/logout" class="btn logout"> Đăng xuất </a>
                     </div>
-                    <% } else { %>
-                        <h2>Vui lòng đăng nhập hoặc đăng ký</h2>
-                        <div class="flex-btn">
-                            <a href="/login" class="btn"> Đăng nhập </a>
-                            <a href="/register" class="btn"> Đăng ký </a>
-                        </div>
-                        <% } %>
-
+                </div>
+                <div class="logged-out">
+                    <h2>Vui lòng đăng nhập hoặc đăng ký</h2>
+                    <div class="flex-btn">
+                        <a href="/login" class="btn login"> Đăng nhập </a>
+                        <a href="/register" class="btn register"> Đăng ký </a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
