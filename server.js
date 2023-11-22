@@ -1,10 +1,11 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const cookieParser = require('cookie-parser');
 const path = require('path');
 const app = express();
 const port = 8080;
 
-// dotenv.config();
+dotenv.config();
 
 const route = require('./routes');
 const db = require('./config/database');
@@ -13,7 +14,7 @@ const db = require('./config/database');
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(cookieParser());
 db.connect();
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');

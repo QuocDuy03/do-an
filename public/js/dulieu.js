@@ -1,6 +1,4 @@
 // Tạo một mảng chứa thông tin về quần áo với hình ảnh
-alert('helloo')
-
 
 const gioHang = [
   {

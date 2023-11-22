@@ -5,7 +5,6 @@ class RegisterController {
     index(req, res) {
         res.render('register', {
             message: null,
-            success: null,
         });
     }
 
@@ -13,31 +12,28 @@ class RegisterController {
         const db = await database.connect();
         const formData = req.body;
 
-        db.query("SELECT email FROM user WHERE email = ?", [formData.email], async (error, results) => {
+        db.query("SELECT email FROM users WHERE email = ?", [formData.email], async (error, results) => {
             if (error)
                 console.log(error);
             else if (results.length > 0)
-                return res.render('register', {
+                return res.status(401).json({
                     message: "Email này đã được sử dụng",
-                    success: null,
                 })
             else if (formData.pass !== formData.cpass)
-                return res.render('register', {
+                return res.status(401).json({
                     message: "Mật khẩu không khớp",
-                    success: null,
                 })
             else {
                 let hashedPass = await bcrypt.hash(formData.pass, 8);
-                db.query("INSERT INTO user SET ?",
-                    { name: formData.name, phone: formData.phone, email: formData.email, pass: hashedPass },
+                db.query("INSERT INTO users SET ?",
+                    { fullname: formData.fullname, phone_number: formData.phone, email: formData.email, address: formData.address, password: hashedPass },
                     (error, results) => {
                         if (error)
                             console.log(error);
                         else {
-                            return res.render('register', {
-                                success: "Đăng ký thành công!!!",
-                                message: null,
-                            })
+                            res.status(201).json({
+                                message: "User successfully Logged in",
+                            });
                         }
                     })
             }

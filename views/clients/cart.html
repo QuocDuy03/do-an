@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Giỏ hàng</title>
-  <link rel="icon" type="image/x-icon" href="images/logo2.png">
-  <link rel="stylesheet" href="css/globalStyle.css">
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/giohang.css">
+  <link rel="icon" type="image/x-icon" href="/images/logo2.png">
+  <link rel="stylesheet" href="/css/globalStyle.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/giohang.css">
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -17,46 +17,45 @@
 <body>
   <header class="header">
     <div class="navbar-wrap">
-        <a href="#">
-            <img src="images/logo2.png" alt="Logo">
-        </a>
-        <nav class="navbar">
-            <a href="#">Nam</a>
-            <a href="#">Nữ</a>
-            <a href="#">Trẻ em</a>
-        </nav>
-        <form action="" method="post" class="search-bar">
-            <input type="text" name="search_product" placeholder="Search..." maxlength="100">
-            <button type="submit" class="fa fa-search" id="Search_product_button"></button>
-        </form>
-        <div class="icon">
-          <div class="fa fa-list" id="menu-btn"></div>
-          <div class="fa fa-search" id="search-btn"></div>
-          <a href="/cart"><i class="fa fa-shopping-cart"></i><sup>0</sup></a>
-          <div class="fa fa-user" id="user-btn"></div>
+      <a href="/">
+        <img src="/images/logo2.png" alt="Logo">
+      </a>
+      <nav class="navbar">
+        <a href="/products/male">Nam</a>
+        <a href="/products/female">Nữ</a>
+        <a href="/products/baby">Trẻ em</a>
+      </nav>
+      <form action="" method="post" class="search-bar">
+        <input type="text" name="search_product" placeholder="Search..." maxlength="100">
+        <button type="submit" class="fa fa-search" id="Search_product_button"></button>
+      </form>
+      <div class="icon">
+        <div class="fa fa-list" id="menu-btn"></div>
+        <div class="fa fa-search" id="search-btn"></div>
+        <a href="/cart"><i class="fa fa-shopping-cart"></i><sup>0</sup></a>
+        <div class="fa fa-user" id="user-btn"></div>
       </div>
       <div class="profile-details">
-
-          <% if (name) { %>
-              <img src="/images/banchay1.png">
-              <h2>
-                  <%= name %>
-              </h2>
-              <div class="flex-btn">
-                  <a href="/account" class="btn"> Hồ sơ </a>
-                  <a href="/logout" class="btn"> Đăng xuất </a>
-              </div>
-              <% } else { %>
-                  <h2>Vui lòng đăng nhập hoặc đăng ký</h2>
-                  <div class="flex-btn">
-                      <a href="/login" class="btn"> Đăng nhập </a>
-                      <a href="/register" class="btn"> Đăng ký </a>
-                  </div>
-                  <% } %>
+        <% if (user) { %>
+          <img src="/images/banchay1.png">
+          <h2>
+            <%= user.name %>
+          </h2>
+          <div class="flex-btn">
+            <a href="/account" class="btn"> Hồ sơ </a>
+            <a href="/logout" class="btn"> Đăng xuất </a>
+          </div>
+          <% } else { %>
+            <h2>Vui lòng đăng nhập hoặc đăng ký</h2>
+            <div class="flex-btn">
+              <a href="/login" class="btn"> Đăng nhập </a>
+              <a href="/register" class="btn"> Đăng ký </a>
+            </div>
+            <% } %>
 
       </div>
     </div>
-</header>
+  </header>
 
   <main>
     <div class="gio-hang" id="gio-hang">
@@ -142,9 +141,9 @@
     </div>
   </footer>
 
-  <script src="js/dulieu.js"></script>
-  <script src="js/header.js"></script>
-  <script src="js/giohang.js"></script>
+  <script src="/js/dulieu.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/js/giohang.js"></script>
 </body>
 
 </html>

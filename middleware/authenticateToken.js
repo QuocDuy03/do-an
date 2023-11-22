@@ -1,13 +1,14 @@
 const jwt = require('jsonwebtoken');
 
 const authenticateToken = (req, res, next) => {
-    const token = req.header('Authorization');
+    const token = req.cookies.token; // Đọc token từ cookie, sử dụng tên cookie tương ứng
     if (!token) return res.sendStatus(401);
 
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
         if (err) return res.sendStatus(403);
         req.user = user;
         next();
+
     });
 };
 
