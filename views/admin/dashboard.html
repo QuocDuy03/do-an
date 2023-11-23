@@ -15,29 +15,29 @@
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
-            <a href="#"><img src="/images/logo2.png" alt="Logo shop"></a>
+            <a href="/admin/dashboard"><img src="/images/logo2.png" alt="Logo shop"></a>
         </div>
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="" class="active" id="dashboardAll"><span class="las la-igloo"
+                    <a href="/admin/dashboard" class="active" id="dashboardAll"><span class="las la-igloo"
                             onclick="displayDashBoard()"></span>
                         <span>Bảng điều khiển</span></a>
                 </li>
                 <li>
-                    <a href="" id="customerLink"><span class="las la-users"></span>
+                    <a href="/admin/customers" id="customerLink"><span class="las la-users"></span>
                         <span>Quản lý khách hàng</span></a>
                 </li>
                 <li>
-                    <a href="" id="employeeMnt"><span class="las la-clipboard-list"></span>
+                    <a href="/admin/employees" id="employeeMnt"><span class="las la-clipboard-list"></span>
                         <span>Quản lý nhân viên</span></a>
                 </li>
                 <li>
-                    <a href="" id="orderBag"><span class="las la-shopping-bag"></span>
+                    <a href="/admin/products" id="orderBag"><span class="las la-shopping-bag"></span>
                         <span>Quản lý sản phẩm</span></a>
                 </li>
                 <li>
-                    <a href="" id="inventoryReceipt"><span class="las la-receipt"></span>
+                    <a href="/admin/orders" id="inventoryReceipt"><span class="las la-receipt"></span>
                         <span>Quản lý đơn hàng</span></a>
                 </li>
             </ul>
@@ -48,8 +48,8 @@
         <header>
             <h2>
                 <label for="nav-toggle">
-                    <span class="las la-bars"></span>Dashboard
-                </label>
+                    <span class="las la-bars"></span>
+                </label>Bảng điều khiển
             </h2>
 
             <div class="user-wrapper">
@@ -130,94 +130,7 @@
                 </div>
             </div>
             <!-- Customer table -->
-            <div class="customer">
-                <div class="card">
-                    <!-- Header of customer -->
-                    <div class="card-header">
-                        <h3>New customers</h3>
-                        <button>See all <span class="las la-arrow-right">
-                            </span></button>
-                    </div>
-                    <!-- Body of customer list -->
-                    <div class="card-body">
-                        <!-- Customer 1 -->
-                        <div class="customer">
-                            <div class="info">
-                                <img src="/images/avata.jpg" alt="">
-                                <div>
-                                    <h4>Ma Văn Chương</h4>
-                                    <small>CEO excerpt</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-                            </div>
-                        </div>
-                        <!-- Customer 2 -->
-                        <div class="customer">
-                            <div class="info">
-                                <img src="/images/avata.jpg" alt="">
-                                <div>
-                                    <h4>Đặng Quốc Duy</h4>
-                                    <small>CEO excerpt</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-                            </div>
-                        </div>
-                        <!-- Customer 3 -->
-                        <div class="customer">
-                            <div class="info">
-                                <img src="/images/avata.jpg" alt="">
-                                <div>
-                                    <h4>Phạm Anh Kiệt</h4>
-                                    <small>CEO excerpt</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-                            </div>
-                        </div>
-                        <!-- Customer 4 -->
-                        <div class="customer">
-                            <div class="info">
-                                <img src="/images/avata.jpg" alt="">
-                                <div>
-                                    <h4>Nguyễn Lê Tấn Quang</h4>
-                                    <small>CEO excerpt</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-                            </div>
-                        </div>
-                        <!-- Customer 5 -->
-                        <div class="customer">
-                            <div class="info">
-                                <img src="/images/avata.jpg" alt="">
-                                <div>
-                                    <h4>Ma Seo Sầu</h4>
-                                    <small>CEO excerpt</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </main>
     </div>
 </body>

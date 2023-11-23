@@ -15,28 +15,32 @@
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
-            <a href="#"><img src="/images/logo2.png" alt="Logo shop"></a>
+            <a href="/admin/dashboard"><img src="/images/logo2.png" alt="Logo shop"></a>
         </div>
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href=""><span class="las la-igloo" onclick="displayDashBoard()"></span>
+                    <a href="/admin/dashboard"><span class="las la-igloo" onclick="displayDashBoard()"></span>
                         <span>Bảng điều khiển</span></a>
                 </li>
                 <li>
-                    <a href="" id="customerLink"><span class="las la-users" onclick="displayUsers()"></span>
+                    <a href="/admin/customers" id="customerLink"><span class="las la-users"
+                            onclick="displayUsers()"></span>
                         <span>Quản lý khách hàng</span></a>
                 </li>
                 <li>
-                    <a href="" id="employeeMnt"><span class="las la-clipboard-list" onclick="displayProject()"></span>
+                    <a href="/admin/employees" id="employeeMnt"><span class="las la-clipboard-list"
+                            onclick="displayProject()"></span>
                         <span>Quản lý nhân viên</span></a>
                 </li>
                 <li>
-                    <a href="" id="orderBag"><span class="las la-shopping-bag" onclick="displayorders()"></span>
+                    <a href="/admin/products" id="orderBag"><span class="las la-shopping-bag"
+                            onclick="displayorders()"></span>
                         <span>Quản lý sản phẩm</span></a>
                 </li>
                 <li>
-                    <a href="" class="active" id="inventoryReceipt"><span class="las la-receipt" onclick="displayReceipt()"></span>
+                    <a href="/admin/orders" class="active" id="inventoryReceipt"><span class="las la-receipt"
+                            onclick="displayReceipt()"></span>
                         <span>Quản lý đơn hàng</span></a>
                 </li>
             </ul>
@@ -47,7 +51,7 @@
             <h2>
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
-                </label>Dashboard
+                </label>Đơn đặt hàng
             </h2>
             <form action="#" method="get" class="search-bar">
                 <input type="text" name="search_product" placeholder="Search..." maxlength="100">
@@ -61,13 +65,13 @@
                     <span class="las la-angle-down"></span>
                 </div>
             </div> F
-            
+
             <div id="info" class="info" style="display: none;">
                 <h3>Tên: Nguyễn Văn A</h3>
                 <p>Email: example@example.com</p>
                 <p>Địa chỉ: 123 Example Street, Thành phố, Quốc gia</p>
                 <p>Điện thoại: 123-456-7890</p>
-            </div>            
+            </div>
         </header>
         <section class="data-table">
             <header>
@@ -99,7 +103,8 @@
                             <td>mf01</td>
                             <td>Đặng Quốc Duy</td>
                             <td>0495950</td>
-                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương</td>
+                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương
+                            </td>
                             <td>13.000.000</td>
                             <td>Chưa</td>
                             <td>Tiền mặt</td>
@@ -114,7 +119,8 @@
                             <td>mf01</td>
                             <td>Đặng Quốc Duy</td>
                             <td>0495950</td>
-                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương</td>
+                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương
+                            </td>
                             <td>13.000.000</td>
                             <td>Chưa</td>
                             <td>Tiền mặt</td>
@@ -129,7 +135,8 @@
                             <td>mf01</td>
                             <td>Đặng Quốc Duy</td>
                             <td>0495950</td>
-                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương</td>
+                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương
+                            </td>
                             <td>13.000.000</td>
                             <td>Chưa</td>
                             <td>Tiền mặt</td>
@@ -144,7 +151,8 @@
                             <td>mf01</td>
                             <td>Đặng Quốc Duy</td>
                             <td>0495950</td>
-                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương</td>
+                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương
+                            </td>
                             <td>13.000.000</td>
                             <td>Chưa</td>
                             <td>Tiền mặt</td>
@@ -159,7 +167,8 @@
                             <td>mf01</td>
                             <td>Đặng Quốc Duy</td>
                             <td>0495950</td>
-                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương</td>
+                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương
+                            </td>
                             <td>13.000.000</td>
                             <td>Chưa</td>
                             <td>Tiền mặt</td>

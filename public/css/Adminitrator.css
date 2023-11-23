@@ -34,6 +34,7 @@ div {
     height: 90px;
     padding: 1rem 0rem 1rem 2rem;
     color: #fff;
+    overflow: hidden;
 }
 
 .sidebar-brand span {
@@ -195,10 +196,6 @@ header label span {
 }
 
 main {
-    display: flex;
-    justify-content: space-between;
-    /* margin-top: 85px; */
-    /* padding: 2rem 1.5rem; */
     background: #f1f5f9;
     min-height: calc(100vh - 90px);
 }

@@ -16,28 +16,28 @@
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
-            <a href="#"><img src="/images/logo2.png" alt="Logo shop"></a>
+            <a href="/admin/dashboard"><img src="/images/logo2.png" alt="Logo shop"></a>
         </div>
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="" class="active"><span class="las la-igloo" onclick="displayDashBoard()"></span>
+                    <a href="/admin/dashboard"><span class="las la-igloo" onclick="displayDashBoard()"></span>
                         <span>Bảng điều khiển</span></a>
                 </li>
                 <li>
-                    <a href="" id="customerLink"><span class="las la-users" onclick="displayUsers()"></span>
+                    <a href="/admin/customers" id="customerLink"><span class="las la-users" onclick="displayUsers()"></span>
                         <span>Quản lý khách hàng</span></a>
                 </li>
                 <li>
-                    <a href="" id="employeeMnt"><span class="las la-clipboard-list" onclick="displayProject()"></span>
+                    <a href="/admin/employees" id="employeeMnt"><span class="las la-clipboard-list" onclick="displayProject()"></span>
                         <span>Quản lý nhân viên</span></a>
                 </li>
                 <li>
-                    <a href="" id="orderBag"><span class="las la-shopping-bag" onclick="displayorders()"></span>
+                    <a href="/admin/products" class="active" id="orderBag"><span class="las la-shopping-bag" onclick="displayorders()"></span>
                         <span>Quản lý đơn hàng</span></a>
                 </li>
                 <li>
-                    <a href="" id="inventoryReceipt"><span class="las la-receipt" onclick="displayReceipt()"></span>
+                    <a href="/admin/orders" id="inventoryReceipt"><span class="las la-receipt" onclick="displayReceipt()"></span>
                         <span>Quản lý doanh thu</span></a>
                 </li>
             </ul>
@@ -48,13 +48,8 @@
             <h2>
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
-                </label>Dashboard
+                </label>Sản phẩm
             </h2>
-            <form action="#" method="get" class="search-bar">
-                <input type="text" name="search_product" placeholder="Search..." maxlength="100">
-                <button type="submit" class="las la-search" id="Search_product_button"></button>
-            </form>
-
             <div class="user-wrapper">
                 <img src="/images/adminpic.jpg" alt="" onclick="showAdminInfo()">
                 <h6>Admin</h6>

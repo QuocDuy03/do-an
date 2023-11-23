@@ -29,9 +29,9 @@ class LoginController {
                     const isValidPassword = await bcrypt.compare(formData.pass, user.password);
 
                     if (isValidPassword) {
-                        const token = jwt.sign({ email: user.email, name: user.fullname }, process.env.JWT_SECRET, { expiresIn: 86400 });
+                        const token = jwt.sign({ email: user.email, name: user.fullname, phone: user.phone_number }, process.env.JWT_SECRET, { expiresIn: 86400 });
 
-                        req.user = { email: user.email, name: user.fullname };
+                        req.user = { email: user.email, name: user.fullname, phone: user.phone_number };
                         res.cookie('token', token, {
                             expires: new Date(Date.now() + 86400000),
                             httpOnly: true
@@ -41,6 +41,7 @@ class LoginController {
                             message: "User successfully Logged in",
                             name: user.fullname,
                             email: user.email,
+                            phone: user.phone_number,
                         });
                     } else {
                         return res.status(401).json({ message: "Invalid password" });
@@ -67,12 +68,11 @@ class LoginController {
                 if (err) {
                     return res.status(401).json({ message: "Unauthorized" });
                 }
-
                 // Trả về thông tin người dùng đã giải mã từ token
                 return res.status(200).json({
                     name: decoded.name,
-                    email: decoded.email
-                    // Các thông tin khác của người dùng có thể truy cập từ decoded object
+                    email: decoded.email,
+                    phone: decoded.phone,
                 });
             });
         } catch (error) {

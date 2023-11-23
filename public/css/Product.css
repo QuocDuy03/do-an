@@ -76,7 +76,7 @@ div {
 #nav-toggle:checked+.sidebar li {
     padding-left: 1rem;
     text-align: center;
-}
+}a
 
 #nav-toggle:checked+.sidebar li a {
     padding-left: 0rem;
@@ -300,4 +300,11 @@ input[type="checkbox"]:checked+.tick-checkbox:after {
     font-size: 1.2rem;
     margin-left: .5rem;
     color: var(--main-color);
+}
+.sidebar-menu a.active {
+    background: #F08A5D;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: var(--main-color);
+    border-radius: 30px 0px 0px 30px;
 }
