@@ -3,7 +3,11 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 class LoginController {
     index(req, res) {
-        res.render('login');
+        const token = req.cookies.token; 
+        if (!token)
+            res.render('login');
+        else
+            res.redirect('/account');
     }
 
     async signIn(req, res) {

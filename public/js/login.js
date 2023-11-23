@@ -2,6 +2,7 @@
 const form = document.querySelector('.login');
 const email = document.querySelector('#email');
 const pass = document.querySelector('#pass');
+const pathName = window.location.pathname;
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -16,14 +17,16 @@ form.addEventListener('submit', async (e) => {
                 pass: pass.value,
             }),
         });
-
         const data = await res.json();
 
         if (res.status === 400 || res.status === 401) {
             console.log(data.message);
         } else {
             console.log("Login successful");
-            window.location.href = '/';
+            if (pathName === '/login')
+                window.location.href = '/';
+            else 
+                window.location.href = '/admin/dashboard';
         }
     } catch (err) {
         console.log(err);
