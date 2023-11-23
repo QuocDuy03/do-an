@@ -57,7 +57,7 @@
 
     <nav class="top-nav">
         <a href="/" id="home-link">Trang chủ / </a>
-        <a href="#" style="color: #ff5733;">Tài khoản</a>
+        <a href="/account" style="color: #ff5733;">Tài khoản</a>
     </nav>
 
 
@@ -75,15 +75,19 @@
 
         <div class="content_account">
             <h2>Chỉnh sửa hồ sơ cá nhân</h2>
-            <form action="#" method="post">
+            <p id="error-message">
+            </p>
+            <p id="success-message">
+            </p>
+            <form action="/edit/change-information" method="post" id="change-information">
                 <div class="form-group">
                     <label for="username">Tên người dùng:</label>
-                    <input type="text" id="username" name="username" value="Tên của tôi" required>
+                    <input type="text" id="username" name="username" value="" readonly>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="example@example.com" required>
+                    <input type="email" id="change-email" name="change-email" value="" readonly>
                 </div>
 
                 <div class="form-group">

@@ -34,7 +34,7 @@ class RegisterController {
                             console.log(error);
                         else {
                             res.status(201).json({
-                                message: "User successfully Logged in",
+                                message: "User successfully registered",
                             });
                         }
                     })

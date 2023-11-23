@@ -140,3 +140,26 @@ footer .get-information {
     margin-left: 0px; 
 }
 
+#error-message {
+    border: 1px solid #f1aeb5;
+    background-color: #f8d7da;
+    color: #58151c;
+    font-size: 1.8rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    display: none;
+}
+
+#success-message {
+    color: #0a3622;
+    background-color: #d1e7dd;
+    border: 1px solid #a3cfbb;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+    display: none;
+}
