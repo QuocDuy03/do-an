@@ -1,18 +1,3 @@
-body, html {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-.header {
-    padding-bottom: 20px;
-}
-
-.footer {
-    padding-top: 20px;
-}
-
 .user-profile {
     display: flex;
 }
