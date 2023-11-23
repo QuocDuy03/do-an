@@ -1,15 +1,3 @@
-.header {
-    /* Thuộc tính khác cho header */
-    padding-bottom: 20px;
-    /* Để tạo khoảng cách giữa header và sidebar */
-}
-
-.footer {
-    /* Thuộc tính khác cho footer */
-    padding-top: 20px;
-    /* Để tạo khoảng cách giữa footer và sidebar */
-}
-
 .user-profile {
     display: flex;
     /* Sử dụng flexbox */

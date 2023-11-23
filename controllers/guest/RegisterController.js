@@ -3,9 +3,11 @@ const bcrypt = require('bcryptjs');
 
 class RegisterController {
     index(req, res) {
-        res.render('register', {
-            message: null,
-        });
+        const token = req.cookies.token; 
+        if (!token)
+            res.render('register');
+        else
+            res.redirect('/account');
     }
 
     async store(req, res) {
