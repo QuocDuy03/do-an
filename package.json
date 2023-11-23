@@ -21,7 +21,8 @@
     "express-es6-template-engine": "^2.2.3",
     "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
-    "mysql2": "^3.6.3"
+    "mysql2": "^3.6.3",
+    "vary": "^1.1.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

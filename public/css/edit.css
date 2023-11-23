@@ -69,7 +69,7 @@
 }
 
 /* CSS cho form và form-group */
-form {
+.content_account form {
     text-align: center;
     width: 100%;
     max-width: 500px; /* Đặt độ rộng tối đa để tránh nó quá rộng trên màn hình lớn */
@@ -134,4 +134,9 @@ button[type="submit"]:hover {
     font-weight: bold;
 }
 
+
+footer .get-information {
+    text-align: left;
+    margin-left: 0px; 
+}
 
