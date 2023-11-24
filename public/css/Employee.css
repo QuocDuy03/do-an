@@ -27,7 +27,7 @@ div {
     height: 100%;
     background: var(--main-color);
     z-index: 100%;
-    transition: widht 300ms;
+    transition: width 300ms;
 }
 
 .sidebar-brand {
@@ -41,7 +41,7 @@ div {
 }
 
 .sidebar-brand span {
-    display: inline- block;
+    display: inline-block;
     padding-right: 1rem;
 }
 
@@ -117,7 +117,7 @@ div {
 }
 
 .data-table {
-    padding-top: 0.1rem;
+    padding-top: 2rem;
     transition: 300ms;
 }
 
@@ -226,10 +226,6 @@ header label span {
     margin-top: 10px;
 }
 
-/* Main content with table */
-.data-table{
-    width: 95%;
-}
 
 .card-header {
     margin-top: 20px;
@@ -308,12 +304,13 @@ header label span {
     margin-left: 20px;
     font-family: arial, sans-serif;
     border-collapse: collapse;
+    width: 95%;
 }
 
 td,
 th {
     border: 1px solid hsl(0, 24%, 4%);
-    text-align: left;
+    text-align: center;
     padding: 8px;
 }
 
@@ -342,11 +339,6 @@ th {
 input[type="checkbox"]:checked+.tick-checkbox:after {
     display: block;
 } */
-
-tr td {
-    text-align: center;
-    overflow: hidden;
-}
 tr td input {
     width: var(--check-box-size);
     height: var(--check-box-size);
