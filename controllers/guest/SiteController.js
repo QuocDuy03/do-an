@@ -5,14 +5,16 @@ class SiteController {
     async index(req, res) {
         const token = await req.cookies.token;
         if (token) {
-            jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, user) => {
+            jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
                 if (err) {
                     return res.send('Xin chào! Đây là trang chủ');
                 }
-                res.render('home', {
-                    user: user
-                })
-
+                if (user.role_id === 2)
+                    res.render('home', {
+                        user: user
+                    })
+                else
+                    res.redirect('/admin/dashboard');
             });
         }
         else {
