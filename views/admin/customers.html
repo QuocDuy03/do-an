@@ -13,60 +13,60 @@
 </head>
 
 <body>
-    <input type="checkbox" id="nav-toggle">
-    <div class="sidebar">
-        <div class="sidebar-brand">
-            <a href="/admin/dashboard"><img src="/images/logo2.png" alt="Logo shop"></a>
-        </div>
-        <div class="sidebar-menu">
-            <ul>
-                <li>
-                    <a href="/admin/dashboard"><span class="las la-igloo" onclick="displayDashBoard()"></span>
-                        <span>Bảng điều khiển</span></a>
-                </li>
-                <li>
-                    <a href="/admin/customers" class ="active" id="customerLink"><span class="las la-users" onclick="displayUsers()"></span>
-                        <span>Quản lý khách hàng</span></a>
-                </li>
-                <li>
-                    <a href="/admin/employees" id="employeeMnt"><span class="las la-clipboard-list" onclick="displayProject()"></span>
-                        <span>Quản lý nhân viên</span></a>
-                </li>
-                <li>
-                    <a href="/admin/products" id="orderBag"><span class="las la-shopping-bag" onclick="displayorders()"></span>
-                        <span>Quản lý sản phẩm</span></a>
-                </li>
-                <li>
-                    <a href="/admin/orders" id="inventoryReceipt"><span class="las la-receipt" onclick="displayReceipt()"></span>
-                        <span>Quản lý đơn hàng</span></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="main-content">
-        <header>
-            <h2>
-                <label for="nav-toggle">
-                    <span class="las la-bars"></span>
-                </label>
-                Khách hàng
-            </h2>
+    <header>
+        <h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            Khách hàng
+        </h2>
 
-            <div class="user-wrapper">
-                <img src="adminpic.jpg" alt="" onclick="showAdminInfo()">
-                <h6>Admin</h6>
-                <div class="arrow-down" onclick="toggleInfo()">
-                    <span class="las la-angle-down"></span>
-                </div>
+        <div class="user-wrapper">
+            <img src="adminpic.jpg" alt="" onclick="showAdminInfo()">
+            <h6>Admin</h6>
+            <div class="arrow-down" onclick="toggleInfo()">
+                <span class="las la-angle-down"></span>
             </div>
-            
-            <div id="info" class="info" style="display: none;">
-                <h3>Tên: Nguyễn Văn A</h3>
-                <p>Email: example@example.com</p>
-                <p>Địa chỉ: 123 Example Street, Thành phố, Quốc gia</p>
-                <p>Điện thoại: 123-456-7890</p>
+        </div>
+        
+        <div id="info" class="info" style="display: none;">
+            <h3>Tên: Nguyễn Văn A</h3>
+            <p>Email: example@example.com</p>
+            <p>Địa chỉ: 123 Example Street, Thành phố, Quốc gia</p>
+            <p>Điện thoại: 123-456-7890</p>
+        </div>
+    </header>
+    <div class="main-content">
+        <input type="checkbox" id="nav-toggle">
+        <div class="sidebar">
+            <div class="sidebar-brand">
+                <a href="/admin/dashboard"><img src="/images/logo2.png" alt="Logo shop"></a>
             </div>
-        </header>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="/admin/dashboard"><span class="las la-igloo" onclick="displayDashBoard()"></span>
+                            <span>Bảng điều khiển</span></a>
+                    </li>
+                    <li>
+                        <a href="/admin/customers" class ="active" id="customerLink"><span class="las la-users" onclick="displayUsers()"></span>
+                            <span>Quản lý khách hàng</span></a>
+                    </li>
+                    <li>
+                        <a href="/admin/employees" id="employeeMnt"><span class="las la-clipboard-list" onclick="displayProject()"></span>
+                            <span>Quản lý nhân viên</span></a>
+                    </li>
+                    <li>
+                        <a href="/admin/products" id="orderBag"><span class="las la-shopping-bag" onclick="displayorders()"></span>
+                            <span>Quản lý sản phẩm</span></a>
+                    </li>
+                    <li>
+                        <a href="/admin/orders" id="inventoryReceipt"><span class="las la-receipt" onclick="displayReceipt()"></span>
+                            <span>Quản lý đơn hàng</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <main>
             <table>
                 <tr>
