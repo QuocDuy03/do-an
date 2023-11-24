@@ -55,7 +55,7 @@
                 </label>Nhân viên
             </h2>
             <div class="user-wrapper">
-                <img src="adminpic.jpg" alt="" onclick="showAdminInfo()">
+                <img src="/images/logo2.png" alt="" onclick="showAdminInfo()">
                 <h6>Admin</h6>
                 <div class="arrow-down" onclick="toggleInfo()">
                     <span class="las la-angle-down"></span>
@@ -70,25 +70,6 @@
             </div>
         </header>
         <section class="data-table">
-            <div class="card-header">
-                <button onclick="openPopup()"><span class="las la-plus"></span>Thêm nhân viên mới</button>
-                <div id="popup" class="popup">
-                    <div class="popup-content">
-                        <span class="close" onclick="closePopup()">&times;</span>
-                        <h2>Thêm nhân viên mới</h2>
-                        <form id="employeeForm" class="employee-form">
-                            <input type="text" placeholder="Họ và tên" required>
-                            <input type="email" placeholder="Email" required>
-                            <input type="text" placeholder="Số điện thoại" required>
-                            <input type="text" placeholder="Địa chỉ" required>
-                            <input type="text" placeholder="Chức vụ" required>
-                            <input type="text" placeholder="Giới tính" required>
-                            <button type="submit" onclick="submitForm()">Thêm</button>
-                            <button type="button" onclick="closePopup()">Hủy</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
             <div class="card-body">
                 <table>
                     <thead>
@@ -100,110 +81,10 @@
                             <th>Số điện thoại</th>
                             <th>Địa chỉ thường trú</th>
                             <th>Chức vụ</th>
-                            <th>Giới tính</th>
                             <th>Chức năng</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <input type="checkbox" id="tickF">
-                                <label for="tickF" class="tick-checkbox"></label>
-                            </td>
-                            <td>1</td>
-                            <td>Đặng Quốc Duy</td>
-                            <td>duy@gmail.com</td>
-                            <td>0987.654.321</td>
-                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương
-                            </td>
-                            <td>Quản lý User</td>
-                            <td>Nam</td>
-                            <td>
-                                <div class="Action">
-                                    <span class="las la-edit edit-botton"></span>
-                                    <span class="las la-trash delete-button"></span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" id="tickS">
-                                <label for="tickS" class="tick-checkbox"></label>
-                            </td>
-                            <td>2</td>
-                            <td>Nguyễn Văn A</td>
-                            <td>a@gmail.com</td>
-                            <td>0901.234.567</td>
-                            <td>Đường Lê Lợi, Khu phố Bến Thành, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh</td>
-                            <td>Quản lý nhân viên</td>
-                            <td>Nữ</td>
-                            <td>
-                                <div class="Action">
-                                    <span class="las la-edit edit-botton"></span>
-                                    <span class="las la-trash delete-button"></span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" id="tickT">
-                                <label for="tickT" class="tick-checkbox"></label>
-                            </td>
-                            <td>1</td>
-                            <td>Đặng Quốc Duy</td>
-                            <td>duy@gmail.com</td>
-                            <td>0987.654.321</td>
-                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương
-                            </td>
-                            <td>Quản lý User</td>
-                            <td>Nam</td>
-                            <td>
-                                <div class="Action">
-                                    <span class="las la-edit edit-botton"></span>
-                                    <span class="las la-trash delete-button"></span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" id="tickfour">
-                                <label for="tickfour" class="tick-checkbox"></label>
-                            </td>
-                            <td>1</td>
-                            <td>Đặng Quốc Duy</td>
-                            <td>duy@gmail.com</td>
-                            <td>0987.654.321</td>
-                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương
-                            </td>
-                            <td>Quản lý User</td>
-                            <td>Nam</td>
-                            <td>
-                                <div class="Action">
-                                    <span class="las la-edit edit-botton"></span>
-                                    <span class="las la-trash delete-button"></span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" id="tickFi">
-                                <label for="tickFi" class="tick-checkbox"></label>
-                            </td>
-                            <td>1</td>
-                            <td>Đặng Quốc Duy</td>
-                            <td>duy@gmail.com</td>
-                            <td>0987.654.321</td>
-                            <td>Đường Mạc Đĩnh Chi, Khu phố Tân Hòa, Phường Đông Hòa Thành phố Dĩ An, Tỉnh Bình Dương
-                            </td>
-                            <td>Quản lý User</td>
-                            <td>Nam</td>
-                            <td>
-                                <div class="Action">
-                                    <span class="las la-edit edit-botton"></span>
-                                    <span class="las la-trash delete-button"></span>
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -212,5 +93,5 @@
     <footer>
         &copy; 2023 G5Shop
     </footer>
-    <script src="/css/Employee.js"></script>
+    <script src="/js/Employee.js"></script>
 </body>
