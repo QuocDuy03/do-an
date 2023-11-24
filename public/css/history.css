@@ -52,6 +52,7 @@
 .sidebar a:hover {
     color: #ff5733;
 }
+
 .content_account {
     width: 70%;
     height: auto;
@@ -118,14 +119,17 @@
 }
 
 /* Điều chỉnh kích thước nút "Hủy đơn" */
-#status_button {
-    background-color: #228B22	;
+.status_button {
+    background-color: #228B22;
     color: white;
     border: none;
-    padding: 5px 20px; /* Tăng padding để tăng kích thước */
+    padding: 5px 20px;
+    /* Tăng padding để tăng kích thước */
     cursor: pointer;
-    font-size: 16px; /* Điều chỉnh kích thước chữ */
-    margin-right: 88px; /* Dịch sang bên trái 5px */
+    font-size: 16px;
+    /* Điều chỉnh kích thước chữ */
+    margin-right: 88px;
+    /* Dịch sang bên trái 5px */
 }
 
 

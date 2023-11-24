@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
@@ -25,7 +25,7 @@
                 <a href="/products/female">Nữ</a>
                 <a href="/products/baby">Trẻ em</a>
             </nav>
-            <form action="" method="post" class="search-bar">
+            <form action="/search" method="post" class="search-bar">
                 <input type="text" name="search_product" placeholder="Search..." maxlength="100">
                 <button type="submit" class="fa fa-search" id="Search_product_button"></button>
             </form>
@@ -37,7 +37,7 @@
             </div>
             <div class="profile-details">
                 <div class="logged-in">
-                    <img src="/images/banchay1.png">
+                    <img src="/images/banchay1.png" alt="avatar">
                     <h2></h2>
                     <div class="flex-btn">
                         <a href="/account" class="btn profile"> Hồ sơ </a>
@@ -52,6 +52,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </header>
 
@@ -94,7 +95,7 @@
         <div class="content">
             <div class="box col2">
                 <h3>đăng ký nhận thông tin từ chúng tôi</h3>
-                <form action="" method="get" class="get-information">
+                <form action="/email-register" method="get" class="get-information">
                     <input type="email" id="email" name="email" placeholder="Nhập email của bạn">
                     <button type="submit" name="Gửi">Gửi</button>
                 </form>
@@ -129,7 +130,7 @@
             </div>
         </div>
         <div class="bottom">
-            <p> &copy bản quyền thuộc về nhóm 5</p>
+            <p> &copy; bản quyền thuộc về nhóm 5</p>
         </div>
     </footer>
 
