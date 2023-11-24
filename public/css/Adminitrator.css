@@ -440,9 +440,9 @@ footer p{
         display: inline;
     }
 
-    /* #nav-toggle:checked~.main-content {
+    #nav-toggle:checked~.main-content {
         margin-left: 0rem !important;
-    } */
+    }
 }
 
 @media only screen and (max-width: 560px) {
