@@ -291,31 +291,20 @@ th {
     text-align: left;
     padding: 8px;
 }
+tr {
+    text-align: center; 
+}
 
-/* Checkbox befor number */
-.tick-checkbox {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #000;
+td {
+    vertical-align: middle; 
     position: relative;
 }
 
-.tick-checkbox:after {
-    content: "";
+input[type="checkbox"] {
     position: absolute;
     top: 50%;
-    left: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid #000;
-    border-width: 0 2px 2px 0;
-    transform: translateY(-50%) rotate(45deg);
-    display: none;
-}
-
-input[type="checkbox"]:checked+.tick-checkbox:after {
-    display: block;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Span for action */

@@ -204,7 +204,7 @@ header label span {
 /* Main content with table */
 .data-table{
     width: 95%;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 .card-header {
@@ -279,7 +279,7 @@ header label span {
     background-color: #45a049;
 }
 
-/* Table of employee */
+/* Table of Order */
 .card-body table {
     margin-left: 20px;
     font-family: arial, sans-serif;
@@ -293,32 +293,24 @@ th {
     padding: 8px;
 }
 
+tr {
+    text-align: center; 
+}
+
+td {
+    vertical-align: middle; 
+    position: relative;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* Checkbox befor number */
 
 .tick-checkbox{
     justify-items: center;
 }
-/* .tick-checkbox {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #000;
-    position: relative;
-}
-
-.tick-checkbox:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid #000;
-    border-width: 0 2px 2px 0;
-    transform: translateY(-50%) rotate(45deg);
-    display: none;
-}
-
-input[type="checkbox"]:checked+.tick-checkbox:after {
-    display: block;
-} */
