@@ -346,3 +346,73 @@ input[type="checkbox"]:checked+.tick-checkbox:after {
     color: var(--main-color);
     border-radius: 30px 0px 0px 30px;
 }
+
+.user-icon {
+    width: 50px;
+    height: 50px;
+    color: #F08A5D;
+    border-radius: 50%;
+    border: solid 3px #F08A5D;
+    padding-left: 2px;
+    margin-right: 20px;
+    font-size: 40px;
+}
+.user-icon:hover {
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.profile-details {
+    background-color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 125%;
+    right: 2rem;
+    border-radius: .5rem;
+    width: 30rem;
+    padding: 1.5rem .5rem;
+    text-align: center;
+    overflow: hidden;
+    display: none;
+    transition: .5s;
+}
+
+.profile-details.active {
+    display: inline-block;
+}
+.profile-details h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000;
+    margin-bottom: 2rem;
+}
+
+
+.profile-details .flex-btn {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.profile-details img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: .5rem;
+    object-fit: cover;
+    margin-bottom: .5rem;
+}
+
+.profile-details .flex-btn .btn {
+    margin: 0 .5rem;
+    font-size: 1.6rem;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translate(1rem);
+    }
+}

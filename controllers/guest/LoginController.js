@@ -29,9 +29,9 @@ class LoginController {
                     const isValidPassword = await bcrypt.compare(formData.pass, user.password);
 
                     if (isValidPassword) {
-                        const token = jwt.sign({ id: user.id, email: user.email, name: user.fullname, phone: user.phone_number, role_id: user.role_id }, process.env.JWT_SECRET, { expiresIn: 86400 });
+                        const token = jwt.sign({ id: user.id, email: user.email, name: user.fullname, phone: user.phone_number, address: user.address, role_id: user.role_id,  }, process.env.JWT_SECRET, { expiresIn: 86400 });
 
-                        req.user = { id: user.id, email: user.email, name: user.fullname, phone: user.phone_number, role_id: user.role_id };
+                        req.user = { id: user.id, email: user.email, name: user.fullname, phone: user.phone_number, address: user.address, role_id: user.role_id,  };
                         res.cookie('token', token, {
                             expires: new Date(Date.now() + 86400000),
                             httpOnly: true
@@ -43,6 +43,7 @@ class LoginController {
                             name: user.fullname,
                             email: user.email,
                             phone: user.phone_number,
+                            address: user.address,
                             role_id: user.role_id
                         });
                     } else {

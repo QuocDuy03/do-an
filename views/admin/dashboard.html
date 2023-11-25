@@ -19,19 +19,16 @@
             </label>Bảng điều khiển
         </h2>
 
-        <div class="user-wrapper">
-            <img src="/images/adminpic.jpg" alt="" onclick="showAdminInfo()">
-            <h6>Admin</h6>
-            <div class="arrow-down" onclick="toggleInfo()">
-                <span class="las la-angle-down"></span>
-            </div>
+        <div class="user-icon las la-user" id="user-btn">
         </div>
 
-        <div id="info" class="info" style="display: none;">
-            <h3>Tên: Nguyễn Văn A</h3>
-            <p>Email: example@example.com</p>
-            <p>Địa chỉ: 123 Example Street, Thành phố, Quốc gia</p>
-            <p>Điện thoại: 123-456-7890</p>
+        <div class="profile-details">
+            <img src="/images/banchay1.png" alt="avatar">
+            <h2></h2>
+            <div class="flex-btn">
+                <a href="/admin/dashboard/profile" class="btn profile"> Hồ sơ </a>
+                <a href="/logout" class="btn logout"> Đăng xuất </a>
+            </div>
         </div>
     </header>
     <div class="main-content">
@@ -74,7 +71,7 @@
                         <span>Tổng khách hàng đăng ký</span>
                     </div>
                     <div>
-                        <span class="las la-users"></span> 
+                        <span class="las la-users"></span>
                     </div>
                 </div>
 
@@ -132,6 +129,8 @@
 
         </main>
     </div>
+    <script src="/js/commonAdmin.js"></script>
+
 </body>
 
 </html>

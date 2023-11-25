@@ -18,24 +18,17 @@
                 <span class="las la-bars"></span>
             </label>Đơn đặt hàng
         </h2>
-        <form action="#" method="get" class="search-bar">
-            <input type="text" name="search_product" placeholder="Search..." maxlength="100">
-            <button type="submit" class="las la-search" id="Search_product_button"></button>
-        </form>
 
-        <div class="user-wrapper">
-            <img src="/images/adminpic.jpg" alt="" onclick="showAdminInfo()">
-            <h6>Admin</h6>
-            <div class="arrow-down" onclick="toggleInfo()">
-                <span class="las la-angle-down"></span>
+        <div class="user-icon las la-user" id="user-btn">
+        </div>
+
+        <div class="profile-details">
+            <img src="/images/banchay1.png" alt="avatar">
+            <h2></h2>
+            <div class="flex-btn">
+                <a href="/admin/dashboard/profile" class="btn profile"> Hồ sơ </a>
+                <a href="/logout" class="btn logout"> Đăng xuất </a>
             </div>
-        </div> F
-
-        <div id="info" class="info" style="display: none;">
-            <h3>Tên: Nguyễn Văn A</h3>
-            <p>Email: example@example.com</p>
-            <p>Địa chỉ: 123 Example Street, Thành phố, Quốc gia</p>
-            <p>Điện thoại: 123-456-7890</p>
         </div>
     </header>
     <div class="main-content">
@@ -176,4 +169,7 @@
             </div>
         </section>
     </div>
+    <script src="/js/commonAdmin.js"></script>
+
 </body>
+</html>
