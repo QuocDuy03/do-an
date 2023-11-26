@@ -407,8 +407,19 @@ input[type="checkbox"]:checked+.tick-checkbox:after {
 }
 
 .profile-details .flex-btn .btn {
+    background-color:#F08A5D;
+    color: #fff;
     margin: 0 .5rem;
     font-size: 1.6rem;
+    line-height: 1.5rem;
+    padding: 1.2rem;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.profile-details .flex-btn .btn:hover {
+    background-color: #45a049;
+    cursor: pointer;
 }
 
 @keyframes fadeIn {

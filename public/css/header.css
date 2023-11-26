@@ -22,7 +22,7 @@
 }
 
 .header .navbar-wrap .search-bar {
-    height: 0.3rem;
+    height: 4rem;
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -33,9 +33,9 @@
 
 .header .navbar-wrap .search-bar input {
     width: 100%;
-    margin-left: 1rem;
+    margin-left: 1.5rem;
     background: none;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     box-shadow: none;
     border: none;
     outline: none;
@@ -43,7 +43,7 @@
 
 .header .navbar-wrap .search-bar button {
     font-size: 1.2rem;
-    height: 3rem;
+    height: 4rem;
     width: 7.5rem;
     padding: 1rem 0rem;
     margin-left: 10px;
@@ -64,14 +64,20 @@
 
 .header a i,
 .header .icon div {
-    font-size: 2.5rem;
+    font-size: 4rem;
     color: #F08A5D;
     height: 2.5rem;
     width: 2.5rem;
     line-height: 2.4rem;
     text-align: center;
-    margin-left: 0.8rem;
+    margin-left: 1rem;
+    padding: 0 3rem;
     cursor: pointer;
+}
+
+.header a i:hover,
+.header .icon div:hover {
+    color: #45a049;
 }
 
 .header sup {
@@ -83,7 +89,6 @@
     top: 10%;
     color: #fff;
     line-height: 15px;
-    margin-left: -1rem;
     text-align: center;
 }
 
@@ -160,8 +165,19 @@
 }
 
 .profile-details .flex-btn .btn {
+    background-color:#F08A5D;
+    color: #fff;
     margin: 0 .5rem;
     font-size: 1.6rem;
+    line-height: 1.5rem;
+    padding: 1.2rem;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.profile-details .flex-btn .btn:hover {
+    background-color: #45a049;
+    cursor: pointer;
 }
 
 #menu-btn,
