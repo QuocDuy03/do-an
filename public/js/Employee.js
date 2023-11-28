@@ -34,4 +34,42 @@ function showAdminInfo() {
     }
 }
 
-
+fetch('/admin/employees/getEmployees', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    }
+})
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Fetch request failed');
+        }
+        return response.json();
+    })
+    .then(data => {
+        data.employees.forEach(employee => {
+            const tableRow = document.createElement('tr');
+            tableRow.innerHTML = `
+            <td>
+                <input type="checkbox" id="tick${employee.id}" name="tick${employee.id}" value="${employee.id}">
+                <label for="tick${employee.id}" class="tick-checkbox"></label>
+            </td>
+            <td>${employee.id}</td>
+            <td>${employee.fullname}</td>
+            <td>${employee.email}</td>
+            <td>${employee.phone_number}</td>
+            <td>${employee.address}</td>
+            <td>${employee.name}</td>
+            <td>
+                <div class="Action">
+                    <span class="las la-edit edit-botton"></span>
+                    <span class="las la-trash delete-button"></span>
+                </div>
+            </td>
+        `
+            document.querySelector('table tbody').appendChild(tableRow);
+        })
+    })
+    .catch(err => {
+        console.log(err);
+    }) 

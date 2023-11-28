@@ -38,7 +38,7 @@ fetch('/login/user-info', {
     })
     .then((userData) => {
         let h2Element = document.querySelector(".profile-details .logged-in h2");
-        h2Element.textContent = userData.name;
+        h2Element.textContent = "Xin chào, " + userData.name;
         loggedOut.style.display = 'none';
         loggedIn.style.display = 'block';
     })

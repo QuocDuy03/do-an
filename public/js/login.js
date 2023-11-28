@@ -2,6 +2,7 @@
 const form = document.querySelector('.login');
 const email = document.querySelector('#email');
 const pass = document.querySelector('#pass');
+const errorMessage = document.getElementById('error-message');
 const pathName = window.location.pathname;
 
 form.addEventListener('submit', async (e) => {
@@ -18,9 +19,12 @@ form.addEventListener('submit', async (e) => {
             }),
         });
         const data = await res.json();
-
-        if (res.status === 400 || res.status === 401) {
+        console.log(data);
+        if (res.status === 400 || res.status === 401 || res.status === 404){
             console.log(data.message);
+            errorMessage.style.display = 'block';
+            errorMessage.textContent = 'Tài khoản hoặc mật khẩu không chính xác!!!';
+            return;
         } else {
             console.log("Login successful");
             if (pathName === '/login')

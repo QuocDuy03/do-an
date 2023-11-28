@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +25,7 @@
                 <a href="/products/female">Nữ</a>
                 <a href="/products/baby">Trẻ em</a>
             </nav>
-            <form action="" method="post" class="search-bar">
+            <form action="/search" method="post" class="search-bar">
                 <input type="text" name="search_product" placeholder="Search..." maxlength="100">
                 <button type="submit" class="fa fa-search" id="Search_product_button"></button>
             </form>
@@ -41,7 +39,7 @@
     </header>
     <main>
         <div class="form-container">
-            <form action="" method="POST" class="register">
+            <form action="/register" method="POST" class="register">
                 <h3>Đăng ký</h3>
                 <p id="error-message">
                 </p>
@@ -91,7 +89,7 @@
         <div class="content">
             <div class="box col2">
                 <h3>đăng ký nhận thông tin từ chúng tôi</h3>
-                <form action="" method="get" class="get-information">
+                <form action="/email-register" method="get" class="get-information">
                     <input type="email" id="email" name="email" placeholder="Nhập email của bạn">
                     <button type="submit" name="Gửi">Gửi</button>
                 </form>
@@ -126,7 +124,7 @@
             </div>
         </div>
         <div class="bottom">
-            <p> &copy bản quyền thuộc về nhóm 5</p>
+            <p> &copy; bản quyền thuộc về nhóm 5</p>
         </div>
     </footer>
 

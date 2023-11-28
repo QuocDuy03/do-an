@@ -1,5 +1,6 @@
 const database = require('../../config/database');
 const bcrypt = require('bcryptjs');
+const { route } = require('../../routes/guest/login');
 
 class RegisterController {
     index(req, res) {
@@ -27,8 +28,11 @@ class RegisterController {
                 })
             else {
                 let hashedPass = await bcrypt.hash(formData.pass, 8);
+                let role = 2;
+                if (formData.email.includes('@g5.shop.com'))
+                    role = 1;
                 db.query("INSERT INTO users SET ?",
-                    { fullname: formData.fullname, phone_number: formData.phone, email: formData.email, address: formData.address, password: hashedPass },
+                    { fullname: formData.fullname, phone_number: formData.phone, email: formData.email, address: formData.address, password: hashedPass, role_id: role },
                     (error, results) => {
                         if (error)
                             console.log(error);

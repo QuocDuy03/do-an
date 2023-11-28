@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600@display=swap');
-
 :root {
     --main-color: #DBE2EF 60%;
     --color-dark: #1D2231;
     --text-grey: #8390A2;
+    --check-box-size: 1.5rem;
 }
 
 * {
@@ -75,6 +74,9 @@ div {
     font-size: 1.5rem;
     padding-right: 1rem;
 }
+.sidebar-menu a span {
+    color: var(--color-dark);
+}
 
 #nav-toggle:checked+.sidebar {
     width: 70px;
@@ -95,30 +97,57 @@ div {
     display: none;
 }
 
-#nav-toggle:checked~.main-content {
-    margin-left: 70px;
+/* #nav-toggle:checked~.main-content {
+    margin-left: -770px;
+} */
+#nav-toggle:checked~.data-table {
+    margin-left: -275px;
 }
 
-#nav-toggle:checked~.main-content header {
+/* #nav-toggle:checked~.main-content header {
     width: calc(100%)-70px;
     left: 70px;
-}
+} */
 
 /* Main content */
 .main-content {
     transition: margin-left 300ms;
     margin-left: 345px;
 }
+.main-content {
+    transition: margin-left 300ms;
+    margin-left: 345px;
+    margin-top: 80px;
+}
+
+.data-table {
+    padding-top: 1.35rem;
+    transition: 300ms;
+}
+
 
 header {
     background: #fff;
     display: flex;
     justify-content: space-between;
-    padding: 1rem 1.5rem 2rem 2rem;
+    /* padding: 1rem 1.5rem; */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     top: 0;
-    z-index: 100%;
+    /* z-index: 100%; */
     transition: width 300ms;
+
+    position: fixed;
+    left: 0;
+    /* top: 0; */
+    right: 0;
+    height: 80px;
+    z-index: 151;
+    /* box-shadow: 0 5px 10px 0 #aaa; */
+    padding: 0 50px;
+    /* background-color: #f4f8ee; */
+    /* display: flex; */
+    /* justify-content: space-between; */
+    align-items: center;
 }
 
 #nav-toggle {
@@ -204,7 +233,7 @@ header label span {
 /* Main content with table */
 .data-table{
     width: 95%;
-    /* margin-top: 20px; */
+    margin-top: 20px;
 }
 
 .card-header {
@@ -279,7 +308,7 @@ header label span {
     background-color: #45a049;
 }
 
-/* Table of Order */
+/* Table of employee */
 .card-body table {
     margin-left: 20px;
     font-family: arial, sans-serif;
@@ -293,24 +322,123 @@ th {
     padding: 8px;
 }
 
-tr {
-    text-align: center; 
+tr td {
+    text-align: center;
+    overflow: hidden;
 }
-
-td {
-    vertical-align: middle; 
-    position: relative;
-}
-
-input[type="checkbox"] {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+tr td input {
+    width: var(--check-box-size);
+    height: var(--check-box-size);
 }
 
 /* Checkbox befor number */
 
 .tick-checkbox{
     justify-items: center;
+}
+/* .tick-checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    position: relative;
+}
+
+.tick-checkbox:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid #000;
+    border-width: 0 2px 2px 0;
+    transform: translateY(-50%) rotate(45deg);
+    display: none;
+}
+
+input[type="checkbox"]:checked+.tick-checkbox:after {
+    display: block;
+} */
+
+.user-icon {
+    width: 50px;
+    height: 50px;
+    color: #F08A5D;
+    border-radius: 50%;
+    border: solid 3px #F08A5D;
+    padding-left: 2px;
+    margin-right: 20px;
+    font-size: 40px;
+}
+.user-icon:hover {
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.profile-details {
+    background-color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 125%;
+    right: 2rem;
+    border-radius: .5rem;
+    width: 30rem;
+    padding: 1.5rem .5rem;
+    text-align: center;
+    overflow: hidden;
+    display: none;
+    /* transition: .5s; */
+    animation: 0.3s linear fadeIn;
+}
+
+.profile-details.active {
+    display: inline-block;
+}
+.profile-details h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000;
+    margin-bottom: 2rem;
+}
+
+
+.profile-details .flex-btn {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.profile-details img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: .5rem;
+    object-fit: cover;
+    margin-bottom: .5rem;
+}
+
+.profile-details .flex-btn .btn {
+    background-color:#F08A5D;
+    color: #fff;
+    margin: 0 .5rem;
+    font-size: 1.6rem;
+    line-height: 1.5rem;
+    padding: 1.2rem;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.profile-details .flex-btn .btn:hover {
+    background-color: #45a049;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translate(1rem);
+    }
 }

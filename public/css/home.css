@@ -112,5 +112,5 @@
 }
 
 .new li {
-    transition: 0;
+    transition: none;
 }

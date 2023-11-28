@@ -9,5 +9,4 @@ deleteButtons.forEach(function(button) {
     row.parentNode.removeChild(row);
   });
 });
-
 var result = ('Are you sure to delete');

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title> g5 admin</title>
+    <title> Đơn đặt hàng</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale = 1.0">
     <link rel="icon" type="image/x-icon" href="/images/logo2.png">
@@ -12,71 +12,61 @@
 </head>
 
 <body>
-    <input type="checkbox" id="nav-toggle">
-    <div class="sidebar">
-        <div class="sidebar-brand">
-            <a href="/admin/dashboard"><img src="/images/logo2.png" alt="Logo shop"></a>
+    <header>
+        <h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>Đơn đặt hàng
+        </h2>
+
+        <div class="user-icon las la-user" id="user-btn">
         </div>
-        <div class="sidebar-menu">
-            <ul>
-                <li>
-                    <a href="/admin/dashboard"><span class="las la-igloo" onclick="displayDashBoard()"></span>
-                        <span>Bảng điều khiển</span></a>
-                </li>
-                <li>
-                    <a href="/admin/customers" id="customerLink"><span class="las la-users"
-                            onclick="displayUsers()"></span>
-                        <span>Quản lý khách hàng</span></a>
-                </li>
-                <li>
-                    <a href="/admin/employees" id="employeeMnt"><span class="las la-clipboard-list"
-                            onclick="displayProject()"></span>
-                        <span>Quản lý nhân viên</span></a>
-                </li>
-                <li>
-                    <a href="/admin/products" id="orderBag"><span class="las la-shopping-bag"
-                            onclick="displayorders()"></span>
-                        <span>Quản lý sản phẩm</span></a>
-                </li>
-                <li>
-                    <a href="/admin/orders" class="active" id="inventoryReceipt"><span class="las la-receipt"
-                            onclick="displayReceipt()"></span>
-                        <span>Quản lý đơn hàng</span></a>
-                </li>
-            </ul>
+
+        <div class="profile-details">
+            <img src="/images/admin.png" alt="avatar">
+            <h2></h2>
+            <div class="flex-btn">
+                <a href="/admin/dashboard/profile" class="btn profile"> Hồ sơ </a>
+                <a href="/logout" class="btn logout"> Đăng xuất </a>
+            </div>
         </div>
-    </div>
+    </header>
     <div class="main-content">
-        <header>
-            <h2>
-                <label for="nav-toggle">
-                    <span class="las la-bars"></span>
-                </label>Đơn đặt hàng
-            </h2>
-            <form action="#" method="get" class="search-bar">
-                <input type="text" name="search_product" placeholder="Search..." maxlength="100">
-                <button type="submit" class="las la-search" id="Search_product_button"></button>
-            </form>
-
-            <div class="user-wrapper">
-                <img src="/images/adminpic.jpg" alt="" onclick="showAdminInfo()">
-                <h6>Admin</h6>
-                <div class="arrow-down" onclick="toggleInfo()">
-                    <span class="las la-angle-down"></span>
-                </div>
+        <input type="checkbox" id="nav-toggle">
+        <div class="sidebar">
+            <div class="sidebar-brand">
+                <a href="/admin/dashboard"><img src="/images/logo2.png" alt="Logo shop"></a>
             </div>
-
-            <div id="info" class="info" style="display: none;">
-                <h3>Tên: Nguyễn Văn A</h3>
-                <p>Email: example@example.com</p>
-                <p>Địa chỉ: 123 Example Street, Thành phố, Quốc gia</p>
-                <p>Điện thoại: 123-456-7890</p>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="/admin/dashboard"><span class="las la-igloo" onclick="displayDashBoard()"></span>
+                            <span>Bảng điều khiển</span></a>
+                    </li>
+                    <li>
+                        <a href="/admin/customers" id="customerLink"><span class="las la-users"
+                                onclick="displayUsers()"></span>
+                            <span>Quản lý khách hàng</span></a>
+                    </li>
+                    <li>
+                        <a href="/admin/employees" id="employeeMnt"><span class="las la-clipboard-list"
+                                onclick="displayProject()"></span>
+                            <span>Quản lý nhân viên</span></a>
+                    </li>
+                    <li>
+                        <a href="/admin/products" id="orderBag"><span class="las la-shopping-bag"
+                                onclick="displayorders()"></span>
+                            <span>Quản lý sản phẩm</span></a>
+                    </li>
+                    <li>
+                        <a href="/admin/orders" class="active" id="inventoryReceipt"><span class="las la-receipt"
+                                onclick="displayReceipt()"></span>
+                            <span>Quản lý đơn hàng</span></a>
+                    </li>
+                </ul>
             </div>
-        </header>
+        </div>
         <section class="data-table">
-            <header>
-                <h2>Danh sách đơn hàng</h2>
-            </header>
             <div class="card-body">
                 <table>
                     <thead>
@@ -97,7 +87,7 @@
                         <tr>
                             <td>
                                 <input type="checkbox" id="tick1">
-                                <label for="tick1" class="tick-checkbox"></label>
+                                <!-- <label for="tick1" class="tick-checkbox"></label> -->
                             </td>
                             <td>1</td>
                             <td>mf01</td>
@@ -113,7 +103,7 @@
                         <tr>
                             <td>
                                 <input type="checkbox" id="tick2">
-                                <label for="tick2" class="tick-checkbox"></label>
+                                <!-- <label for="tick2" class="tick-checkbox"></label> -->
                             </td>
                             <td>1</td>
                             <td>mf01</td>
@@ -129,7 +119,7 @@
                         <tr>
                             <td>
                                 <input type="checkbox" id="tick3">
-                                <label for="tick3" class="tick-checkbox"></label>
+                                <!-- <label for="tick3" class="tick-checkbox"></label> -->
                             </td>
                             <td>1</td>
                             <td>mf01</td>
@@ -145,7 +135,7 @@
                         <tr>
                             <td>
                                 <input type="checkbox" id="tick4">
-                                <label for="tick4" class="tick-checkbox"></label>
+                                <!-- <label for="tick4" class="tick-checkbox"></label> -->
                             </td>
                             <td>1</td>
                             <td>mf01</td>
@@ -161,7 +151,7 @@
                         <tr>
                             <td>
                                 <input type="checkbox" id="tick5">
-                                <label for="tick5" class="tick-checkbox"></label>
+                                <!-- <label for="tick5" class="tick-checkbox"></label> -->
                             </td>
                             <td>1</td>
                             <td>mf01</td>
@@ -179,7 +169,7 @@
             </div>
         </section>
     </div>
-    <footer>
-        &copy; 2023 G5Shop
-    </footer>
+    <script src="/js/commonAdmin.js"></script>
+
 </body>
+</html>
