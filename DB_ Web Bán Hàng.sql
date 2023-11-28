@@ -31,8 +31,31 @@ CREATE TABLE `Products` (
   `description` longtext,
   `created_at` datetime,
   `updated_at` datetime,
-  `deleted` int
+  `deleted` int,
+  `quantity` int DEFAULT 0,
+  CONSTRAINT `fk_products_category_id` FOREIGN KEY (`category_id`) REFERENCES `Categories` (`id`)
 );
+
+CREATE TABLE `ProductSizes` (
+  `product_id` int,
+  `size` varchar(10),
+  `quantity` int,
+  PRIMARY KEY (`product_id`, `size`),
+  FOREIGN KEY (`product_id`) REFERENCES `Products` (`id`),
+  FOREIGN KEY (`size`) REFERENCES `Sizes` (`sizeName`)
+);
+DELIMITER //
+CREATE TRIGGER update_product_quantity
+AFTER INSERT ON ProductSizes
+FOR EACH ROW
+BEGIN
+    UPDATE Products
+    SET quantity = (SELECT SUM(quantity) FROM ProductSizes WHERE product_id = NEW.product_id)
+    WHERE id = NEW.product_id;
+END;
+//
+DELIMITER ;
+
 
 CREATE TABLE `Galeries` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
@@ -49,18 +72,32 @@ CREATE TABLE `Orders` (
   `address` varchar(200),
   `note` varchar(1000),
   `order_date` datetime,
-  `status` int,
+  `status` text, 
   `total_money` int
 );
 
 CREATE TABLE `Order_Details` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
   `order_id` int,
   `product_id` int,
   `price` int,
-  `num` int,
-  `total_money` int
+  `quantity` int,
+  `total_money` int,
+  PRIMARY KEY (`order_id`, `product_id`),
+  FOREIGN KEY (`order_id`) REFERENCES `Orders` (`id`),
+  FOREIGN KEY (`product_id`) REFERENCES `Products` (`id`)
 );
+
+CREATE TABLE `Carts` (
+  `user_id` int PRIMARY KEY,
+  `created_at` datetime,
+  `product_id` int,
+  `quantity` int,
+  FOREIGN KEY (`user_id`) REFERENCES `Users` (`id`)
+   FOREIGN KEY (`product_id`) REFERENCES `Products` (`id`)
+);
+
+
+
 
 ALTER TABLE `Users` ADD FOREIGN KEY (`role_id`) REFERENCES `Roles` (`id`);
 
@@ -81,10 +118,18 @@ MODIFY COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 MODIFY COLUMN updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
 
 
--- Cập nhật trường created_at và updated_at cho bảng Product
+-- Cập nhật trường created_at và updated_at cho bảng Products
 ALTER TABLE Products
 MODIFY COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 MODIFY COLUMN updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
+
+-- Cập nhật trường created_at và updated_at cho bảng Carts
+ALTER TABLE Carts
+MODIFY COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+-- Cập nhật trường created_at và updated_at cho bảng CartItems
+ALTER TABLE CartItems
+MODIFY COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
 
 ---------------------------------------------------------
