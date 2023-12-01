@@ -35,11 +35,6 @@ CREATE TABLE `Products` (
   `quantity` int DEFAULT 0,
   `type` varchar(10),
   CONSTRAINT `fk_products_category_id` FOREIGN KEY (`category_id`) REFERENCES `Categories` (`id`)
-  CONSTRAINT `fk_products_type` FOREIGN KEY (`type`) REFERENCES `ProductTypes` (`name`)
-);
-
-CREATE TABLE `ProductTypes` (
-  `name` varchar(10) PRIMARY KEY
 );
 
 CREATE TABLE `ProductSizes` (
@@ -48,8 +43,8 @@ CREATE TABLE `ProductSizes` (
   `quantity` int,
   PRIMARY KEY (`product_id`, `size`),
   FOREIGN KEY (`product_id`) REFERENCES `Products` (`id`),
-  FOREIGN KEY (`size`) REFERENCES `Sizes` (`sizeName`)
 );
+
 DELIMITER //
 CREATE TRIGGER update_product_quantity
 AFTER INSERT ON ProductSizes
@@ -111,8 +106,6 @@ ALTER TABLE `Products` ADD FOREIGN KEY (`category_id`) REFERENCES `Categories` (
 
 ALTER TABLE `Order_Details` ADD FOREIGN KEY (`product_id`) REFERENCES `Products` (`id`);
 
-ALTER TABLE `Galeries` ADD FOREIGN KEY (`product_id`) REFERENCES `Products` (`id`);
-
 ALTER TABLE `Order_Details` ADD FOREIGN KEY (`order_id`) REFERENCES `Orders` (`id`);
 
 ALTER TABLE `Orders` ADD FOREIGN KEY (`user_id`) REFERENCES `Users` (`id`);
@@ -131,11 +124,11 @@ MODIFY COLUMN updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_T
 
 -- Cập nhật trường created_at và updated_at cho bảng Carts
 ALTER TABLE Carts
-MODIFY COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+MODIFY COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
 -- Cập nhật trường created_at và updated_at cho bảng CartItems
 ALTER TABLE CartItems
-MODIFY COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+MODIFY COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
 
 ---------------------------------------------------------
