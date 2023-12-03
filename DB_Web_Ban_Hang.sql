@@ -148,6 +148,32 @@ END;
 //
 DELIMITER ;
 
+-- Trigger cho bảng ProductSizes khi xóa
+DELIMITER //
+CREATE TRIGGER after_delete_product_size
+AFTER DELETE ON ProductSizes
+FOR EACH ROW
+BEGIN
+    UPDATE Products
+    SET quantity = (SELECT SUM(quantity) FROM ProductSizes WHERE product_id = OLD.product_id)
+    WHERE id = OLD.product_id;
+END;
+//
+DELIMITER ;
+
+-- Trigger cho bảng ProductSizes khi sửa
+DELIMITER //
+CREATE TRIGGER after_update_product_size
+AFTER UPDATE ON ProductSizes
+FOR EACH ROW
+BEGIN
+    UPDATE Products
+    SET quantity = (SELECT SUM(quantity) FROM ProductSizes WHERE product_id = NEW.product_id)
+    WHERE id = NEW.product_id;
+END;
+//
+DELIMITER ;
+
 -- Trigger cho bảng ProductSizes
 DELIMITER //
 CREATE TRIGGER before_update_product_size_quantity
