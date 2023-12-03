@@ -31,7 +31,6 @@ class SiteController {
                 user: null
             })
         }
-        console.log(user)
         // Sử dụng thông tin người dùng để kiểm tra quyền truy cập
         if (user.role_id === 2)
             res.render('home', {
@@ -43,7 +42,7 @@ class SiteController {
     logOut(req, res) {
         res.clearCookie('token');
         console.log('logout completed');
-        res.redirect('/');
+        res.redirect('/login');
     }
     async getBestSells(req, res) {
         try {

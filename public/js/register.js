@@ -20,12 +20,12 @@ form.addEventListener('submit', async (e) => {
         if (!validateEmail(email.value)) {
             errorMessage.style.display = 'block';
             errorMessage.textContent = 'Sai định dạng email';
-            return; 
+            return;
         } else {
             errorMessage.style.display = 'none';
         }
 
-        if (pass.value!== cpass.value) {
+        if (pass.value !== cpass.value) {
             errorMessage.style.display = 'block';
             errorMessage.textContent = 'Mật khẩu không khớp';
             return;
@@ -52,14 +52,19 @@ form.addEventListener('submit', async (e) => {
         console.log(data);
 
         if (res.status === 400 || res.status === 401) {
+            successMessage.style.display = 'none';
             errorMessage.style.display = 'block';
             errorMessage.textContent = data.message;
             return;
         }
         else {
             console.log('Register completed');
+            errorMessage.style.display = 'none';
             successMessage.style.display = 'block';
-            successMessage.textContent = 'Đăng ký thành công';
+            successMessage.textContent = 'Đăng ký thành công. 3 giây nữa sẽ tự động chuyển sang trang đăng nhập.';
+            setTimeout(function () {
+                window.location.href = '/login'; // Thay đổi URL thành trang đăng nhập của bạn
+            }, 3000);
         }
     }
     catch (err) {
