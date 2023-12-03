@@ -81,9 +81,11 @@ CREATE TABLE `Carts` (
   `user_id` int PRIMARY KEY,
   `created_at` datetime,
   `product_id` int,
+  'size' varchar(10),
   `quantity` int,
+  PRIMARY KEY (`user_id`,`product_id`, 'size'),
   FOREIGN KEY (`user_id`) REFERENCES `Users` (`id`),
-   FOREIGN KEY (`product_id`) REFERENCES `Products` (`id`)
+  FOREIGN KEY (`product_id`,'size') REFERENCES `ProductSizes` (`product_id`, 'size')
 );
 
 
