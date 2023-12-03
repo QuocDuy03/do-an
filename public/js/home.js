@@ -42,9 +42,9 @@ function prevBestSellItem() {
 function nextBestSellItem() {
   if (currentBestSellItem < itemsBestSellHidden) {
     currentBestSellItem++;
-    if (currentBestSellItem === itemsBestSellHidden) {
-      document.querySelector('.next').disabled = true;
-    }
+    // if (currentBestSellItem === itemsBestSellHidden) {
+    //   document.querySelector('.next').disabled = true;
+    // }
     updateTransformBestSell();
   }
 }
@@ -71,9 +71,9 @@ function prevNewItem() {
 function nextNewItem() {
   if (currentNewItem < itemsNewHidden) {
     currentNewItem++;
-    if (currentNewItem === itemsNewHidden) {
-      document.querySelector('.next').disabled = true;
-    }
+    // if (currentNewItem === itemsNewHidden) {
+    //   document.querySelector('.next').disabled = true;
+    // }
     updateTransformNew();
   }
 }
@@ -83,3 +83,80 @@ function updateTransformNew() {
   news.style.transform = transformValue;
   news.style.transition = `300ms`;
 }
+
+
+//############################################################################
+fetch('getBestSells', {
+  method: 'GET',
+  headers: {
+      'Content-Type': 'application/json',
+  }
+})
+  .then(response => {
+      if (!response.ok) {
+          throw new Error('Fetch request failed');
+      }
+      return response.json();
+  })
+  .then(data => {
+      data.products.forEach(product => {
+          const bestSellProduct = document.createElement('li');
+          bestSellProduct.innerHTML =`
+            <a href="products/details/${product.id}">
+                <div class="Item-container hidden">
+                    <div class="imgItem">
+                        <img src="${product.thumbnail}">
+                    </div>
+                    <div class="nameItem">
+                        ${product.title}
+                    </div>
+                    <div class="priceItem">
+                        ${product.price}Đ
+                    </div>
+                </div>
+            </a>
+          `
+          document.getElementById('bestSellListItem').appendChild(bestSellProduct);
+      })
+  })
+  .catch(err => {
+      console.log(err);
+  }) 
+
+  //############################################################################
+fetch('getNews', {
+  method: 'GET',
+  headers: {
+      'Content-Type': 'application/json',
+  }
+})
+  .then(response => {
+      if (!response.ok) {
+          throw new Error('Fetch request failed');
+      }
+      return response.json();
+  })
+  .then(data => {
+      data.products.forEach(product => {
+          const newProduct = document.createElement('li');
+          newProduct.innerHTML =`
+            <a href="products/details/${product.id}">
+                <div class="Item-container hidden">
+                    <div class="imgItem">
+                        <img src="${product.thumbnail}">
+                    </div>
+                    <div class="nameItem">
+                        ${product.title}
+                    </div>
+                    <div class="priceItem">
+                        ${product.price}Đ
+                    </div>
+                </div>
+            </a>
+          `
+          document.getElementById('newListItem').appendChild(newProduct);
+      })
+  })
+  .catch(err => {
+      console.log(err);
+  }) 

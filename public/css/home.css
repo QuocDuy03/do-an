@@ -96,6 +96,11 @@
     margin: 10px;
 }
 
+.imgItem img{
+    height: 300px;
+    width: auto;
+}
+
 .listItem-container ul .Item-container .nameItem {
     font-size: 1.8rem;
     color: #000;
