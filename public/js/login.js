@@ -19,15 +19,13 @@ form.addEventListener('submit', async (e) => {
             }),
         });
         const data = await res.json();
-        console.log(data);
         if (res.status === 400 || res.status === 401 || res.status === 404){
             console.log(data.message);
             errorMessage.style.display = 'block';
             errorMessage.textContent = 'Tài khoản hoặc mật khẩu không chính xác!!!';
             return;
         } else {
-            console.log("Login successful");
-            if (pathName === '/login')
+            if (data.role_id === 2)
                 window.location.href = '/';
             else 
                 window.location.href = '/admin/dashboard';

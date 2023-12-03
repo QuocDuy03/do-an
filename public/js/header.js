@@ -24,7 +24,7 @@ document.querySelector("#user-btn").onclick = () => {
     searchBar.classList.remove("active");
 }
 
-fetch('/login/user-info', {
+fetch('/account/user-info', {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json',

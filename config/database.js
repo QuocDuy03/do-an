@@ -21,4 +21,16 @@ function connect() {
     });
 }
 
-module.exports = { connect };
+function disconnect(connection) {
+    return new Promise((resolve, reject) => {
+        if (!connection) {
+            reject(new Error('Connection not provided'));
+        } else {
+            connection.release(); // Release the connection back to the pool
+            console.log('Disconnected from MySQL database');
+            resolve();
+        }
+    });
+}
+
+module.exports = { connect, disconnect };

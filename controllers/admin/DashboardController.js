@@ -5,75 +5,55 @@ const bcrypt = require('bcryptjs');
 class DashboardController {
     index(req, res) {
         try {
-            const token = req.cookies.token;
-            if (!token) {
-                return res.status(401).json({ message: "Unauthorized" });
+            const user = req.user; // Kiểm tra thông tin người dùng từ middleware authenticateToken
+            if (!user) {
+                return res.redirect('/login');
             }
-
-            jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-                if (err) {
-                    return res.status(401).json({ message: "Unauthorized" });
-                }
-                // Trả về thông tin người dùng đã giải mã từ token
-                if (decoded.role_id === 1)
-                    res.render('dashboard');
-                else
-                    res.redirect('/');
-            });
-        }
-        catch (err) {
+            // Sử dụng thông tin người dùng để kiểm tra quyền truy cập
+            if (user.role_id === 1)
+                res.render('dashboard');
+            else
+                res.redirect('/');
+        } catch (err) {
             console.log(err);
+            return res.redirect('/login');
         }
     }
 
     profile(req, res) {
         try {
-            const token = req.cookies.token;
-            if (!token) {
-                return res.status(401).json({ message: "Unauthorized" });
+            const user = req.user; // Kiểm tra thông tin người dùng từ middleware authenticateToken
+            if (!user) {
+                return res.redirect('/login');
             }
-
-            jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-                if (err) {
-                    return res.status(401).json({ message: "Unauthorized" });
-                }
-                // Trả về thông tin người dùng đã giải mã từ token
-                if (decoded.role_id === 1)
-                    res.render('profile');
-                else
-                    res.redirect('/');
-            });
-        }
-        catch (err) {
+            // Sử dụng thông tin người dùng để kiểm tra quyền truy cập
+            if (user.role_id === 1)
+                res.render('profile');
+            else
+                res.redirect('/');
+        } catch (err) {
             console.log(err);
+            return res.redirect('/login');
         }
     }
 
     getProfile(req, res) {
         try {
-            const token = req.cookies.token;
-            if (!token) {
-                return res.status(401).json({ message: "Unauthorized" });
+            const user = req.user; // Kiểm tra thông tin người dùng từ middleware authenticateToken
+            if (!user) {
+                return res.redirect('/login');
             }
-
-            jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-                if (err) {
-                    return res.status(401).json({ message: "Unauthorized" });
-                }
-
-                return res.status(200).json({
-                    id: decoded.id,
-                    name: decoded.name,
-                    email: decoded.email,
-                    phone: decoded.phone,
-                    address: decoded.address,
-                });
-
+            // Sử dụng thông tin người dùng để kiểm tra quyền truy cập
+            return res.status(200).json({
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                phone: user.phone,
+                address: user.address,
             });
-        }
-        catch (err) {
+        } catch (err) {
             console.log(err);
-            return res.status(500).json({ message: "Internal server error" });
+            return res.redirect('/login');
         }
     }
 
@@ -114,7 +94,7 @@ class DashboardController {
                     res.status(200).json({ message: "Thay đổi mật khẩu thành công" })
             })
         });
-
+        await database.disconnect(db);
     }
 }
 

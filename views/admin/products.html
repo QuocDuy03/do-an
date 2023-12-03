@@ -70,15 +70,15 @@
                     <div class="popup-content">
                         <!-- <span class="close" onclick="closePopup()">&times;</span> -->
                         <h2>Thêm sản phẩm mới</h2>
-                        <form id="employeeForm" class="employee-form">
-                            <input type="text" placeholder="Tên sản phẩm" required>
-                            <input type="number" placeholder="Số lượng" required>
-                            <input type="number" placeholder="Giá tiền" required>
-                            <input type="text" placeholder="Danh mục" required>
-                            <textarea placeholder="Mô tả sản phẩm" required></textarea>
+                        <form id="productForm" class="product-form">
+                            <input type="text" placeholder="Tên sản phẩm" id="title" name="title" required>
+                            <input type="number" placeholder="Số lượng" id="quantity" name="quantity" required>
+                            <input type="number" placeholder="Giá tiền" id="price" name="price" required>
+                            <input type="text" placeholder="Danh mục" id="category" name="category" required>
+                            <textarea placeholder="Mô tả sản phẩm" id="description" name="description" required></textarea>
                             <label for="imageUpload">Ảnh sản phẩm:</label>
                             <input type="file" id="imageUpload" name="imageUpload" accept="image/*">
-                            <button type="submit" onclick="submitForm()">Thêm</button>
+                            <button type="submit">Thêm</button>
                             <button type="button" onclick="closePopup()">Hủy</button>
                         </form>
                     </div>
@@ -99,60 +99,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <input type="checkbox" id="tickFirst">
-                                <!-- <label for="tickFirst" class="tick-checkbox"></label> -->
-                            </td>
-                            <td>mkd01</td>
-                            <td>Áo khoác</td>
-                            <td>120</td>
-                            <td>300.00</td>
-                            <td>Nam</td>
-                            <td>Còn hàng</td>
-                            <td>
-                                <div class ="Action">
-                                <span class="las la-edit edit-botton"></span>
-                                <span class="las la-trash delete-button"></span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" id="tickSecond">
-                                <!-- <label for="tickSecond" class="tick-checkbox"></label> -->
-                            </td>
-                            <td>dk02</td>
-                            <td>Áo sơ mi</td>
-                            <td>0</td>
-                            <td>150.00</td>
-                            <td>Nam</td>
-                            <td>Hết hàng</td>
-                            <td>
-                                <div class ="Action">
-                                <span class="las la-edit edit-botton"></span>
-                                <span class="las la-trash delete-button"></span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" id="tickThirth">
-                                <!-- <label for="tickThirth" class="tick-checkbox"></label> -->
-                            </td>
-                            <td>ht01</td>
-                            <td>Áo khoác nữ</td>
-                            <td>130.000</td>
-                            <td>75</td>
-                            <td>Nữ</td>
-                            <td>Còn hàng</td>
-                            <td>
-                                <div class ="Action">
-                                <span class="las la-edit edit-botton"></span>
-                                <span class="las la-trash delete-button"></span>
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

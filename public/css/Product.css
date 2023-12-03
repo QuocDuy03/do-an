@@ -311,6 +311,7 @@ header label span {
     width: 100%;
     font-family: arial, sans-serif;
     border-collapse: collapse;
+    margin-bottom: 5rem;
 }
 
 td,

@@ -53,37 +53,13 @@ class LoginController {
                     return res.status(404).json({ message: "User not found" });
                 }
             });
+            await database.disconnect(db);
         } catch (err) {
             console.log(err);
             return res.status(500).json({ message: "Internal server error" });
         }
     }
 
-    async getUserInfo(req, res) {
-        try {
-            const token = req.cookies.token; // Đọc token từ cookie
-            if (!token) {
-                return res.status(401).json({ message: "Unauthorized" });
-            }
-
-            // Giải mã token để lấy thông tin người dùng
-            jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-                if (err) {
-                    return res.status(401).json({ message: "Unauthorized" });
-                }
-                // Trả về thông tin người dùng đã giải mã từ token
-                return res.status(200).json({
-                    id: decoded.id,
-                    name: decoded.name,
-                    email: decoded.email,
-                    phone: decoded.phone,
-                });
-            });
-        } catch (error) {
-            console.error(error);
-            return res.status(500).json({ message: "Internal server error" });
-        }
-    }
 
 }
 

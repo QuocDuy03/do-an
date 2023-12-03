@@ -4,24 +4,19 @@ const jwt = require('jsonwebtoken');
 class EditController {
     index(req, res) {
         try {
-            const token = req.cookies.token;
-            if (!token) {
-                return res.status(401).json({ message: "Unauthorized" });
+            const user = req.user; // Kiểm tra thông tin người dùng từ middleware authenticateToken
+            if (!user) {
+                return res.redirect('/login');
             }
 
-            jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-                if (err) {
-                    return res.status(401).json({ message: "Unauthorized" });
-                }
-                // Trả về thông tin người dùng đã giải mã từ token
-                if (decoded.role_id === 2)
-                    res.render('edit');
-                else 
-                    res.redirect('/admin/dashboard');
-            });
-        }
-        catch (err) {
+            // Sử dụng thông tin người dùng để kiểm tra quyền truy cập
+            if (user.role_id === 2)
+                res.render('edit');
+            else
+                res.redirect('/admin/dashboard');
+        } catch (err) {
             console.log(err);
+            return res.redirect('/login');
         }
     }
 
@@ -58,6 +53,7 @@ class EditController {
                 return res.status(404).json({ message: "User not found" });
             }
         });
+        await database.disconnect(db);
     }
 }
 

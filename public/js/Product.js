@@ -33,3 +33,69 @@ function showAdminInfo() {
         info.style.display = "none";
     }
 }
+
+fetch('/admin/products/getProducts', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    }
+}).then(response => {
+    if (!response.ok) {
+        throw new Error('Fetch request failed');
+    }
+    return response.json();
+})
+    .then((productsData) => {
+        productsData.products.forEach(product => {
+            const tableRow = document.createElement('tr');
+            tableRow.innerHTML = `
+            <td>
+                <input type="checkbox" id="tick${product.id}" name="tick${product.id}" value="${product.id}">
+                <label for="tick${product.id}" class="tick-checkbox"></label>
+            </td>
+            <td>${product.id}</td>
+            <td>${product.title}</td>
+            <td>${product.quantity}</td>
+            <td>${product.price}</td>
+            <td>${product.name}</td>
+            <td></td>
+            <td>
+                <div class="Action">
+                    <span class="las la-edit edit-botton"></span>
+                    <span class="las la-trash delete-button"></span>
+                </div>
+            </td>
+        `
+            document.querySelector('table tbody').appendChild(tableRow);
+        })
+    })
+
+const form = document.querySelector('#productForm');
+const title = form.querySelector('#title');
+const quantity = form.querySelector('#quantity');
+const price = form.querySelector('#price');
+const category = form.querySelector('#category');
+const description = form.querySelector('#description');
+const imageUpload = form.querySelector('#imageUpload');
+
+console.log(imageUpload.value)
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const res = fetch('/admin/products/addProduct', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            title: title.value,
+            quantity: quantity.value,
+            price: price.value,
+            category: category.value,
+            description: description.value,
+            imageUpload: imageUpload.value,
+        })
+    })
+
+})

@@ -2,7 +2,7 @@ const userName = document.querySelector('.user-name');
 const userEmail = document.querySelector('.user-email');
 const userPhone = document.querySelector('.user-phone');
 
-fetch('/login/user-info', {
+fetch('/account/user-info', {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json',
