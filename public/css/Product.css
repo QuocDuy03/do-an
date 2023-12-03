@@ -276,32 +276,33 @@ header label span {
     cursor: pointer;
 }
 
-.employee-form {
+.product-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.employee-form input,
-.employee-form button,
-.employee-form textarea {
+.product-form input,
+.product-form select,
+.product-form button,
+.product-form textarea {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-.employee-form textarea {
+.product-form textarea {
     resize: vertical;
     height: 10rem;
 }
 
-.employee-form button {
+.product-form button {
     background-color: #F08A5D;
     color: white;
     cursor: pointer;
 }
 
-.employee-form button:hover {
+.product-form button:hover {
     background-color: #45a049;
 }
 
@@ -321,7 +322,7 @@ th {
     padding: 8px;
 }
 
-tr td {
+tr, td {
     text-align: center;
     overflow: hidden;
 }

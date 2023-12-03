@@ -149,7 +149,7 @@ fetch('getNews', {
                         ${product.title}
                     </div>
                     <div class="priceItem">
-                        ${product.price}Đ
+                        ${product.price.toLocaleString()}Đ
                     </div>
                 </div>
             </a>

@@ -1,6 +1,4 @@
-const jwt = require('jsonwebtoken');
 const database = require('../../config/database');
-const upload = require('../../config/multer');
 
 
 class ProductsController {
@@ -26,7 +24,7 @@ class ProductsController {
         try {
             const db = await database.connect();
             const query = `
-                            SELECT products.*, name FROM products, categories WHERE products.category_id = categories.id
+                            SELECT products.*, name FROM products, categories WHERE products.category_id = categories.id ORDER BY products.id ASC
                         `;
             db.query(query, [], (error, results) => {
                 if (error) {
@@ -49,11 +47,63 @@ class ProductsController {
     }
 
     async addProduct(req, res) {
-        const db = await database.connect()
-        const product = req.body;
+        const db = await database.connect();
+        const { title, quantitySizeS, quantitySizeM, quantitySizeL, price, category, type, description } = req.body;
+        const imageFile = req.file;
+        const thumbnail = imageFile.path.replace('public\\', '')
+        let category_id;
+        if (category === "Nam")
+            category_id = 1;
+        else if (category === "Nữ")
+            category_id = 2;
+        else
+            category_id = 3;
 
-        const query = "INSERT INTO products SET ?";
-        db.query(query, {})
+        const query1 = "INSERT INTO products SET ?";
+        db.query(query1,
+            { title: title, description: description, price: price, quantity: 0, thumbnail: thumbnail, category_id: category_id, type: type, },
+            (err, result) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                const insertedId = result.insertId;
+                
+                const query2 = "INSERT INTO productsizes VALUES(?, ?, ?)";
+                db.query(query2,[insertedId, 'S', quantitySizeS], (err, result) => {
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }
+                    else {
+                        console.log("Insert succesfully size S");
+                    }
+                })
+                db.query(query2,[insertedId, 'M', quantitySizeM], (err, result) => {
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }
+                    else {
+                        console.log("Insert succesfully size M");
+                    }
+                })
+                db.query(query2,[insertedId, 'L', quantitySizeL], (err, result) => {
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }
+                    else {
+                        console.log("Insert succesfully size L");
+                    }
+                })
+                res.status(200).json({
+                    message: "Thêm sản phẩm thành công"
+                })
+            }
+        )
+        
+
     }
 }
 

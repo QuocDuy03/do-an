@@ -54,7 +54,7 @@ class SiteController {
                             SELECT P.id, P.title, P.price, P.thumbnail
                             FROM Products P
                             JOIN (
-                            SELECT product_id, SUM(num) as total_sold
+                            SELECT product_id, SUM(quantity) as total_sold
                             FROM Order_Details OD
                             JOIN Orders O ON OD.order_id = O.id
                             WHERE O.status = 1

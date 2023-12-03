@@ -68,13 +68,24 @@
                 <button onclick="openPopup()"><span class="las la-plus"></span>Thêm sản phẩm mới</button>
                 <div id="popup" class="popup">
                     <div class="popup-content">
-                        <!-- <span class="close" onclick="closePopup()">&times;</span> -->
                         <h2>Thêm sản phẩm mới</h2>
                         <form id="productForm" class="product-form">
                             <input type="text" placeholder="Tên sản phẩm" id="title" name="title" required>
-                            <input type="number" placeholder="Số lượng" id="quantity" name="quantity" required>
+                            <input type="number" placeholder="Số lượng size S" id="quantity-size-S" name="quantity-size-S" required>
+                            <input type="number" placeholder="Số lượng size M" id="quantity-size-M" name="quantity-size-M" required>
+                            <input type="number" placeholder="Số lượng size L" id="quantity-size-L" name="quantity-size-L" required>
                             <input type="number" placeholder="Giá tiền" id="price" name="price" required>
-                            <input type="text" placeholder="Danh mục" id="category" name="category" required>
+                            <select id="category" name="category" required>
+                                <option value="" selected >---- Danh mục ---- </option>
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                                <option value="Trẻ em">Trẻ em</option>
+                            </select>
+                            <select id="type" name="type" required>
+                                <option value="" selected >---- Phân loại ---- </option>
+                                <option value="Áo">Áo</option>
+                                <option value="Quần">Quần</option>
+                            </select>
                             <textarea placeholder="Mô tả sản phẩm" id="description" name="description" required></textarea>
                             <label for="imageUpload">Ảnh sản phẩm:</label>
                             <input type="file" id="imageUpload" name="imageUpload" accept="image/*">
