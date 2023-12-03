@@ -35,14 +35,14 @@
     width: 100%;
     margin-left: 1.5rem;
     background: none;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     box-shadow: none;
     border: none;
     outline: none;
 }
 
 .header .navbar-wrap .search-bar button {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     height: 4rem;
     width: 7.5rem;
     padding: 1rem 0rem;

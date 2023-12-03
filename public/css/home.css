@@ -26,42 +26,51 @@
     height: 100vh;
 }
 
-.controls {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    top: 40%;
-    left: 0;
-    width: 100%;
-}
-
 .controls button {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+}
+
+.prev {
+    left: 0;
+    top: 40%
+}
+
+.next {
+    right: 0;
+    top: 40%
+}
+
+.controls i {
     position: relative;
+    color: #333;
     font-size: 2rem;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-color: rgb(253,242,242);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
-    background: transparent;
-    color: #F08A5D;
-    border: .5px solid #F08A5D;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
-
-.controls button:hover {
-    background: #F08A5D;
-    color: #fff;
+.controls i:hover {
+    font-size: 3rem;
 }
-
 /* ------------------- SP ----------------------*/
 
 .listItem-container {
     position: relative;
-    /* border: 1px solid #aaa; */
-    box-shadow: 5px 5px 10px #aaa;
+    padding: 2rem 2rem;
     overflow: hidden;
-    padding: 2rem;
+    height: calc(60rem - 50px);
     margin: 3rem;
+    background-color: #F08A5D;
+    transition: height 0.5s ease;
 }
+
 
 .listItem-container h2 {
     text-transform: uppercase;
@@ -72,50 +81,93 @@
 
 .listItem-container ul {
     display: flex;
-    justify-content: flex-start;
+    position: absolute;
+    justify-content: space-evenly;
     align-items: center;
     list-style: none;
-    gap: 2.3rem;
-    transition: transform 0.3s ease-in-out;
+    gap: 1rem;
 }
 
-.bestSell ul {
-    transition: 0ms;
+.listItem-container ul:nth-child(2){
+    transform: translateX(110%);
+}
+
+.slider-product-best-sell,
+.slider-product-news {
+    position: relative;
+    transition: all 0.5s ease;
+    right:0;
+}
+
+
+.listItem-container ul li {
+    width: 24%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 2rem;
+    cursor: pointer;
+}
+
+.listItem-container ul li:hover {
+    border: 0.5px solid #333
+}
+
+.listItem-container ul li img {
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.listItem-container ul li:hover img {
+    transform: translateY(-10px);
 }
 
 .listItem-container ul a {
     text-decoration: none;
 }
 
-.listItem-container ul li:hover {
-    box-shadow: 0px 5px 5px 5px #aaa;
+.listItem-container ul li .item-text {
+    padding-top: 2rem;
+}
+.listItem-container ul li .item-text .nameItem,
+.listItem-container ul li .item-text .priceItem  {
+    padding-bottom: 0.6rem;
+    font-size: 1.3rem;
 }
 
-.listItem-container ul .Item-container {
-    position: relative;
-    margin: 10px;
+.listItem-container ul li .item-text .nameItem:hover {
+    color:#F08A5D
 }
 
-.imgItem img{
-    height: 300px;
-    width: auto;
-}
-
-.listItem-container ul .Item-container .nameItem {
-    font-size: 1.8rem;
-    color: #000;
-    padding: 1rem 0rem;
-}
-
-.listItem-container ul .Item-container .priceItem {
-    font-size: 1.8rem;
+.listItem-container ul li .item-text .priceItem {
     color: red;
+    font-weight: bold;
 }
 
 .listItem-container ul .controls {
     margin: 10px;
 }
 
-.new li {
-    transition: none;
+@media (max-width:1200px) {
+    .listItem-container {
+        height: 50rem;
+    }
+}
+
+@media (max-width:968px) {
+    .listItem-container {
+        height: 40rem;
+    }
+}
+
+@media (max-width:768px) {
+    .listItem-container {
+        height: 30rem;
+    }
+}
+
+@media (max-width:480px) {
+    .listItem-container {
+        height: 25rem;
+    }
 }

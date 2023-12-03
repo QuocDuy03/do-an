@@ -2,7 +2,7 @@
 const imgBox = document.querySelector(".slider-container");
 const slidesBanner = document.getElementsByClassName('slideBox');
 
-var i = 0;
+let i = 0;
 function nextSlide() {
   slidesBanner[i].classList.remove('active');
   i = (i + 1) % slidesBanner.length;
@@ -14,149 +14,109 @@ function prevSlide() {
   i = (i - 1 + slidesBanner.length) % slidesBanner.length;
   slidesBanner[i].classList.add('active');
 }
-
-let itemsDisplay;
-if (innerWidth >= 1280)
-  itemsDisplay = 4;
-else if (innerWidth >= 915)
-  itemsDisplay = 3;
-else if (innerWidth >= 545)
-  itemsDisplay = 2;
-else if (innerWidth >= 270)
-  itemsDisplay = 1;
-else 
-  itemsDisplay = 0;
-const bestSell = document.querySelector('.bestSell ul');
-const itemsBestSellLength = bestSell.querySelectorAll('li').length;
-const itemsBestSellHidden = itemsBestSellLength - itemsDisplay;
-const itemWidth = 100 / itemsDisplay;
-let currentBestSellItem = 0;
-
+// ------------------------- Slides BestSell --------------------------------------------------
 function prevBestSellItem() {
-  if (currentBestSellItem > 0) {
-    currentBestSellItem--;
-    updateTransformBestSell();
-  }
+  document.querySelector(".slider-product-best-sell").style.right = 0 * 110 + "%"
 }
 
 function nextBestSellItem() {
-  if (currentBestSellItem < itemsBestSellHidden) {
-    currentBestSellItem++;
-    // if (currentBestSellItem === itemsBestSellHidden) {
-    //   document.querySelector('.next').disabled = true;
-    // }
-    updateTransformBestSell();
-  }
+  document.querySelector(".slider-product-best-sell").style.right = 1 * 110 + "%"
 }
 
-function updateTransformBestSell() {
-  const transformValue = `translateX(-${currentBestSellItem * itemWidth}%)`;
-  bestSell.style.transform = transformValue;
-  bestSell.style.transition = `300ms`;
-  console.log(currentBestSellItem);
-  console.log(itemWidth);
+function prevNewsItem() {
+  document.querySelector(".slider-product-news").style.right = 0 * 110 + "%"
 }
 
-const news = document.querySelector('.new ul');
-const itemsNewLength = news.querySelectorAll('li').length;
-const itemsNewHidden = itemsNewLength - itemsDisplay;
-var currentNewItem = 0;
-function prevNewItem() {
-  if (currentNewItem > 0) {
-    currentNewItem--;
-    updateTransformNew();
-  }
+function nextNewsItem() {
+  document.querySelector(".slider-product-news").style.right = 1 * 110 + "%"
 }
-
-function nextNewItem() {
-  if (currentNewItem < itemsNewHidden) {
-    currentNewItem++;
-    // if (currentNewItem === itemsNewHidden) {
-    //   document.querySelector('.next').disabled = true;
-    // }
-    updateTransformNew();
-  }
-}
-
-function updateTransformNew() {
-  const transformValue = `translateX(-${currentNewItem * itemWidth}%)`;
-  news.style.transform = transformValue;
-  news.style.transition = `300ms`;
-}
-
 
 //############################################################################
+
+const listItemBestSell = document.querySelectorAll(".list-item-best-sell");
+let indexBestSell = 0, countBestSell = 1;
+
 fetch('getBestSells', {
   method: 'GET',
   headers: {
-      'Content-Type': 'application/json',
+    'Content-Type': 'application/json',
   }
 })
   .then(response => {
-      if (!response.ok) {
-          throw new Error('Fetch request failed');
-      }
-      return response.json();
+    if (!response.ok) {
+      throw new Error('Fetch request failed');
+    }
+    return response.json();
   })
   .then(data => {
-      data.products.forEach(product => {
-          const bestSellProduct = document.createElement('li');
-          bestSellProduct.innerHTML =`
+    data.products.forEach(product => {
+      const bestSellProduct = document.createElement('li');
+      bestSellProduct.innerHTML = `
             <a href="products/details/${product.id}">
-                <div class="Item-container hidden">
-                    <div class="imgItem">
-                        <img src="${product.thumbnail}">
-                    </div>
-                    <div class="nameItem">
-                        ${product.title}
-                    </div>
-                    <div class="priceItem">
-                        ${product.price}Đ
-                    </div>
-                </div>
+              <img src="${product.thumbnail}">
+              <div class="item-text">
+                  <div class="nameItem">
+                    ${product.title}
+                  </div>
+                  <div class="priceItem">
+                    ${product.price.toLocaleString()}Đ
+                  </div>
+              </div>
             </a>
           `
-          document.getElementById('bestSellListItem').appendChild(bestSellProduct);
-      })
+      countBestSell++;
+      listItemBestSell[indexBestSell].appendChild(bestSellProduct);
+      if (countBestSell === 4) {
+        indexBestSell++;
+        countBestSell = 1;
+      }
+    })
   })
   .catch(err => {
-      console.log(err);
-  }) 
+    console.log(err);
+  })
 
-  //############################################################################
+//   //############################################################################
+
+const listItemNews = document.querySelectorAll(".list-item-news");
+let indexNews = 0, countNews = 1;
+
 fetch('getNews', {
   method: 'GET',
   headers: {
-      'Content-Type': 'application/json',
+    'Content-Type': 'application/json',
   }
 })
   .then(response => {
-      if (!response.ok) {
-          throw new Error('Fetch request failed');
-      }
-      return response.json();
+    if (!response.ok) {
+      throw new Error('Fetch request failed');
+    }
+    return response.json();
   })
   .then(data => {
-      data.products.forEach(product => {
-          const newProduct = document.createElement('li');
-          newProduct.innerHTML =`
-            <a href="products/details/${product.id}">
-                <div class="Item-container hidden">
-                    <div class="imgItem">
-                        <img src="${product.thumbnail}">
-                    </div>
-                    <div class="nameItem">
-                        ${product.title}
-                    </div>
-                    <div class="priceItem">
-                        ${product.price.toLocaleString()}Đ
-                    </div>
-                </div>
-            </a>
+    data.products.forEach(product => {
+      const newProduct = document.createElement('li');
+      newProduct.innerHTML = `
+          <a href="products/details/${product.id}">
+          <img src="${product.thumbnail}">
+          <div class="item-text">
+              <div class="nameItem">
+                ${product.title}
+              </div>
+              <div class="priceItem">
+                ${product.price.toLocaleString()}Đ
+              </div>
+          </div>
+        </a>
           `
-          document.getElementById('newListItem').appendChild(newProduct);
-      })
+      countNews++;
+      listItemNews[indexNews].appendChild(newProduct);
+      if (countNews === 4) {
+        indexNews++;
+        countNews = 0;
+      }
+    })
   })
   .catch(err => {
-      console.log(err);
+    console.log(err);
   }) 
