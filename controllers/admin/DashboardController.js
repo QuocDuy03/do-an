@@ -39,19 +39,20 @@ class DashboardController {
         }
     }
 
-    getProfile(req, res) {
+    async getProfile(req, res) {
         try {
             const user = req.user; // Kiểm tra thông tin người dùng từ middleware authenticateToken
             if (!user) {
                 return res.redirect('/login');
             }
-            // Sử dụng thông tin người dùng để kiểm tra quyền truy cập
+            const userInfo = await UserModel.getUserById(user.id);
+
             return res.status(200).json({
                 id: user.id,
-                name: user.name,
-                email: user.email,
-                phone: user.phone,
-                address: user.address,
+                name: userInfo.fullname,
+                email: userInfo.email,
+                phone: userInfo.phone_number,
+                address: userInfo.address,
             });
         } catch (err) {
             console.log(err);
