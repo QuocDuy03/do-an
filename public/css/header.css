@@ -33,12 +33,13 @@
 
 .header .navbar-wrap .search-bar input {
     width: 100%;
-    margin-left: 1.5rem;
+    padding-left: 1.5rem;
     background: none;
     font-size: 1.4rem;
     box-shadow: none;
     border: none;
     outline: none;
+    height: 4rem;
 }
 
 .header .navbar-wrap .search-bar button {
