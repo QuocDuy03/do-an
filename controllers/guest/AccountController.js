@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const database = require('../../config/database');
+const userModel = require('../../models/userModels');
 class AccountController {
     index(req, res) {
         try {
@@ -21,28 +22,21 @@ class AccountController {
 
     async getUserInfo(req, res) {
         try {
-            const db = await database.connect();
             const user = req.user; // Kiểm tra thông tin người dùng từ middleware authenticateToken
             if (!user) {
                 return res.redirect('/login');
             }
 
-            // Sử dụng thông tin người dùng để kiểm tra quyền truy cập
-            db.query("SELECT * FROM users WHERE id = ?", [user.id], (err, result) => {
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    return res.status(200).json({
-                        id: user.id,
-                        name: result[0].fullname,
-                        email: result[0].email,
-                        phone: result[0].phone_number,
-                        address: result[0].address,
-                    });
-                }
-            })
-            await database.disconnect(db);
+            // Gọi phương thức từ model để lấy thông tin người dùng
+            const userInfo = await userModel.getUserById(user.id);
+
+            return res.status(200).json({
+                id: user.id,
+                name: userInfo.fullname,
+                email: userInfo.email,
+                phone: userInfo.phone_number,
+                address: userInfo.address,
+            });
         } catch (err) {
             console.log(err);
             return res.redirect('/login');

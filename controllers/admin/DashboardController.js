@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
 const database = require('../../config/database');
 const bcrypt = require('bcryptjs');
+const UserModel = require('../../models/userModels');
+const ProductModel = require('../../models/productModels');
 
 class DashboardController {
     index(req, res) {
@@ -54,6 +56,39 @@ class DashboardController {
         } catch (err) {
             console.log(err);
             return res.redirect('/login');
+        }
+    }
+
+    async countCustomers(req, res) {
+        try {
+            const quantity = await UserModel.countCustomers();
+            return res.status(200).json({ quantity });
+        }
+        catch (error) {
+            console.log(error);
+            return res.status(500).json({ message: "Internal server error" });
+        }
+    }
+
+    async countEmployees(req, res) {
+        try {
+            const quantity = await UserModel.countEmployees();
+            return res.status(200).json({ quantity });
+        }
+        catch (error) {
+            console.log(error);
+            return res.status(500).json({ message: "Internal server error" });
+        }
+    }
+
+    async countProducts(req, res) {
+        try {
+            const quantity = await ProductModel.countProducts();
+            return res.status(200).json({ quantity });
+        }
+        catch (error) {
+            console.log(error);
+            return res.status(500).json({ message: "Internal server error" });
         }
     }
 

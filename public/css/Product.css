@@ -109,7 +109,7 @@ div {
 }
 
 .data-table {
-    padding-top: 0.1rem;
+    padding-top: 2rem;
     transition: 300ms;
 }
 
@@ -221,12 +221,6 @@ header label span {
     margin-top: 10px;
 }
 
-
-/* Main content with table */
-.data-table{
-    width: 95%;
-}
-
 .card-header {
     margin-top: 20px;
     display: flex;
@@ -236,7 +230,7 @@ header label span {
 }
 
 .card-header button {
-    margin-right: 0;
+    margin-right: 5rem;
     background-color: #F08A5D;
     font-size: large;
 }
@@ -309,10 +303,9 @@ header label span {
 /* Table of employee */
 .card-body table {
     margin-left: 20px;
-    width: 100%;
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    margin-bottom: 5rem;
+    width: 95%;
 }
 
 td,

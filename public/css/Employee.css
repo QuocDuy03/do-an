@@ -314,31 +314,6 @@ th {
     padding: 8px;
 }
 
-/* Checkbox befor number */
-/* .tick-checkbox {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #000;
-    position: relative;
-}
-
-.tick-checkbox:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid #000;
-    border-width: 0 2px 2px 0;
-    transform: translateY(-50%) rotate(45deg);
-    display: none;
-}
-
-input[type="checkbox"]:checked+.tick-checkbox:after {
-    display: block;
-} */
 tr td input {
     width: var(--check-box-size);
     height: var(--check-box-size);

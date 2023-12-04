@@ -1,5 +1,5 @@
 const database = require('../../config/database');
-
+const ProductModel = require('../../models/productModels');
 
 class ProductsController {
     index(req, res) {
@@ -22,26 +22,14 @@ class ProductsController {
 
     async getProducts(req, res) {
         try {
-            const db = await database.connect();
-            const query = `
-                            SELECT products.*, name FROM products, categories WHERE products.category_id = categories.id ORDER BY products.id ASC
-                        `;
-            db.query(query, [], (error, results) => {
-                if (error) {
-                    console.log(error);
-                    return res.status(500).json({ message: "Internal server error" });
-                }
-                if (results.length) {
-                    return res.status(200).json({ products: results });
-                }
-                else {
-                    return res.status(404).json({ message: "Products not found" });
-                }
-            })
-            await database.disconnect(db);
-        }
-        catch (err) {
-            console.log(err);
+            const products = await ProductModel.getProducts();
+            if (products.length) {
+                return res.status(200).json({ products });
+            } else {
+                return res.status(404).json({ message: "User not found" });
+            }
+        } catch (error) {
+            console.log(error);
             return res.status(500).json({ message: "Internal server error" });
         }
     }
