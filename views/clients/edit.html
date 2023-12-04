@@ -75,30 +75,26 @@
         </div>
 
         <div class="content_account">
-            <h2>Chỉnh sửa hồ sơ cá nhân</h2>
+            <h2>Chỉnh sửa mật khẩu</h2>
             <p id="error-message">
             </p>
             <p id="success-message">
             </p>
-            <form action="/edit/change-information" method="post" id="change-information">
+            <form action="/edit/change-password" method="post" id="change-password">
+
                 <div class="form-group">
-                    <label for="username">Tên người dùng:</label>
-                    <input type="text" id="username" name="username" value="" readonly>
+                    <label for="old-pass">Mật khẩu cũ: <span>*</span></label>
+                    <input type="password" id="old-pass" name="old-pass" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="change-email" name="change-email" value="" readonly>
+                    <label for="new-pass">Mật khẩu mới: <span>*</span></label>
+                    <input type="password" id="new-pass" name="new-pass" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Mật khẩu:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="confirm_password">Xác nhận mật khẩu:</label>
-                    <input type="password" id="confirm_password" name="confirm_password" required>
+                    <label for="confirm-new-pass">Xác nhận mật khẩu mới: <span>*</span></label>
+                    <input type="password" id="confirm-new-pass" name="confirm-new-pass" required>
                 </div>
 
                 <button type="submit">Lưu thay đổi</button>

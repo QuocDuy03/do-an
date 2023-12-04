@@ -73,23 +73,37 @@
             </ul>
         </div>
 
-        <div class="content_account">
             <!-- Nội dung của trang Hồ sơ cá nhân sẽ được thêm ở đây -->
-            <div class="profile-info">
-                <div class="info-item">
-                    <span>Họ và tên:</span>
-                    <span class="user-name"></span>
-                </div>
-                <div class="info-item">
-                    <span>Email:</span>
-                    <span class="user-email"></span>
-                </div>
-                <div class="info-item">
-                    <span>Số điện thoại:</span>
-                    <span class="user-phone"></span>
-                </div>
+            <div class="form-container">
+                <form action="/edit/change-information" method="post" id="change-information">
+                    <h3>Thông tin cá nhân</h3>
+                    <p id="error-message">
+                    </p>
+                    <p id="success-message">
+                    </p>
+                    <div class="input-field">
+                        <label for="fullname">Họ và tên </label> <br/>
+                        <input type="text" name="fullname" id="fullname" class="box" readonly required>
+                    </div>
+                    <div class="input-field">
+                        <label for="user-email">Email </label> <br/>
+                        <input type="email" name="user-email" id="user-email" class="box" readonly required>
+                    </div>
+                    <div class="input-field">
+                        <label for="phone-number">Số điện thoại </label><br/>
+                        <input type="tel" name="phone-number" id="phone-number" class="box" readonly required>
+                    </div>
+                    <div class="input-field">
+                        <label for="address">Địa chỉ </label> <br/>
+                        <input type="text" name="address" id="address" class="box" readonly required>
+                    </div>
+                    <div class="button-container">
+                        <button type="button" class="edit-btn" onclick=activeEditInformation()>Sửa</button>
+                        <button type="submit" class="confirm-btn hidden">Thay đổi</button>
+                        <button type="button" class="cancel-btn hidden" onclick=inactiveEditInformation()>Hủy</button>
+                    </div>
+                </form>
             </div>
-        </div>
     </div>
     <footer>
         <div class="content">

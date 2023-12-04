@@ -12,9 +12,8 @@
     font-size: 30px;
     line-height: 1.5;
     margin-left: 10px;
-    margin-top: 80px;
+    margin-top: 50px;
     /* Thêm margin-top để cách header */
-    margin-bottom: 40px;
     /* Thêm margin-bottom để cách footer */
 }
 
@@ -59,6 +58,9 @@
     padding: 20px; /* Tạo khoảng cách cho nội dung */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nội dung */
     border-radius: 10px; /* Bo tròn góc */
+    margin-top: 50px;
+    background-color: #f2f2f2;
+    margin-left: 2rem;
 }
 
 /* CSS cho phần "Chỉnh sửa hồ sơ cá nhân" */
@@ -90,7 +92,13 @@
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    font-size: 1.3rem;
 }
+
+.form-group input[type="password"] {
+    font-size: 1.6rem;
+}
+
 
 .form-group input {
     width: 100%;
@@ -99,10 +107,14 @@
     border-radius: 5px;
 }
 
+.form-group label span {
+    color: red;
+}
+
 /* CSS cho nút "Lưu thay đổi" */
 button[type="submit"] {
-    display: inline-block;
-    background-color: #ff5733;
+    background-color: #F08A5D;
+    font-family: inherit;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -110,6 +122,7 @@ button[type="submit"] {
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s;
+    width: 100%;
 }
 
 button[type="submit"]:hover {

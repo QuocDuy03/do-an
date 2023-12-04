@@ -4,6 +4,7 @@ const router = express.Router();
 const editController = require("../../controllers/guest/EditController");
 
 router.get('/', editController.index);
-router.post('/change-information', editController.store);
+router.put('/change-information', editController.changeInfomation);
+router.put('/change-password', editController.changePassword);
 
 module.exports = router;

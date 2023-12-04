@@ -12,9 +12,8 @@
     font-size: 30px;
     line-height: 1.5;
     margin-left: 10px;
-    margin-top: 80px;
+    margin-top: 50px;
     /* Thêm margin-top để cách header */
-    margin-bottom: 40px;
     /* Thêm margin-bottom để cách footer */
 }
 
@@ -68,26 +67,162 @@
 }
 
 /* Thiết lập kiểu cho thông tin cá nhân */
-.profile-info {
+.form-container {
     display: flex;
-    flex-direction: column;
-    font-size: 30px;
-    /* Đặt cỡ chữ cho thông tin cá nhân */
+    align-items: center;
+    justify-content: center;
+    padding: 5rem;
+    margin-top: 50px;
+    position: relative;
+    background-color: #f2f2f2;
+    transition: 300ms;
+    width: 100%;
+    margin-left: 2rem;
 }
 
-/* Thiết lập khoảng cách giữa các mục thông tin */
-.info-item {
+.form-container form {
+    background-color: #fff;
+    border: 1px solid rgba(256,256,256, 0.4);
+    border-radius: .5rem;
+    padding: 4rem;
+    width: 65%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container form input[type="text"], 
+.form-container form input[type="email"],
+.form-container form input[type="tel"]{
+    font-size: 1.6rem;
+}
+
+.form-container form input[readonly] {
+    background-color: #f1f1f1;
+}
+
+.form-container form h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 2.5rem 0rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.form-container form .row {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
 }
 
-/* Điều chỉnh cỡ chữ của các mục thông tin */
-.info-item span {
-    flex-basis: 40%;
-    font-size: 30px;
-    font-weight: bold; /* In đậm */
-    margin-top: 20px;
-    margin-bottom: 20px;
+.form-container form .row .col {
+    flex: 1 1 30rem;
+}
+
+.form-container form label {
+    padding-top: 1rem;
+    font-size: 1.4rem;
+    text-transform: capitalize;
+}
+
+.form-container form label span {
+    color: red;
+}
+
+.form-container form .input-field {
+    width: 100%;
+}
+
+.form-container form .box {
+    width: 100%;
+    margin: .5rem;
+    font-size: 1.2rem;
+    padding: 1rem;
+}
+.form-container form .box:active,
+.form-container form .box:focus
+{
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+
+.form-container form .button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.form-container form .edit-btn,
+.form-container form .confirm-btn
+{
+    background-color: #F08A5D;
+    color: #fff;
+    width: 100%;
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    line-height: 3rem;
+    text-transform: capitalize;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(240, 138, 93, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0.6rem;
+}
+
+.form-container form .cancel-btn {
+    background-color:#fff;
+    color: #000;
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 0.6rem;
+    font-size: 1.3rem;
+    line-height: 3rem;
+    text-transform: capitalize;
+    border: 1px solid #333;
+    box-shadow: 5px 5px 5px #f6f6f6;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.form-container form .edit-btn:hover,
+.form-container form .confirm-btn:hover {
+    border-color: #F08A5D;
+    font-size: 1.6rem;
+}
+
+.form-container form .cancel-btn:hover {
+    font-size: 1.6rem;
+    color: #F08A5D;
+    border-color: #F08A5D;
+
+}
+
+.form-container form .hidden {
+    display: none;
+}
+
+.form-container #error-message {
+    border: 1px solid #f1aeb5;
+    background-color: #f8d7da;
+    color: #58151c;
+    font-size: 1.8rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    display: none;
+}
+
+.form-container #success-message {
+    color: #0a3622;
+    background-color: #d1e7dd;
+    border: 1px solid #a3cfbb;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+    display: none;
 }
 
 

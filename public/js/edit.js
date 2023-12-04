@@ -1,8 +1,7 @@
-const form = document.querySelector('#change-information');
-const userName = document.getElementById('username');
-const userEmail = document.getElementById('change-email');
-const password = document.getElementById('password');
-const confirmPassword = document.getElementById('confirm_password');
+const form = document.querySelector('#change-password');
+const oldPassword = form.querySelector("#old-pass")
+const newPassword = form.querySelector("#new-pass")
+const confirmNewPassword = form.querySelector("#confirm-new-pass")
 const errorMessage = document.getElementById('error-message');
 const successMessage = document.getElementById('success-message');
 let id;
@@ -11,7 +10,7 @@ function validateEmail(email) {
     return emailPattern.test(email);
 }
 
-fetch('/login/user-info', {
+fetch('/account/user-info', {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json',
@@ -25,22 +24,12 @@ fetch('/login/user-info', {
     })
     .then((userData) => {
         id = userData.id;
-        userName.value = userData.name;
-        userEmail.value = userData.email;
     })
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     try {
-        if (!validateEmail(userEmail.value)) {
-            errorMessage.style.display = 'block';
-            errorMessage.textContent = 'Sai định dạng email';
-            return; 
-        } else {
-            errorMessage.style.display = 'none';
-        }
-
-        if (password.value!== confirmPassword.value) {
+        if (newPassword.value !== confirmNewPassword.value) {
             errorMessage.style.display = 'block';
             errorMessage.textContent = 'Mật khẩu không khớp';
             return;
@@ -48,27 +37,26 @@ form.addEventListener('submit', async (e) => {
             errorMessage.style.display = 'none';
         }
 
-        const res = await fetch('/edit/change-information', {
-            method: 'POST',
+        const res = await fetch('/edit/change-password', {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 id: id,
-                name: userName.value,
-                email: userEmail.value,
-                pass: password.value,
-                cpass: confirmPassword.value,
+                oldPassword: oldPassword.value,
+                newPassword: newPassword.value,
+                confirmNewPassword: confirmNewPassword.value,
             }),
         });
         const data = await res.json();
-        
+
         if (res.status === 400 || res.status === 401) {
             errorMessage.style.display = 'block';
             errorMessage.textContent = data.message;
             return;
         } else {
-            console.log("Edit successful");
+            console.log("Change password successfully");
             successMessage.style.display = 'block';
             successMessage.textContent = 'Sửa thành công';
         }
