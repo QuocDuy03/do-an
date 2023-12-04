@@ -23,11 +23,11 @@ div {
     width: 345px;
     position: fixed;
     left: 0;
-    top: 0;
+    top: 8%;
     height: 100%;
     background: var(--main-color);
-    z-index: 100%;
-    transition: widht 300ms;
+    transition: width 300ms;
+    overflow: hidden;
 }
 
 .sidebar-brand {
@@ -66,6 +66,7 @@ div {
     font-size: 1.5rem;
     padding-right: 1rem;
 }
+
 .sidebar-menu a span {
     color: var(--color-dark);
 }
@@ -79,9 +80,9 @@ div {
 #nav-toggle:checked+.sidebar li {
     padding-left: 1rem;
     text-align: center;
-}a
+}
 
-#nav-toggle:checked+.sidebar li a {
+a #nav-toggle:checked+.sidebar li a {
     padding-left: 0rem;
 }
 
@@ -96,6 +97,7 @@ div {
 #nav-toggle:checked~.data-table {
     margin-left: -275px;
 }
+
 /* #nav-toggle:checked~.main-content header {
     width: calc(100%)-70px;
     left: 70px;
@@ -137,6 +139,7 @@ header {
     /* justify-content: space-between; */
     align-items: center;
 }
+
 #nav-toggle {
     display: none;
 }
@@ -222,7 +225,6 @@ header label span {
 }
 
 .card-header {
-    margin-top: 20px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -230,9 +232,22 @@ header label span {
 }
 
 .card-header button {
-    margin-right: 5rem;
     background-color: #F08A5D;
-    font-size: large;
+    font-size: 1.3rem;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    border: 0.4px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card-header .open-popup {
+    margin-right: 5rem;
+}
+
+.card-header button:hover {
+    background-color:#45a049;
 }
 
 /* Popup when click add */
@@ -285,6 +300,7 @@ header label span {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 .product-form textarea {
     resize: vertical;
     height: 10rem;
@@ -302,6 +318,7 @@ header label span {
 
 /* Table of employee */
 .card-body table {
+    margin: 3rem 0;
     margin-left: 20px;
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -311,14 +328,15 @@ header label span {
 td,
 th {
     border: 1px solid hsl(0, 24%, 4%);
-    text-align: left;
+    text-align: center;
     padding: 8px;
 }
 
-tr, td {
-    text-align: center;
-    overflow: hidden;
+tr:nth-child(even) {
+    background-color: #dddddd;
+    /* Màu nền cho dòng chẵn */
 }
+
 tr td input {
     width: var(--check-box-size);
     height: var(--check-box-size);
@@ -334,6 +352,7 @@ input[type="checkbox"]:checked+.tick-checkbox:after {
     margin-left: .5rem;
     color: var(--main-color);
 }
+
 .sidebar-menu a.active {
     background: #F08A5D;
     padding-top: 1rem;
@@ -352,6 +371,7 @@ input[type="checkbox"]:checked+.tick-checkbox:after {
     margin-right: 20px;
     font-size: 40px;
 }
+
 .user-icon:hover {
     cursor: pointer;
     user-select: none;
@@ -377,6 +397,7 @@ input[type="checkbox"]:checked+.tick-checkbox:after {
 .profile-details.active {
     display: inline-block;
 }
+
 .profile-details h2 {
     font-size: 2rem;
     font-weight: bold;
@@ -402,7 +423,7 @@ input[type="checkbox"]:checked+.tick-checkbox:after {
 }
 
 .profile-details .flex-btn .btn {
-    background-color:#F08A5D;
+    background-color: #F08A5D;
     color: #fff;
     margin: 0 .5rem;
     font-size: 1.6rem;

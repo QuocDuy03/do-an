@@ -23,11 +23,11 @@ div {
     width: 345px;
     position: fixed;
     left: 0;
-    top: 0;
+    top: 8%;
     height: 100%;
     background: var(--main-color);
-    z-index: 100%;
     transition: width 300ms;
+    overflow: hidden;
 }
 
 .sidebar-brand {
@@ -228,7 +228,7 @@ header label span {
 
 
 .card-header {
-    margin-top: 20px;
+    margin: 20px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -301,6 +301,7 @@ header label span {
 
 /* Table of employee */
 .card-body table {
+    margin: 3rem 0;
     margin-left: 20px;
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -313,6 +314,10 @@ th {
     text-align: center;
     padding: 8px;
 }
+
+tr:nth-child(even) {
+    background-color: #dddddd; /* Màu nền cho dòng chẵn */
+  }
 
 tr td input {
     width: var(--check-box-size);

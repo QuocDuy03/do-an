@@ -21,11 +21,11 @@ div {
     width: 345px;
     position: fixed;
     left: 0;
-    top: 0;
+    top: 8%;
     height: 100%;
     background: var(--main-color);
-    z-index: 100%;
     transition: 300ms;
+    overflow: hidden;
 }
 
 .sidebar-brand {

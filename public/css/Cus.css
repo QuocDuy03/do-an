@@ -2,6 +2,7 @@
     --main-color: #DBE2EF 60%;
     --color-dark: #1D2231;
     --text-grey: #8390A2;
+    --check-box-size: 1.5rem;
 }
 
 * {
@@ -21,11 +22,11 @@ div {
     width: 345px;
     position: fixed;
     left: 0;
-    top: 0;
+    top: 8%;
     height: 100%;
     background: var(--main-color);
-    z-index: 100%;
-    transition: widht 300ms;
+    transition: width 300ms;
+    overflow: hidden;
 }
 
 .sidebar-brand {
@@ -223,8 +224,8 @@ header label span {
 }
 
 table {
-    margin: 20px 20px 2rem;
-    margin-right: 20px;
+    margin: 3rem 0;
+    margin-left: 20px;
     padding: 2rem;
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -239,9 +240,18 @@ justify-items: flex-end;
 td,
 th {
     border: 1px solid hsl(0, 24%, 4%);
-    text-align: left;
+    text-align: center;
     padding: 8px;
 }
+
+tr td input {
+    width: var(--check-box-size);
+    height: var(--check-box-size);
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd; /* Màu nền cho dòng chẵn */
+  }
 
 .Action span{
     font-size: 1.5rem;

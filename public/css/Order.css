@@ -23,11 +23,11 @@ div {
     width: 345px;
     position: fixed;
     left: 0;
-    top: 0;
+    top: 8%;
     height: 100%;
     background: var(--main-color);
-    z-index: 100%;
     transition: width 300ms;
+    overflow: hidden;
 }
 
 .sidebar-brand {
@@ -74,6 +74,7 @@ div {
     font-size: 1.5rem;
     padding-right: 1rem;
 }
+
 .sidebar-menu a span {
     color: var(--color-dark);
 }
@@ -238,6 +239,9 @@ header label span {
 .card-header button {
     background-color: #F08A5D;
     font-size: large;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 5px;
 }
 
 /* Popup when click add */
@@ -301,6 +305,7 @@ header label span {
 
 /* Table of employee */
 .card-body table {
+    margin: 3rem 0;
     margin-left: 20px;
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -314,10 +319,16 @@ th {
     padding: 8px;
 }
 
+tr:nth-child(even) {
+    background-color: #dddddd;
+    /* Màu nền cho dòng chẵn */
+}
+
 tr td input {
     width: var(--check-box-size);
     height: var(--check-box-size);
 }
+
 /* Span for action */
 .Action span {
     font-size: 1.2rem;
@@ -335,6 +346,7 @@ tr td input {
     margin-right: 20px;
     font-size: 40px;
 }
+
 .user-icon:hover {
     cursor: pointer;
     user-select: none;
@@ -361,6 +373,7 @@ tr td input {
 .profile-details.active {
     display: inline-block;
 }
+
 .profile-details h2 {
     font-size: 2rem;
     font-weight: bold;
@@ -386,7 +399,7 @@ tr td input {
 }
 
 .profile-details .flex-btn .btn {
-    background-color:#F08A5D;
+    background-color: #F08A5D;
     color: #fff;
     margin: 0 .5rem;
     font-size: 1.6rem;
