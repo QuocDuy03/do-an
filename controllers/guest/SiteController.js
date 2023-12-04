@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const database = require('../../config/database');
+const ProductModel = require("../../models/productModels");
 
 class SiteController {
     // async index(req, res) {
@@ -38,6 +39,35 @@ class SiteController {
         else
             res.redirect('/admin/dashboard');
     }
+
+    async searchPage(req, res) {
+        const user = req.user; // Kiểm tra thông tin người dùng từ middleware authenticateToken
+        if (!user) {
+            return res.render('search', {
+                user: null
+            })
+        }
+        // Sử dụng thông tin người dùng để kiểm tra quyền truy cập
+        if (user.role_id === 2)
+            res.render('search', {
+                user: user
+            });
+        else
+            res.redirect('/admin/dashboard');
+    }
+
+    async search(req, res) {
+        const keyword = req.query.query;
+        try {
+            const products = await ProductModel.searchProducts(keyword);
+            return res.status(200).json({ products });
+        }
+        catch (error) {
+            console.log(error);
+            return res.status(500).json({ message: "Internal server error" });
+        }
+    }
+
     logOut(req, res) {
         res.clearCookie('token');
         console.log('logout completed');

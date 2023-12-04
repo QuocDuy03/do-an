@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Giỏ hàng</title>
+  <title>Kết quả tìm kiếm</title>
   <link rel="icon" type="image/x-icon" href="/images/logo2.png">
   <link rel="stylesheet" href="/css/globalStyle.css">
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/giohang.css">
+  <link rel="stylesheet" href="/css/search.css">
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -37,70 +37,34 @@
       </div>
       <div class="profile-details">
         <div class="logged-in">
-            <img src="/images/customer.png">
-            <h2></h2>
-            <div class="flex-btn">
-                <a href="/account" class="btn profile"> Hồ sơ </a>
-                <a href="/logout" class="btn logout"> Đăng xuất </a>
-            </div>
+          <img src="/images/customer.png" alt="avatar">
+          <h2></h2>
+          <div class="flex-btn">
+            <a href="/account" class="btn profile"> Hồ sơ </a>
+            <a href="/logout" class="btn logout"> Đăng xuất </a>
+          </div>
         </div>
         <div class="logged-out">
-            <h2>Vui lòng đăng nhập hoặc đăng ký</h2>
-            <div class="flex-btn">
-                <a href="/login" class="btn login"> Đăng nhập </a>
-                <a href="/register" class="btn register"> Đăng ký </a>
-            </div>
+          <h2>Vui lòng đăng nhập hoặc đăng ký</h2>
+          <div class="flex-btn">
+            <a href="/login" class="btn login"> Đăng nhập </a>
+            <a href="/register" class="btn register"> Đăng ký </a>
+          </div>
         </div>
-    </div>
+      </div>
+
     </div>
   </header>
-
-  <main>
-    <div class="gio-hang" id="gio-hang">
-      <!--Danh sach tieu de-->
-      <h1 class="tieuDe">Danh sách sản phẩm</h1>
-      <hr>
-      <!--Tiêu đề của item gio hang-->
-      <div class="item-gio-hang tieudeitem">
-        <div class="hinh-anh">
-        </div>
-        <div class="product-details">Sản Phẩm
-          <div class="tensp"></div>
-          <p class="mau-sac"></p>
-          <p class="size"></p>
-          <p class="ma-san-pham"></p>
-        </div>
-        <div class="gia">
-          <span> Giá</span>
-        </div>
-        <div class="soluong">
-          Số lượng
-        </div>
-        <p class="Tongtien">Tổng tiền</p>
-        <p class="delete-btn">Xoá</p>
-
-      </div>
-
-
-    </div>
-
-    <div class="tongtien">
-      <p>TỔNG CỘNG</p>
-      <div class="thanhtoan"> </div><!--Tong tiền-->
-      <div class="buttons-container">
-        <button class="dat-hang" id="nut-thanh-toan">Thanh toán</button>
-        <button class="quay-lai-gio-hang">Tiếp tục mua sắm</button>
-      </div>
-    </div>
-
-
-
+  <main class="products">
+    <h2>Kết quả tìm kiếm cho: <span class="keyword"></span></h2>
+    <ul class="box-container">
+    </ul>
   </main>
   <footer>
     <div class="content">
       <div class="box col2">
         <h3>đăng ký nhận thông tin từ chúng tôi</h3>
-        <form action="" method="get" class="get-information">
+        <form action="/email-register" method="get" class="get-information">
           <input type="email" id="email" name="email" placeholder="Nhập email của bạn">
           <button type="submit" name="Gửi">Gửi</button>
         </form>
@@ -135,13 +99,11 @@
       </div>
     </div>
     <div class="bottom">
-      <p> &copy bản quyền thuộc về nhóm 5</p>
+      <p> &copy; bản quyền thuộc về nhóm 5</p>
     </div>
   </footer>
-
-  <script src="/js/dulieu.js"></script>
   <script src="/js/header.js"></script>
-  <script src="/js/giohang.js"></script>
+  <script src="/js/search.js"></script>
 </body>
 
 </html>

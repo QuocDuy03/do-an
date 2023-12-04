@@ -48,6 +48,29 @@ const ProductModel = {
             await database.disconnect(db);
         }
     },
+
+    searchProducts: async (keyword) => {
+        const db = await database.connect();
+    
+        try {
+            const query = "SELECT * FROM products WHERE title LIKE ?";
+            const results = await new Promise((resolve, reject) => {
+                db.query(query, [`%${keyword}%`], (error, results) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        resolve(results);
+                    }
+                });
+            });
+    
+            return results.length ? results : [];
+        } catch (error) {
+            throw error;
+        } finally {
+            await database.disconnect(db);
+        }
+    }
 }
 
 module.exports = ProductModel;

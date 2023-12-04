@@ -66,8 +66,10 @@
 
 .order-details {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
     align-items: center;
+    width: 100%;
+    padding: 1rem;
 }
 
 .product-info {
@@ -75,7 +77,7 @@
 }
 
 .additional-info {
-    text-align: right;
+    text-align: center;
 }
 
 .additional-info p {
@@ -97,10 +99,21 @@
     background-color: #F8F8FF;
 }
 
+.order-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cancel_button {
+    padding: 1rem;
+}
+
 /* Thêm kiểu cho container của màu sắc */
 .color-container {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 /* Thêm kiểu cho ô màu sắc sản phẩm */

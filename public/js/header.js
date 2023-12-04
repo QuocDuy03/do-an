@@ -59,3 +59,34 @@ logoutBtn.addEventListener('click', () => {
             console.error('Logout error:', error);
         });
 });
+
+const searchForm = document.querySelector('.search-bar');
+const currentPath = window.location.pathname;
+
+searchForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const keyword = document.querySelector('#keyword').value;
+    if (keyword.trim() !== '') {
+        try {
+            const res = await fetch(`/search-keyword?query=${encodeURIComponent(keyword)}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (res.status === 200) {
+                const currentPath = window.location.pathname;
+                const searchPath = `/search?query=${encodeURIComponent(keyword)}`;
+                if (currentPath !== searchPath) {
+                    window.location.href = searchPath;
+                }
+            } else {
+                console.log('Error');
+            }
+        } catch (error) {
+            console.error('Fetch error:', error);
+        }
+    }
+})

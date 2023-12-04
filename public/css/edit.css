@@ -1,5 +1,6 @@
 .user-profile {
     display: flex;
+    height: 60vh;
     /* Sử dụng flexbox */
 }
 
@@ -112,7 +113,7 @@
 }
 
 /* CSS cho nút "Lưu thay đổi" */
-button[type="submit"] {
+.content_account button[type="submit"] {
     background-color: #F08A5D;
     font-family: inherit;
     color: #fff;
@@ -125,7 +126,7 @@ button[type="submit"] {
     width: 100%;
 }
 
-button[type="submit"]:hover {
+.content_account button[type="submit"]:hover {
     background-color: #ff4000; /* Đổi màu nền khi hover */
 }
 

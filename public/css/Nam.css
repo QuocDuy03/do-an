@@ -81,6 +81,11 @@
 
 }
 
+.listItem-container ul li {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Đổ bóng nội dung */
+    border-radius: 10px; /* Bo tròn góc */
+}
+
 .listItem-container ul li:hover {
     box-shadow: 0px 5px 5px 5px #aaa;
 }
@@ -117,4 +122,8 @@
     display: block;
     transition: transform 0.3s ease-in-out;
     border-bottom: 1px solid #ddd;
+}
+
+.row {
+    margin: 2rem 0;
 }
