@@ -200,7 +200,7 @@ function getSelectedSize() {
 }
 
 // Lên lịch gọi hàm getSelectedSize() sau 2000 mili giây (2 giây)
-// setTimeout(getSelectedSize, 200);  
+setTimeout(getSelectedSize, 200);  
 
 //Chuyển qua cart khi nhấn mua ngay
 // document.getElementById('buyNowButton').addEventListener(onclick,function(){
