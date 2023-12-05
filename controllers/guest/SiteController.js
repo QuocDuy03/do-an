@@ -78,20 +78,25 @@ class SiteController {
             const db = await database.connect();
             const roleId = 2;
             const query = `
-                            
-                            SELECT P.id, P.title, P.price, P.thumbnail
-                            FROM Products P
-                            JOIN (
-                            SELECT product_id, SUM(quantity) as total_sold
-                            FROM Order_Details OD
-                            JOIN Orders O ON OD.order_id = O.id
-                            WHERE O.status = 1
-                            GROUP BY product_id
-                            ORDER BY total_sold DESC
-                            LIMIT 10
-                            ) AS TopProducts ON P.id = TopProducts.product_id
-                            ORDER BY TopProducts.total_sold DESC;
-                        `;
+                SELECT P.id, P.title, P.price, P.thumbnail
+                FROM Products P
+                JOIN (
+                    SELECT product_id, SUM(quantity) as total_sold
+                    FROM Order_Details OD
+                    JOIN Orders O ON OD.order_id = O.id
+                    WHERE O.status = 1
+                    GROUP BY product_id
+                    ORDER BY total_sold DESC
+                    LIMIT 8
+                ) AS TopProducts ON P.id = TopProducts.product_id
+                
+                UNION
+                
+                SELECT id, title, price, thumbnail
+                FROM Products
+                WHERE id NOT IN (SELECT product_id FROM Order_Details)
+                LIMIT 8;
+            `;
             db.query(query, [roleId], (error, results) => {
                 if (error) {
                     console.log(error);
@@ -119,7 +124,7 @@ class SiteController {
                             SELECT id, title, price, thumbnail
                             FROM Products
                             ORDER BY created_at DESC
-                            LIMIT 10;            
+                            LIMIT 8;            
                         `;
             db.query(query, [roleId], (error, results) => {
                 if (error) {
@@ -134,6 +139,52 @@ class SiteController {
                 }
             })
             await database.disconnect(db);
+        }
+        catch (err) {
+            console.log(err);
+            return res.status(500).json({ message: "Internal server error" });
+        }
+    }
+    async getNumberOfCartProduct(req, res) {
+        try {
+            const db = await database.connect();
+    
+            // Kiểm tra token và lấy thông tin người dùng
+            const token = await req.cookies.token;
+        
+            if (token) {
+                jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+                    if (err) {
+                        console.log(err);
+                        return res.status(500).json({ message: "Internal server error" });
+                    }
+        
+                    // Sử dụng thông tin người dùng để xác định ai đã thêm vào giỏ hàng
+                    const userId = user.id;
+        
+                    const query = `
+                        SELECT COUNT(*) AS itemCount
+                        FROM Carts
+                        WHERE user_id = ?;
+                    `;
+        
+                    db.query(query, [userId], (error, results) => {
+                        if (error) {
+                            console.log(error);
+                            return res.status(500).json({ message: "Internal server error" });
+                        }
+        
+                        if (results.length > 0) {
+                            return res.status(200).json({ products: results });  
+                        } else {
+                            return res.status(404).json({ message: "User not found" });
+                        }
+                    }); 
+                });
+            } else {
+                return res.status(401).json({ message: "Invalid token" });
+            }
+            await database.disconnect(db);               
         }
         catch (err) {
             console.log(err);

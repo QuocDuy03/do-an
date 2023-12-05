@@ -85,48 +85,91 @@ if (match) {
     }) 
 
 
-  //############################################################################
-  fetch(`${productId}/showSimilars`, {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json',
+//   //############################################################################
+//   fetch(`${productId}/showSimilars`, {
+//     method: 'GET',
+//     headers: {
+//         'Content-Type': 'application/json',
+//     }
+//   })
+//     .then(response => {
+//         if (!response.ok) {
+//             throw new Error('Fetch request failed');
+//         }
+//         return response.json();
+//     })
+//     .then(data => {
+//         data.products.forEach(product => {
+//             const newProduct = document.createElement('li');
+//             newProduct.innerHTML =`
+//               <a href="${product.id}">
+//                   <div class="Item-container hidden">
+//                       <div class="imgItem">
+//                           <img src="${product.thumbnail}">
+//                       </div>
+//                       <div class="nameItem">
+//                           ${product.title}
+//                       </div>
+//                       <div class="priceItem">
+//                           ${product.price}Đ
+//                       </div>
+//                   </div>
+//               </a>
+//             `
+//             document.getElementById('newListItem').appendChild(newProduct);
+//         })
+//     })
+//     .catch(err => {
+//         console.log(err);
+//     }) 
+
+// } else {
+//     console.error('Không tìm thấy ID trong URL.');
+// }
+//   //############################################################################
+
+const listItemNews = document.querySelectorAll(".list-item-news");
+let indexNews = 0, countNews = 1;
+
+fetch(`${productId}/showSimilars`, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  }
+})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Fetch request failed');
     }
+    return response.json();
   })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Fetch request failed');
-        }
-        return response.json();
+  .then(data => {
+    data.products.forEach(product => {
+      const newProduct = document.createElement('li');
+      newProduct.innerHTML = `
+          <a href="${product.id}">
+            <img src="${product.thumbnail}">
+            <div class="item-text">
+                <div class="nameItem">
+                    ${product.title}
+                </div>
+                <div class="priceItem">
+                    ${product.price.toLocaleString()}Đ
+                </div>
+            </div>
+        </a>
+          `
+      countNews++;
+      listItemNews[indexNews].appendChild(newProduct);
+      if (countNews === 5) {
+        indexNews++;
+        countNews = 0;
+      }
     })
-    .then(data => {
-        data.products.forEach(product => {
-            const newProduct = document.createElement('li');
-            newProduct.innerHTML =`
-              <a href="${product.id}">
-                  <div class="Item-container hidden">
-                      <div class="imgItem">
-                          <img src="${product.thumbnail}">
-                      </div>
-                      <div class="nameItem">
-                          ${product.title}
-                      </div>
-                      <div class="priceItem">
-                          ${product.price}Đ
-                      </div>
-                  </div>
-              </a>
-            `
-            document.getElementById('newListItem').appendChild(newProduct);
-        })
-    })
-    .catch(err => {
-        console.log(err);
-    }) 
-
-} else {
-    console.error('Không tìm thấy ID trong URL.');
-}
-
+  })
+  .catch(err => {
+    console.log(err);
+  }) 
   //############################################################################
  
 // Tăng giảm số lượng 
@@ -243,7 +286,52 @@ document.getElementById('productInfoForm').addEventListener('submit', async (e) 
     catch (err) {
         console.log(err);
     }
+    updateCartProductNumber();
 })
 
 
+  //========================================================================
+  function updateCartProductNumber() {
+    fetch('/getNumberOfCartProduct', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => {
+        if (!response.ok) { 
+            throw new Error('Fetch request failed');
+        }
+        return response.json();
+    })
+    .then(data => { 
+        const cartProductNumber = document.querySelector('.icon sup');
+        console.log(data.products[0].itemCount);
+        cartProductNumber.textContent = data.products[0].itemCount;
+    })
+    .catch(err => {
+        console.log(err);
+    });
+}
 
+// // Thực hiện cập nhật mỗi 5 giây (5000 milliseconds)
+// setInterval(updateCartProductNumber, 2000);
+
+// ------------------------- Slides BestSell --------------------------------------------------
+function prevBestSellItem() {
+    document.querySelector(".slider-product-best-sell").style.right = 0 * 110 + "%"
+  }
+  
+  function nextBestSellItem() {
+    document.querySelector(".slider-product-best-sell").style.right = 1 * 110 + "%"
+  }
+  
+  function prevNewsItem() {
+    document.querySelector(".slider-product-news").style.right = 0 * 110 + "%"
+  }
+  
+  function nextNewsItem() {
+    document.querySelector(".slider-product-news").style.right = 1 * 110 + "%"
+  }
+}
+  //############################################################################

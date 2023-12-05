@@ -6,6 +6,7 @@ const siteController = require("../../controllers/guest/SiteController");
 router.get('/', siteController.index);
 router.get('/home', siteController.index);
 router.get('/search', siteController.searchPage);
+router.get('/getNumberOfCartProduct', siteController.getNumberOfCartProduct);
 router.get('/search-keyword', siteController.search);
 router.get('/getBestSells', siteController.getBestSells);
 router.get('/getNews', siteController.getNews);

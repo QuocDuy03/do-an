@@ -66,9 +66,9 @@ fetch('getBestSells', {
           `
       countBestSell++;
       listItemBestSell[indexBestSell].appendChild(bestSellProduct);
-      if (countBestSell === 4) {
+      if (countBestSell === 5) {
         indexBestSell++;
-        countBestSell = 1;
+        countBestSell = 0;
       }
     })
   })
@@ -111,7 +111,7 @@ fetch('getNews', {
           `
       countNews++;
       listItemNews[indexNews].appendChild(newProduct);
-      if (countNews === 4) {
+      if (countNews === 5) {
         indexNews++;
         countNews = 0;
       }

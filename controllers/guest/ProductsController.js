@@ -216,6 +216,7 @@ class ProductsController {
                 INNER JOIN
                     (SELECT * FROM products WHERE id = ?) AS TB2
                 WHERE TB1.type = TB2.type AND TB1.category_id = TB2.category_id AND TB1.id != TB2.id
+                LIMIT 4;
             `;
             db.query(query, [idProduct], (error, results) => { 
                 if (error) {

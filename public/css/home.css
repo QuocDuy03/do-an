@@ -65,7 +65,8 @@
     position: relative;
     padding: 2rem 2rem;
     overflow: hidden;
-    height: calc(60rem - 50px);
+    height: 47rem;
+    /* height: calc(60rem - 50px); */
     margin: 3rem;
     background-color: #F08A5D;
     transition: height 0.5s ease;
@@ -150,13 +151,13 @@
 
 @media (max-width:1200px) {
     .listItem-container {
-        height: 50rem;
+        height: 40rem;
     }
 }
 
 @media (max-width:968px) {
     .listItem-container {
-        height: 40rem;
+        height: 35rem;
     }
 }
 

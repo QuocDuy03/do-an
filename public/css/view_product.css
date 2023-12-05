@@ -4,6 +4,10 @@
 .main{
     /* padding-left: 50px;
     padding-right: 50px; */
+    /* margin-left: 3rem;
+    margin-right: 3rem; */
+}
+.url{
     margin-left: 3rem;
     margin-right: 3rem;
 }
@@ -40,6 +44,8 @@ p{
 .product{
     display: flex;
     margin-top: 20px;
+    margin-left: 3rem;
+    margin-right: 3rem;
     justify-content: space-around;
 }
 .productImg{
@@ -238,31 +244,12 @@ p{
 
 /* ----------------------------------------------------------------- */
 /* Các sản phẩm tương tự */
-/* .similarProduct{
-    margin-top: 10px;
-}
-.recommendedProductsList{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3px;
-}
-.recommendedProducts{
-    width: 24%;
-    border: 1px solid rgb(199, 195, 195);
-    padding-left: 2px;
-    padding-right: 2px;
-}
-.recommendedProducts img{
-    width: 100%;
-} */
-
+/* 
 .listItem-container {
     position: relative;
-    /* border: 1px solid #aaa; */
     box-shadow: 5px 5px 10px #aaa;
     overflow: hidden;
     padding: 2rem;
-    /* margin: 3rem; */
     margin-top: 3rem;
 }
 
@@ -279,7 +266,6 @@ p{
     align-items: center;
     list-style: none;
     gap: 4.6rem;
-    /* gap: 2.3rem; */
     transition: transform 0.3s ease-in-out;
 }
 
@@ -347,26 +333,153 @@ p{
 .controls button:hover {
     background: #F08A5D;
     color: #fff;
-}
+} */
 
 
 
-/* Đánh giá */
-.review{
-    margin-top: 20px;
-}
-.review p:first-of-type{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-.reviewInfo{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-.reviewerName{
-    font-weight:bold;
-}
-hr{
-    color: rgb(199, 195, 195);
+.controls button {
+    background-color: transparent;
+    border: none;
+    position: absolute;
 }
 
+.prev {
+    left: 0;
+    top: 40%
+}
+
+.next {
+    right: 0;
+    top: 40%
+}
+
+.controls i {
+    position: relative;
+    color: #333;
+    font-size: 2rem;
+    height: 50px;
+    width: 50px;
+    background-color: rgb(253,242,242);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.controls i:hover {
+    font-size: 3rem;
+}
+/* ------------------- SP ----------------------*/
+
+.listItem-container {
+    position: relative;
+    padding: 2rem 2rem;
+    overflow: hidden;
+    height: 47rem;
+    /* height: calc(60rem - 50px); */
+    margin: 3rem;
+    background-color: #F08A5D;
+    transition: height 0.5s ease;
+}
+
+
+.listItem-container h2 {
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    font-weight: bold;
+    padding: 1rem 5rem;
+}
+
+.listItem-container ul {
+    display: flex;
+    position: absolute;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    gap: 1rem;
+}
+
+.listItem-container ul:nth-child(2){
+    transform: translateX(110%);
+}
+
+.slider-product-best-sell,
+.slider-product-news {
+    position: relative;
+    transition: all 0.5s ease;
+    right:0;
+}
+
+
+.listItem-container ul li {
+    width: 24%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 2rem;
+    cursor: pointer;
+}
+
+.listItem-container ul li:hover {
+    border: 0.5px solid #333
+}
+
+.listItem-container ul li img {
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.listItem-container ul li:hover img {
+    transform: translateY(-10px);
+}
+
+.listItem-container ul a {
+    text-decoration: none;
+}
+
+.listItem-container ul li .item-text {
+    padding-top: 2rem;
+}
+.listItem-container ul li .item-text .nameItem,
+.listItem-container ul li .item-text .priceItem  {
+    padding-bottom: 0.6rem;
+    font-size: 1.3rem;
+}
+
+.listItem-container ul li .item-text .nameItem:hover {
+    color:#F08A5D
+}
+
+.listItem-container ul li .item-text .priceItem {
+    color: red;
+    font-weight: bold;
+}
+
+.listItem-container ul .controls {
+    margin: 10px;
+}
+
+@media (max-width:1200px) {
+    .listItem-container {
+        height: 40rem;
+    }
+}
+
+@media (max-width:968px) {
+    .listItem-container {
+        height: 35rem;
+    }
+}
+
+@media (max-width:768px) {
+    .listItem-container {
+        height: 30rem;
+    }
+}
+
+@media (max-width:480px) {
+    .listItem-container {
+        height: 25rem;
+    }
+}

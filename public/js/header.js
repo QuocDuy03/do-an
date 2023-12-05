@@ -90,3 +90,55 @@ searchForm.addEventListener('submit', async (e) => {
         }
     }
 })
+
+
+//############################################################################
+fetch('/getNumberOfCartProduct', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    }
+  })
+  .then(response => {
+      if (!response.ok) { 
+          throw new Error('Fetch request failed');
+      }
+      return response.json();
+  })
+  .then(data => { 
+    const cartProductNumber = document.querySelector('.icon sup');
+    console.log(data.products[0].itemCount);
+    cartProductNumber.textContent = data.products[0].itemCount;
+  })
+  .catch(err => {
+      console.log(err);
+  }) 
+  
+  
+  
+//   //========================================================================
+//   function updateCartProductNumber() {
+//     fetch('/getNumberOfCartProduct', {
+//         method: 'GET',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         }
+//     })
+//     .then(response => {
+//         if (!response.ok) { 
+//             throw new Error('Fetch request failed');
+//         }
+//         return response.json();
+//     })
+//     .then(data => { 
+//         const cartProductNumber = document.querySelector('.icon sup');
+//         console.log(data.products[0].itemCount);
+//         cartProductNumber.textContent = data.products[0].itemCount;
+//     })
+//     .catch(err => {
+//         console.log(err);
+//     });
+// }
+
+// // Thực hiện cập nhật mỗi 5 giây (5000 milliseconds)
+// setInterval(updateCartProductNumber, 2000);
