@@ -66,7 +66,7 @@ fetch('showFemaleShirts', {
                                 ${data.products[j].title}
                             </div>
                             <div class="priceItem">
-                                ${data.products[j].price}Đ
+                                ${data.products[j].price.toLocaleString('de-DE')}Đ
                             </div>
                         </div>
                     </a>
@@ -119,7 +119,7 @@ fetch('showFemaleTrousers', {
                                 ${data.products[j].title}
                             </div>
                             <div class="priceItem">
-                                ${data.products[j].price}Đ
+                                ${data.products[j].price.toLocaleString('de-DE')}Đ
                             </div>
                         </div>
                     </a>
