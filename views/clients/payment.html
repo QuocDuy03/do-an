@@ -25,8 +25,8 @@
                 <a href="/products/female">Nữ</a>
                 <a href="/products/baby">Trẻ em</a>
             </nav>
-            <form action="/search" method="post" class="search-bar">
-                <input type="text" name="keyword" placeholder="Search..." id="keyword" maxlength="100">
+            <form action="" method="post" class="search-bar">
+                <input type="text" name="search_product" placeholder="Search..." maxlength="100">
                 <button type="submit" class="fa fa-search" id="Search_product_button"></button>
             </form>
             <div class="icon">
@@ -57,83 +57,81 @@
 
     <main>
 
+        <form class="buyForm" method="post" action="/payment/thanhToan" id="buyFormId">
+            <div class="container">
+                <!-- <div class="small-header">
+                    <h2>Thông tin thanh toán</h2>
+                </div> -->
+                <div class="thong-tin-giao-hang">
 
-        <div class="container">
-            <div class="header">
-                <h2>Thông tin thanh toán</h2>
-            </div>
-            <div class="thong-tin-giao-hang">
-
-                <div class="khoang-1">
-                    <h3>Thông tin giao hàng</h3>
+                    <div class="khoang-1">
+                        <h3>Thông tin giao hàng</h3>
 
 
-                    <input type="text" id="ho-ten" placeholder="Họ tên">
+                        <input type="text" id="ho-ten" placeholder="Họ tên" onchange="setOrderInfo()">
 
-                    <input type="email" id="email" placeholder="Email">
+                        <input type="email" id="email-user" placeholder="Email" onchange="setOrderInfo()">
 
-                    <input type="text" id="dia-chi" placeholder="Địa chỉ">
+                        <input type="text" id="dia-chi" placeholder="Địa chỉ" onchange="setOrderInfo()">
 
-                    <input type="text" id="sdt" placeholder="SĐT">
+                        <input type="text" id="sdt" placeholder="SĐT" onchange="setOrderInfo()">
 
-                    <input type="text" id="ghi-chu" placeholder="Ghi chú">
-                </div>
-
-                <div class="khoang-2">
-                    <h3>Hình thức thanh toán</h3>
-                    <div class="vanchuyen-section">
-
-                        <h4> Vận chuyển</h4>
-                            <div class="VC">
-                                <input type="checkbox" name="shipping-method" id="giao-hang-tan-noi"
-                                    value="home-delivery">
-                                <label for="giao-hang-tan-noi">Giao hàng tận nơi: 20.000Đ</label>
-
-                            </div>
+                        <input type="text" id="ghi-chu" placeholder="Ghi chú" onchange="setOrderInfo()">
                     </div>
 
-                    <div class="thanhtoan-section">
-                        <h4>Phương thức thanh toán</h4>
-                            <div class="TT1">
-                                <input type="checkbox" id="vnpay">
-                                <label for="vnpay">Thanh toán qua VNPay</label>
-                            </div>
-                            <div class="TT2">
-                                <input type="checkbox" id="cash-on-delivery">
-                                <label for="cash-on-delivery">Thanh toán khi nhận hàng</label>
-                            </div>
-                    </div>
-                </div>
+                    <div class="khoang-2">
+                        <h3>Hình thức thanh toán</h3>
+                        <div class="vanchuyen-section">
 
+                            <h4> Vận chuyển</h4>
+                                <div class="VC">
+                                    <input type="checkbox" name="shipping-method" id="giao-hang-tan-noi"
+                                        value="home-delivery">
+                                    <label for="giao-hang-tan-noi">Giao hàng tận nơi: <span id="id-phi-giao-hang">20.000</span> VND</label>
 
-                <div class="khoang-3">
-                    <h3>Mã giảm giá</h3>
+                                </div>
+                        </div>
 
-                    <div class="giamgia">
-                        <input type="text" id="ma-giam-gia" placeholder="Nhập mã giảm giá">
-                        <div class="chitiet">
-                            <p>Tạm tính: <span id="cartTotal"></span></p>
-                            <p>Phí vận chuyển: 20.000 VNĐ</p>
-                            <p>Giảm: 0Đ</p>
+                        <div class="thanhtoan-section">
+                            <h4>Phương thức thanh toán</h4>
+                                <div class="TT1">
+                                    <input type="checkbox" id="vnpay">
+                                    <label for="vnpay">Thanh toán qua VNPay</label>
+                                </div>
+                                <div class="TT2">
+                                    <input type="checkbox" id="cash-on-delivery">
+                                    <label for="cash-on-delivery">Thanh toán khi nhận hàng</label>
+                                </div>
                         </div>
                     </div>
 
-                    <hr>
 
-                    <div class="tongtien">
-                        <h3>Tổng tiền: 220.000Đ</h3>
-                        <div class="buttons-container">
-                            <button class="dat-hang">Đặt hàng</button>
-                            <button class="quay-lai-gio-hang">Quay lại giỏ hàng</button>
+                    <div class="khoang-3">
+                        <h3>Mã giảm giá</h3>
+
+                        <div class="giamgia">
+                            <input type="text" id="ma-giam-gia" placeholder="Nhập mã giảm giá">
+                            <div class="chitiet">
+                                <p>Tạm tính: <span id="cartTotal"></span></p>
+                                <p>Phí vận chuyển: <span id="id-phi-giao-hang-checked">0</span> VND</p>
+                                <p>Giảm: 0Đ</p>
+                            </div>
                         </div>
-                    </div>
 
+                        <hr>
+
+                        <div class="tongtien"> 
+                            <h3>Tổng tiền: <span id="tong-tien-id"></span> VND</h3>
+                            <div class="buttons-container">
+                                <input type="submit" class="dat-hang" value="Đặt hàng">
+                                <button class="quay-lai-gio-hang" onclick="backToCart()">Quay lại giỏ hàng</button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-
-
-
-        </div>
+        </form>
 
     </main>
 
