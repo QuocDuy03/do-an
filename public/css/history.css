@@ -67,8 +67,10 @@
 
 .order-details {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
     align-items: center;
+    width: 100%;
+    padding: 1rem;
 }
 
 .product-info {
@@ -76,7 +78,7 @@
 }
 
 .additional-info {
-    text-align: right;
+    text-align: center;
 }
 
 .additional-info p {

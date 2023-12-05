@@ -24,8 +24,6 @@ class EditController {
         const db = await database.connect();
         const formData = req.body;
 
-        console.log(formData)
-
         const query = "SELECT * FROM users WHERE email = ?";
 
         db.query(query, [formData.email], async (error, results) => {

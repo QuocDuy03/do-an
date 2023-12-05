@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-
+const OrderModel = require('../../models/orderModels')
 class HistoryController {
     index(req, res) {
         try {
@@ -16,6 +16,18 @@ class HistoryController {
         } catch (err) {
             console.log(err);
             return res.redirect('/login');
+        }
+    }
+
+    async getOrderHistory(req, res) {
+        try {
+            const user = req.user;
+            const orderHistory = await OrderModel.getOrderHistory(user.id);
+            return res.status(200).json({ orderHistory });
+        }
+        catch (error) {
+            console.log(error);
+            return res.status(500).json({ message: "Internal server error" });
         }
     }
 }

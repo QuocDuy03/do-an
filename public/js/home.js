@@ -59,7 +59,7 @@ fetch('getBestSells', {
                     ${product.title}
                   </div>
                   <div class="priceItem">
-                    ${product.price.toLocaleString()}Đ
+                    ${product.price.toLocaleString('de-DE')}Đ
                   </div>
               </div>
             </a>
