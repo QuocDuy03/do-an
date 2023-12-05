@@ -57,187 +57,71 @@
     <main class="main">
         <div class="url">
             <ul>
-                <li><a href="/" class="urlText">Trang chủ </a></li>
-                <li><a href="#" class="urlText"> Áo nam</a></li>
-                <li><a href="#" class="urlText"> Áo thun cổ tròn</a></li>
+                <li><a href="/" class="urlText toHome">Trang chủ</a></li>
+                <li><a href="" class="urlText toCategories" id="toCategories">Áo nam</a></li>
+                <li><p class="urlText toNoWhere" id="toNoWhere">Áo thun cổ tròn</p></li>
             </ul>
         </div>
-        <div class="product">
+        <div class="product" id="productDetail">
             <div class="productImg">
                 <div class="mainImgTag">
-                    <img src="/images/img1.jpeg" alt="Ảnh chính" id="mainImg">
-                </div>
-                <div class="smallImgTag">
-                    <img src="/images/img1.jpeg" alt="Ảnh 1" class="smallImg">
-                    <img src="/images/img2.jpeg" alt="Ảnh 2" class="smallImg">
-                    <img src="/images/img3.jpeg" alt="Ảnh 3" class="smallImg">
-                    <img src="/images/img4.jpeg" alt="Ảnh 4" class="smallImg">
-                    <img src="/images/img5.jpeg" alt="Ảnh 5" class="smallImg">
-                    <img src="/images/img6.jpeg" alt="Ảnh 6" class="smallImg">
+                    <img src="" alt="product image" id="mainImg">
                 </div>
             </div>
             <div class="productInfo">
-                <form class="productForm">
-                    <h3 class="mainProductName">Áo thun cổ tròn</h3>
+                <form class="productForm" method="post" action="/products/addToCart" id="productInfoForm">
+                    <h1 class="mainProductName" id="mainProductName"></h1>
                     <div class="idSaleRate">
-                            <p>Mã sản phẩm: <span id="productId">AN1-CT</span></p>
-                            <p>Đã bán: <span id="saleCount">100K</span></p>
-                            <p>Vote: <span id="rate">4.9/5</span></p>
+                            <p>Mã sản phẩm: <input type="text" class="productId" id="productId" name="productId" readonly></p>
+                            <p class="Saled">Đã bán: <span id="saleCount">100K</span></p>
                     </div>
                     <div class="priceTag">
-                        <span id="price">200.000</span>
+                        <span id="price"></span>
                         <span id="currencyUnit">Đ</span>
                     </div>
-                    <div class="colerPicker">
-                        <p>Màu sắc:</p>
-                        <div class="color">
-                            <!-- <div id="color1" class="colorBox"></div>
-                            <div id="color2" class="colorBox"></div>
-                            <div id="color3" class="colorBox"></div>
-                            <div id="color4" class="colorBox"></div> -->
-                            <input type="button" class="colorBox" id="color1" value=" ">
-                            <input type="button" class="colorBox" id="color2" value=" ">
-                            <input type="button" class="colorBox" id="color3" value=" ">
-                            <input type="button" class="colorBox" id="color4" value=" ">
-                        </div>
-                    </div>
+                    <div class="productDescription">
+                        <p>Mô tả sản phẩm</p>
+                        <!-- <p>Chất liệu: <span id="material"></span></p>
+                        <p>Thành phần: <span id="ingredient"></span></p> -->
+                        <span class="mainProductDescription" id="mainProductDescription"></span>
+                    </div>                    
                     <div class="sizePicker">
                         <p>Size:</p>
-                        <div class="size">
-                            <input type="button" class="sizeBox" value="S">
-                            <input type="button" class="sizeBox" value="M">
-                            <input type="button" class="sizeBox" value="L">
-                            <input type="button" class="sizeBox" value="XL">
+                        <div class="size" id="sizeDiv">
                         </div>
-                    </div>
-                    <div class="sizeTable">
-                        <p>Bảng kích cỡ:</p>
-                        <img src="../../public/images/size_table.jpeg" alt="size table">
                     </div>
                     <div class="numberPicker">
                         <p>Số lượng:</p>
                         <div class="numberSet">
                             <input type="button" class="setButton" id="sub" value="-">
-                            <input type="button" class="setButton" id="numberCount" value="1">
+                            <!-- <input type="button" class="numberCount" id="numberCount" value="1" name="quantity"> -->
+                            <input type="text" class="numberCount" id="numberCount" value="1" name="quantity" readonly>
                             <input type="button" class="setButton" id="add" value="+">
                         </div>
                     </div>
                     <div class="addAndBuy">
                         <input type="submit" value="Thêm vào giỏ" class="addToCart">
-                        <input type="submit" value="Mua ngay" class="buyNow">         
+                        <input type="submit" value="Mua ngay" class="buyNow" id="buyNowButton">      
                     </div>
                 </form>
+                <!-- <form  method="post" action="/products/addToCart">
+                    <label for="title"></label>
+                    <input type="text" name="title" id="idFormTemp" class="classFormTemp">
+                    <input type="text" name="title1" id="idFormTemp1" class="classFormTemp1">
+                    <input type="submit" value="Sub mit" id="SubmitFormTemp" class="SubmitClassFormTemp">         
+                </form> -->
             </div>
-        </div>
-        <div class="productDescription">
-            <h2>MÔ TẢ</h2>
-            <p>Chất liệu: <span id="material"></span></p>
-            <p>Thành phần: <span id="ingredient"></span></p>
-            <p class="mainProductDescription">
-                Áo co dãn tốt, luôn giữ được form và bền màu. <br>
-                Được sản xuất tại Việt Nam.
-            </p>
         </div>
         <div class="listItem-container new">
             <h2>CÁC SẢN PHẨM TƯƠNG TỰ</h2>
-            <ul class="listItem">
-                <li>
-                    <a href="#">
-                        <div class="Item-container">
-                            <div class="imgItem">
-                                <img src="/images/similar1.jpg" alt="product image">
-                            </div>
-                            <div class="nameItem">
-                                Áo thun màu xanh
-                            </div>
-                            <div class="priceItem">
-                                300.000Đ
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="Item-container">
-                            <div class="imgItem">
-                                <img src="/images/similar2.jpg" alt="product image">
-                            </div>
-                            <div class="nameItem">
-                                Áo thun màu đỏ
-                            </div>
-                            <div class="priceItem">
-                                300.000Đ
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="Item-container">
-                            <div class="imgItem">
-                                <img src="/images/similar3.jpg" alt="product image">
-                            </div>
-                            <div class="nameItem">
-                                Áo thun màu tím
-                            </div>
-                            <div class="priceItem">
-                                300.000Đ
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="Item-container">
-                            <div class="imgItem">
-                                <img src="/images/similar4.jpg" alt="product image">
-                            </div>
-                            <div class="nameItem">
-                                Áo thun màu vàng
-                            </div>
-                            <div class="priceItem">
-                                300.000Đ
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="Item-container">
-                            <div class="imgItem">
-                                <img src="/images/similar5.jpg" alt="product image">
-                            </div>
-                            <div class="nameItem">
-                                Áo thun màu cam
-                            </div>
-                            <div class="priceItem">
-                                250.000Đ
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="Item-container">
-                            <div class="imgItem">
-                                <img src="/images/similar6.jpeg" alt="product image">
-                            </div>
-                            <div class="nameItem">
-                                Áo thun màu den
-                            </div>
-                            <div class="priceItem">
-                                250.000Đ
-                            </div>
-                        </div>
-                    </a>
-                </li>
+            <ul class="listItem" id="newListItem">
             </ul>
             <div class="controls">
                 <button class="prev" onclick="prevNewItem()"><i class="fa fa-arrow-left"></i></button>
                 <button class="next" onclick="nextNewItem()"><i class="fa fa-arrow-right"></i></button>
             </div>
         </div>
-        <div class="review">
+        <!-- <div class="review">
             <h2>ĐÁNH GIÁ</h2>
             <p>Có <span class="reviewCount">1</span> đánh giá</p>
             <hr>
@@ -246,7 +130,7 @@
                 <span class="reviewContent">Sản phẩm quá tuyệt vời</span>
             </div>
             <hr>
-        </div>
+        </div> -->
     </main>
     <footer>
         <div class="content">
@@ -290,7 +174,7 @@
             <p> &copy; Bản quyền thuộc về nhóm 5</p>
         </div>
     </footer>
-    <script src="/js/view_product"></script>
+    <script src="/js/view_product.js"></script>
     <script src="/js/header.js"></script>
 </body>
 </html>
