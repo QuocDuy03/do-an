@@ -38,6 +38,12 @@ main {
     align-items: center;
 }
 
+.sellect-product-checkbox{
+    margin-right: 3rem;
+    width: 2rem;
+    height: 2rem;
+}
+
 
 .item-gio-hang .gia,
 .soluong {
