@@ -35,6 +35,7 @@ CREATE TABLE `Products` (
   `deleted` int,
   `quantity` int DEFAULT 0,
   `type` varchar(10),
+  `status` varchar(20) DEFAULT 'In stock', -- Thêm trường status với giá trị mặc định là 'In stock'
   CONSTRAINT `fk_products_category_id` FOREIGN KEY (`category_id`) REFERENCES `Categories` (`id`)
 );
 
@@ -45,17 +46,6 @@ CREATE TABLE `ProductSizes` (
   PRIMARY KEY (`product_id`, `size`),
   CONSTRAINT `fk_productSizes_products` FOREIGN KEY (`product_id`) REFERENCES `Products` (`id`)
 );
-DELIMITER //
-CREATE TRIGGER update_product_quantity
-AFTER INSERT ON ProductSizes
-FOR EACH ROW
-BEGIN
-    UPDATE Products
-    SET quantity = (SELECT SUM(quantity) FROM ProductSizes WHERE product_id = NEW.product_id)
-    WHERE id = NEW.product_id;
-END;
-//
-DELIMITER ;
 
 
 CREATE TABLE `Galeries` (
@@ -134,6 +124,87 @@ ALTER TABLE Carts
 MODIFY COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
 -- -------------------------------------------------------
+-- Cập nhật trường order_date cho bảng Orders
+ALTER TABLE Orders
+MODIFY COLUMN order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+-- -------------------------------------------------------
+
+-- Trigger cho bảng Products
+DELIMITER //
+CREATE TRIGGER before_update_product_quantity
+BEFORE UPDATE ON Products
+FOR EACH ROW
+BEGIN
+    IF NEW.quantity = 0 THEN
+        SET NEW.status = 'Hết hàng';
+    ELSE
+        SET NEW.status = 'In stock';
+    END IF;
+END;
+//
+DELIMITER ;
+
+/* đặt giá trị của quantity thành tổng của các giá trị quantity trong bảng ProductSizes cho product_id mới được chèn. */
+DELIMITER //
+CREATE TRIGGER update_product_quantity
+AFTER INSERT ON ProductSizes
+FOR EACH ROW
+BEGIN
+    UPDATE Products
+    SET quantity = (SELECT SUM(quantity) FROM ProductSizes WHERE product_id = NEW.product_id)
+    WHERE id = NEW.product_id;
+END;
+//
+DELIMITER ;
+
+
+-- Trigger cho bảng ProductSizes khi xóa
+DELIMITER //
+CREATE TRIGGER after_delete_product_size
+AFTER DELETE ON ProductSizes
+FOR EACH ROW
+BEGIN
+    UPDATE Products
+    SET quantity = (SELECT SUM(quantity) FROM ProductSizes WHERE product_id = OLD.product_id)
+    WHERE id = OLD.product_id;
+END;
+//
+DELIMITER ;
+
+-- Trigger cho bảng ProductSizes khi sửa
+DELIMITER //
+CREATE TRIGGER after_update_product_size
+AFTER UPDATE ON ProductSizes
+FOR EACH ROW
+BEGIN
+    UPDATE Products
+    SET quantity = (SELECT SUM(quantity) FROM ProductSizes WHERE product_id = NEW.product_id)
+    WHERE id = NEW.product_id;
+END;
+//
+DELIMITER ;
+
+-- Trigger cho bảng ProductSizes
+DELIMITER //
+CREATE TRIGGER before_update_product_size_quantity
+BEFORE UPDATE ON ProductSizes
+FOR EACH ROW
+BEGIN
+    IF NEW.quantity = 0 THEN
+        UPDATE Products
+        SET quantity = (SELECT SUM(quantity) FROM ProductSizes WHERE product_id = NEW.product_id),
+            status = 'Hết hàng'
+        WHERE id = NEW.product_id;
+    ELSE
+        UPDATE Products
+        SET quantity = (SELECT SUM(quantity) FROM ProductSizes WHERE product_id = NEW.product_id),
+            status = 'In stock'
+        WHERE id = NEW.product_id;
+    END IF;
+END;
+//
+DELIMITER ;
 
 
 -- Thêm dữ liệu mẫu cho bảng Roles
