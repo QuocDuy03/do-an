@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 //############################################################################
-fetch('showBabyShirts', {
+fetch('/products/showBabyShirts', {
 method: 'GET',
 headers: {
     'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ headers: {
 
 
 //############################################################################
-fetch('showBabyTrousers', {
+fetch('/products/showBabyTrousers', {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json',

@@ -69,7 +69,7 @@ form.addEventListener('submit', async (e) => {
             errorMessage.style.display = 'none';
         }
 
-        if (!checkPasswordStrength(pass.value)) 
+        if (!checkPasswordStrength(newPassword.value)) 
             return;
 
         const res = await fetch('/edit/change-password', {

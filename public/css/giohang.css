@@ -58,11 +58,14 @@ main {
 }
 
 
-.item-gio-hang .delete-btn,
-.Tongtien {
+.item-gio-hang .delete-btn {
     flex: 4;
     padding: 5px;
     margin-left: 20px;
+}
+
+.Tongtien {
+    padding: 0 2rem;
 }
 
 .item-gio-hang .delete-btn {
@@ -111,12 +114,13 @@ main {
 
 .gio-hang .tieuDe {
     font-size: 20px;
-
+    
 }
 
 .gio-hang .tieudeitem {
     font-weight: 1000;
     color: black;
+    text-align: center;
 }
 
 
