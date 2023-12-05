@@ -41,7 +41,7 @@ if (match) {
             document.getElementById('mainImg').src = product.thumbnail;
             document.getElementById('mainProductName').textContent = product.title ;
             document.getElementById('productId').value = product.id;
-            document.getElementById('price').textContent = product.price;
+            document.getElementById('price').textContent = product.price.toLocaleString('de-DE');
             document.getElementById('mainProductDescription').textContent = product.description;
         })
     }) 

@@ -98,7 +98,7 @@ p{
     color: red;
     font-weight: bold;
     font-size: 3rem;
-    text-transform: lowercase;
+    text-transform:capitalize;
 }
 /* Mô tả */
 .productDescription{
