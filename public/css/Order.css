@@ -331,9 +331,21 @@ tr td input {
 
 /* Span for action */
 .Action span {
-    font-size: 1.2rem;
-    margin-left: .5rem;
-    color: var(--main-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.3rem;
+}
+
+.Action .edit-button {
+    color:#45a049;
+}
+
+.Action .delete-button {
+    color: red;
+}
+.Action .delete-button:hover,
+.Action .edit-button:hover {
+    color: #F08A5D;
 }
 
 .user-icon {

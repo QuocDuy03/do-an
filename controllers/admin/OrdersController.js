@@ -32,6 +32,22 @@ class OrdersController {
             return res.status(500).json({ message: "Internal server error" });
         }
     }
+
+    async updateOrderStatus(req, res) {
+        try {
+            const orderId = req.params.orderId;
+            const status = req.body.status;
+            const orders = await OrderModel.updateOrderStatus(orderId, status);
+            if (orders.length) {
+                return res.status(200).json({ message: "Updated successfully" });
+            } else {
+                return res.status(404).json({ message: "User not found" });
+            }
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({ message: "Internal server error" });
+        }
+    }
 }
 
 module.exports = new OrdersController;

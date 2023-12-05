@@ -61,8 +61,8 @@ fetch('/admin/products/getProducts', {
             <td>${product.status}</td>
             <td>
                 <div class="Action">
-                    <span class="las la-edit edit-botton"></span>
-                    <span class="las la-trash delete-button"></span>
+                    <span class="las la-edit edit-button" data-id="${product.id}"></span>
+                    <span class="las la-trash delete-button" data-id="${product.id}"></span>
                 </div>
             </td>
         `

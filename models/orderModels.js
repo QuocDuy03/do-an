@@ -35,6 +35,7 @@ const OrderModel = {
                             WHERE order_details.order_id = orders.id 
                                 AND order_details.product_id = products.id
                                 AND orders.user_id = ?
+                                AND orders.status != 'Đã giao'
                         `;
             return new Promise((resolve, reject) => {
                 db.query(query, [userId], (error, results) => {
@@ -85,6 +86,27 @@ const OrderModel = {
         }
     },
 
+    updateOrderStatus: async (orderId, status) => {
+        const db = await database.connect();
+        try {
+            const query = `
+                UPDATE orders SET status = ? WHERE id = ?
+            `;
+            return new Promise((resolve, reject) => {
+                db.query(query, [status, orderId], (error, results) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        resolve(results);
+                    }
+                });
+            });
+        } catch (error) {
+            throw error;
+        } finally {
+            await database.disconnect(db);
+        }
+    }
 }
 
 module.exports = OrderModel;

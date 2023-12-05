@@ -34,8 +34,7 @@ form.addEventListener('submit', async (e) => {
     e.preventDefault();
     try {
         if (newPassword.value !== confirmNewPassword.value) {
-            errorMessage.style.display = 'block';
-            errorMessage.textContent = 'Mật khẩu không khớp';
+            displayError('Mật khẩu không khớp.')
             return;
         } else {
             errorMessage.style.display = 'none';
@@ -56,8 +55,7 @@ form.addEventListener('submit', async (e) => {
         const data = await res.json();
 
         if (res.status === 400 || res.status === 401) {
-            errorMessage.style.display = 'block';
-            errorMessage.textContent = data.message;
+            displayError(data.message);
             return;
         } else {
             console.log("Change password successfully");

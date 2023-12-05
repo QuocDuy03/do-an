@@ -13,25 +13,59 @@ const cpass = document.querySelector('#cpass');
 const errorMessage = document.getElementById('error-message');
 const successMessage = document.getElementById('success-message');
 
+function displayError(message) {
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'block';
+    errorMessage.textContent = message;
+}
+
+
+function checkPasswordStrength(password) {
+    if (password.length < 8) {
+        displayError('Mật khẩu quá ngắn. Hãy nhập ít nhất 8 ký tự.')
+        return false;
+    }
+
+    // Kiểm tra có ít nhất một chữ cái viết thường
+    if (!/[a-z]/.test(password)) {
+        displayError('Mật khẩu cần ít nhất một chữ cái viết thường.');
+        return false;
+    }
+
+    // Kiểm tra có ít nhất một chữ cái viết hoa
+    if (!/[A-Z]/.test(password)) {
+        displayError('Mật khẩu cần ít nhất một chữ cái viết hoa.');
+        return false;
+    }
+
+    // Kiểm tra có ít nhất một số
+    if (!/\d/.test(password)) {
+        displayError('Mật khẩu cần ít nhất một số.');
+        return false;
+    }
+    return true;
+}
+
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     try {
 
         if (!validateEmail(email.value)) {
-            errorMessage.style.display = 'block';
-            errorMessage.textContent = 'Sai định dạng email';
+            displayError('Sai định dạng email.');
             return;
         } else {
             errorMessage.style.display = 'none';
         }
 
         if (pass.value !== cpass.value) {
-            errorMessage.style.display = 'block';
-            errorMessage.textContent = 'Mật khẩu không khớp';
+            displayError('Mật khẩu không khớp.')
             return;
         } else {
             errorMessage.style.display = 'none';
         }
+
+        if (!checkPasswordStrength(pass.value)) 
+            return;
 
         const res = await fetch('/register', {
             method: 'POST',

@@ -1,12 +1,3 @@
-/* Thiết lập font và background chung */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-}
-
 /* Thiết lập cho container chính */
 .container {
     display: flex;
@@ -57,8 +48,10 @@ body {
 }
 
 /* Định dạng thông tin giao hàng */
-input[type="text"],
-input[type="email"] {
+
+.khoang-1 input[type="text"],
+.khoang-1 input[type="email"],
+.khoang-3 input[type="text"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -83,8 +76,13 @@ input[type="email"] {
     margin-top: 0px
 }
 
+.khoang-2 label,
+.khoang-2 h4 {
+    font-size: 1.3rem;
+}
+
 input[type="radio"],
-input[type="checkbox"] {
+ input[type="checkbox"] {
     margin-right: 5px;
 }
 

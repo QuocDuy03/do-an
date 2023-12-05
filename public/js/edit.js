@@ -10,6 +10,39 @@ function validateEmail(email) {
     return emailPattern.test(email);
 }
 
+function displayError(message) {
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'block';
+    errorMessage.textContent = message;
+}
+
+
+function checkPasswordStrength(password) {
+    if (password.length < 8) {
+        displayError('Mật khẩu quá ngắn. Hãy nhập ít nhất 8 ký tự.')
+        return false;
+    }
+
+    // Kiểm tra có ít nhất một chữ cái viết thường
+    if (!/[a-z]/.test(password)) {
+        displayError('Mật khẩu cần ít nhất một chữ cái viết thường.');
+        return false;
+    }
+
+    // Kiểm tra có ít nhất một chữ cái viết hoa
+    if (!/[A-Z]/.test(password)) {
+        displayError('Mật khẩu cần ít nhất một chữ cái viết hoa.');
+        return false;
+    }
+
+    // Kiểm tra có ít nhất một số
+    if (!/\d/.test(password)) {
+        displayError('Mật khẩu cần ít nhất một số.');
+        return false;
+    }
+    return true;
+}
+
 fetch('/account/user-info', {
     method: 'GET',
     headers: {
@@ -30,12 +63,14 @@ form.addEventListener('submit', async (e) => {
     e.preventDefault();
     try {
         if (newPassword.value !== confirmNewPassword.value) {
-            errorMessage.style.display = 'block';
-            errorMessage.textContent = 'Mật khẩu không khớp';
+            displayError('Mật khẩu không khớp.')
             return;
         } else {
             errorMessage.style.display = 'none';
         }
+
+        if (!checkPasswordStrength(pass.value)) 
+            return;
 
         const res = await fetch('/edit/change-password', {
             method: 'PUT',
@@ -52,8 +87,7 @@ form.addEventListener('submit', async (e) => {
         const data = await res.json();
 
         if (res.status === 400 || res.status === 401) {
-            errorMessage.style.display = 'block';
-            errorMessage.textContent = data.message;
+            displayError(data.message);
             return;
         } else {
             console.log("Change password successfully");
