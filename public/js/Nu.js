@@ -27,3 +27,109 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   
+
+
+//############################################################################
+fetch('showFemaleShirts', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Fetch request failed');
+        }
+        return response.json();
+    })
+    .then(data => {
+
+        // let divCount = data.products.length/3;
+        // let roundedDivCount = Math.ceil(divCount);
+        // console.log(roundedDivCount);
+        let divCount = data.products.length;
+
+        for (i=0; i<divCount; i=i+3){
+            const shirtsDiv = document.createElement('div');
+            shirtsDiv.className = 'row';
+            const shirts_ul = document.createElement('ul');
+            shirtsDiv.className = 'listItem';
+            for (j=i; j<i+3 && j<divCount; j++){
+                const shirts_li = document.createElement('li');
+                shirts_li.innerHTML = `
+                    <a href="/products/details/${data.products[j].id}">
+                        <div class="Item-container">
+                            <div class="imgItem">
+                                <img src="${data.products[j].thumbnail}">
+                            </div>
+                            <div class="nameItem">
+                                ${data.products[j].title}
+                            </div>
+                            <div class="priceItem">
+                                ${data.products[j].price}Đ
+                            </div>
+                        </div>
+                    </a>
+                `
+                shirts_ul.appendChild(shirts_li);
+            }
+            shirtsDiv.appendChild(shirts_ul);
+            document.getElementById('shirts-div').appendChild(shirtsDiv);
+        }
+    })
+    .catch(err => {
+        console.log(err);
+    })    
+    
+
+//############################################################################
+fetch('showFemaleTrousers', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Fetch request failed');
+        }
+        return response.json();
+    })
+    .then(data => {
+
+        // let divCount = data.products.length/3;
+        // let roundedDivCount = Math.ceil(divCount);
+        // console.log(roundedDivCount);
+        let divCount = data.products.length;
+
+        for (i=0; i<divCount; i=i+3){
+            const trousersDiv = document.createElement('div');
+            trousersDiv.className = 'row';
+            const shirts_ul = document.createElement('ul');
+            trousersDiv.className = 'listItem';
+            for (j=i; j<i+3 && j<divCount; j++){
+                const shirts_li = document.createElement('li');
+                shirts_li.innerHTML = `
+                    <a href="/products/details/${data.products[j].id}">
+                        <div class="Item-container">
+                            <div class="imgItem">
+                                <img src="${data.products[j].thumbnail}">
+                            </div>
+                            <div class="nameItem">
+                                ${data.products[j].title}
+                            </div>
+                            <div class="priceItem">
+                                ${data.products[j].price}Đ
+                            </div>
+                        </div>
+                    </a>
+                `
+                shirts_ul.appendChild(shirts_li);
+            }
+            trousersDiv.appendChild(shirts_ul);
+            document.getElementById('trousers-div').appendChild(trousersDiv);
+        }
+    })
+    .catch(err => {
+        console.log(err);
+    })        
